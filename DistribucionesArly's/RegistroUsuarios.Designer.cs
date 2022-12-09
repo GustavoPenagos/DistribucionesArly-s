@@ -1,0 +1,398 @@
+﻿namespace DistribucionesArly_s
+{
+    partial class RegistroUsuarios
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tipoDocumento = new System.Windows.Forms.Label();
+            this.guardarUsuario = new System.Windows.Forms.Button();
+            this.telefonoUsuario = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.direcUsuario = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.nombreUsuario = new System.Windows.Forms.TextBox();
+            this.numeroDocumento = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tipo_Documento = new System.Windows.Forms.ComboBox();
+            this.tipoDocumentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.distribucionesArlysDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.distribucionesArlysDataSet = new DistribucionesArly_s.DistribucionesArlysDataSet();
+            this.nitEmpresa = new System.Windows.Forms.ComboBox();
+            this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tipo_DocumentoTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.Tipo_DocumentoTableAdapter();
+            this.companyTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.CompanyTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tipoUsuario = new System.Windows.Forms.ComboBox();
+            this.tipoUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tipo_UsuarioTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.Tipo_UsuarioTableAdapter();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.UserTableAdapter();
+            this.tableAdapterManager = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.TableAdapterManager();
+            this.label8 = new System.Windows.Forms.Label();
+            this.contrUser = new System.Windows.Forms.TextBox();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoUsuarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.tipoDocumento);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 100);
+            this.panel1.TabIndex = 0;
+            // 
+            // tipoDocumento
+            // 
+            this.tipoDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tipoDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.tipoDocumento.ForeColor = System.Drawing.Color.White;
+            this.tipoDocumento.Location = new System.Drawing.Point(0, 0);
+            this.tipoDocumento.Name = "tipoDocumento";
+            this.tipoDocumento.Size = new System.Drawing.Size(800, 100);
+            this.tipoDocumento.TabIndex = 0;
+            this.tipoDocumento.Text = "Registro de usuarios";
+            this.tipoDocumento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guardarUsuario
+            // 
+            this.guardarUsuario.AutoSize = true;
+            this.guardarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guardarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.guardarUsuario.Location = new System.Drawing.Point(525, 527);
+            this.guardarUsuario.Name = "guardarUsuario";
+            this.guardarUsuario.Size = new System.Drawing.Size(78, 30);
+            this.guardarUsuario.TabIndex = 17;
+            this.guardarUsuario.Text = "Guardar";
+            this.guardarUsuario.UseVisualStyleBackColor = true;
+            this.guardarUsuario.Click += new System.EventHandler(this.guardarUsuario_Click);
+            // 
+            // telefonoUsuario
+            // 
+            this.telefonoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.telefonoUsuario.Location = new System.Drawing.Point(304, 422);
+            this.telefonoUsuario.Name = "telefonoUsuario";
+            this.telefonoUsuario.Size = new System.Drawing.Size(299, 26);
+            this.telefonoUsuario.TabIndex = 16;
+            this.telefonoUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.telefonoUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.telefonoUsuario_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label5.Location = new System.Drawing.Point(201, 428);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(71, 20);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Telefono";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label4.Location = new System.Drawing.Point(141, 380);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(131, 20);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Nombre empresa";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label2.Location = new System.Drawing.Point(151, 245);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 20);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Nombre usuario";
+            // 
+            // direcUsuario
+            // 
+            this.direcUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.direcUsuario.Location = new System.Drawing.Point(304, 472);
+            this.direcUsuario.Name = "direcUsuario";
+            this.direcUsuario.Size = new System.Drawing.Size(299, 26);
+            this.direcUsuario.TabIndex = 19;
+            this.direcUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.direcUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.direcUsuario_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label6.Location = new System.Drawing.Point(197, 478);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 20);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Dirección";
+            // 
+            // nombreUsuario
+            // 
+            this.nombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.nombreUsuario.Location = new System.Drawing.Point(304, 239);
+            this.nombreUsuario.Name = "nombreUsuario";
+            this.nombreUsuario.Size = new System.Drawing.Size(299, 26);
+            this.nombreUsuario.TabIndex = 10;
+            this.nombreUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nombreUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nombreUsuario_KeyPress);
+            // 
+            // numeroDocumento
+            // 
+            this.numeroDocumento.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.numeroDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.numeroDocumento.Location = new System.Drawing.Point(304, 193);
+            this.numeroDocumento.Name = "numeroDocumento";
+            this.numeroDocumento.Size = new System.Drawing.Size(299, 26);
+            this.numeroDocumento.TabIndex = 22;
+            this.numeroDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numeroDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numeroDocumento_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label3.Location = new System.Drawing.Point(101, 199);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(171, 20);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Numero de documento";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label7.Location = new System.Drawing.Point(127, 150);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(145, 20);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Tipo de documento";
+            // 
+            // tipo_Documento
+            // 
+            this.tipo_Documento.DataSource = this.tipoDocumentoBindingSource;
+            this.tipo_Documento.DisplayMember = "documento";
+            this.tipo_Documento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tipo_Documento.FormattingEnabled = true;
+            this.tipo_Documento.Location = new System.Drawing.Point(304, 142);
+            this.tipo_Documento.Name = "tipo_Documento";
+            this.tipo_Documento.Size = new System.Drawing.Size(299, 28);
+            this.tipo_Documento.TabIndex = 24;
+            this.tipo_Documento.ValueMember = "id";
+            // 
+            // tipoDocumentoBindingSource
+            // 
+            this.tipoDocumentoBindingSource.DataMember = "Tipo_Documento";
+            this.tipoDocumentoBindingSource.DataSource = this.distribucionesArlysDataSetBindingSource;
+            // 
+            // distribucionesArlysDataSetBindingSource
+            // 
+            this.distribucionesArlysDataSetBindingSource.DataSource = this.distribucionesArlysDataSet;
+            this.distribucionesArlysDataSetBindingSource.Position = 0;
+            // 
+            // distribucionesArlysDataSet
+            // 
+            this.distribucionesArlysDataSet.DataSetName = "DistribucionesArlysDataSet";
+            this.distribucionesArlysDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nitEmpresa
+            // 
+            this.nitEmpresa.DataSource = this.companyBindingSource;
+            this.nitEmpresa.DisplayMember = "Name_Company";
+            this.nitEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.nitEmpresa.FormattingEnabled = true;
+            this.nitEmpresa.Location = new System.Drawing.Point(304, 372);
+            this.nitEmpresa.Name = "nitEmpresa";
+            this.nitEmpresa.Size = new System.Drawing.Size(299, 28);
+            this.nitEmpresa.TabIndex = 25;
+            this.nitEmpresa.ValueMember = "Nit_Company";
+            this.nitEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nitEmpresa_KeyPress);
+            // 
+            // companyBindingSource
+            // 
+            this.companyBindingSource.DataMember = "Company";
+            this.companyBindingSource.DataSource = this.distribucionesArlysDataSet;
+            // 
+            // tipo_DocumentoTableAdapter
+            // 
+            this.tipo_DocumentoTableAdapter.ClearBeforeFill = true;
+            // 
+            // companyTableAdapter
+            // 
+            this.companyTableAdapter.ClearBeforeFill = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.Location = new System.Drawing.Point(177, 335);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 20);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Tipo usuario";
+            // 
+            // tipoUsuario
+            // 
+            this.tipoUsuario.DataSource = this.tipoUsuarioBindingSource;
+            this.tipoUsuario.DisplayMember = "Tipo_Usuario";
+            this.tipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tipoUsuario.FormattingEnabled = true;
+            this.tipoUsuario.Location = new System.Drawing.Point(304, 327);
+            this.tipoUsuario.Name = "tipoUsuario";
+            this.tipoUsuario.Size = new System.Drawing.Size(299, 28);
+            this.tipoUsuario.TabIndex = 27;
+            this.tipoUsuario.ValueMember = "Id_Type_User";
+            this.tipoUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tipoUsuario_KeyPress);
+            // 
+            // tipoUsuarioBindingSource
+            // 
+            this.tipoUsuarioBindingSource.DataMember = "Tipo_Usuario";
+            this.tipoUsuarioBindingSource.DataSource = this.distribucionesArlysDataSet;
+            // 
+            // tipo_UsuarioTableAdapter
+            // 
+            this.tipo_UsuarioTableAdapter.ClearBeforeFill = true;
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataMember = "User";
+            this.userBindingSource.DataSource = this.distribucionesArlysDataSet;
+            // 
+            // userTableAdapter
+            // 
+            this.userTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BodegaTableAdapter = null;
+            this.tableAdapterManager.CompanyTableAdapter = this.companyTableAdapter;
+            this.tableAdapterManager.DepartmentTableAdapter = null;
+            this.tableAdapterManager.GastosTableAdapter = null;
+            this.tableAdapterManager.MunicipalityTableAdapter = null;
+            this.tableAdapterManager.PasswordsTableAdapter = null;
+            this.tableAdapterManager.Tipo_DocumentoTableAdapter = this.tipo_DocumentoTableAdapter;
+            this.tableAdapterManager.Tipo_UsuarioTableAdapter = this.tipo_UsuarioTableAdapter;
+            this.tableAdapterManager.UnidadTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UserTableAdapter = this.userTableAdapter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label8.Location = new System.Drawing.Point(111, 282);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(161, 20);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Contraseña(opcional)";
+            // 
+            // contrUser
+            // 
+            this.contrUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.contrUser.Location = new System.Drawing.Point(304, 282);
+            this.contrUser.Name = "contrUser";
+            this.contrUser.Size = new System.Drawing.Size(299, 26);
+            this.contrUser.TabIndex = 29;
+            this.contrUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.contrUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contrUser_KeyPress);
+            // 
+            // RegistroUsuarios
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 598);
+            this.Controls.Add(this.contrUser);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.tipoUsuario);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.nitEmpresa);
+            this.Controls.Add(this.tipo_Documento);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.numeroDocumento);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.direcUsuario);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.guardarUsuario);
+            this.Controls.Add(this.telefonoUsuario);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.nombreUsuario);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "RegistroUsuarios";
+            this.Text = "RegistroUsuarios";
+            this.Load += new System.EventHandler(this.RegistroProveedor_Load);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoUsuarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label tipoDocumento;
+        private System.Windows.Forms.Button guardarUsuario;
+        private System.Windows.Forms.TextBox telefonoUsuario;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox direcUsuario;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox nombreUsuario;
+        private System.Windows.Forms.TextBox numeroDocumento;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox tipo_Documento;
+        private System.Windows.Forms.ComboBox nitEmpresa;
+        private System.Windows.Forms.BindingSource distribucionesArlysDataSetBindingSource;
+        private DistribucionesArlysDataSet distribucionesArlysDataSet;
+        private System.Windows.Forms.BindingSource tipoDocumentoBindingSource;
+        private DistribucionesArlysDataSetTableAdapters.Tipo_DocumentoTableAdapter tipo_DocumentoTableAdapter;
+        private System.Windows.Forms.BindingSource companyBindingSource;
+        private DistribucionesArlysDataSetTableAdapters.CompanyTableAdapter companyTableAdapter;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox tipoUsuario;
+        private System.Windows.Forms.BindingSource tipoUsuarioBindingSource;
+        private DistribucionesArlysDataSetTableAdapters.Tipo_UsuarioTableAdapter tipo_UsuarioTableAdapter;
+        private System.Windows.Forms.BindingSource userBindingSource;
+        private DistribucionesArlysDataSetTableAdapters.UserTableAdapter userTableAdapter;
+        private DistribucionesArlysDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox contrUser;
+    }
+}

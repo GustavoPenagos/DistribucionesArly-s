@@ -53,7 +53,9 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string query = "SELECT * FROM Lista_Gastos where [Fecha_Gasto] like '%" + this.bGasto.Text + "%'";
+                var date = dateGasto.Value.ToString("d/MM/yyyy");
+
+                string query = "SELECT * FROM Lista_Gastos where [Fecha_Gasto] like '%" + date + "%'";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -63,11 +65,12 @@ namespace DistribucionesArly_s
                 con.Close();
                 if (dataGridView1.Rows.Count == 0)
                 {
-                    MessageBox.Show("No existe gastos en esta fecha (" + this.bGasto.Text + ")");
+                    MessageBox.Show("No existe gastos en esta fecha (" + date + ")");
                 }
             }
             catch(Exception ex)
             {
+                con.Close();
                 MessageBox.Show(ex.Message);
             }
         }
@@ -81,9 +84,10 @@ namespace DistribucionesArly_s
         }
         private void Validar()
         {
+            var date = dateGasto.Value.ToString("dd/MM/yyyy");
             try
             {
-                if (this.bGasto.Text == "")
+                if (date == "")
                 {
                     MessageBox.Show("Campo vacio");
                 }

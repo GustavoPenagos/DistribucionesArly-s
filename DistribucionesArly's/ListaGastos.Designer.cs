@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.gastoTotal = new System.Windows.Forms.Panel();
@@ -39,6 +39,8 @@
             this.textBoxTG = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.BuscarGasto = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,9 +53,7 @@
             this.gastosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gastosTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.GastosTableAdapter();
             this.lista_GastosTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.Lista_GastosTableAdapter();
-            this.label3 = new System.Windows.Forms.Label();
-            this.bGasto = new System.Windows.Forms.TextBox();
-            this.BuscarGasto = new System.Windows.Forms.Button();
+            this.dateGasto = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.gastoTotal.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -132,14 +132,36 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Control;
+            this.panel4.Controls.Add(this.dateGasto);
             this.panel4.Controls.Add(this.BuscarGasto);
-            this.panel4.Controls.Add(this.bGasto);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 100);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(932, 100);
             this.panel4.TabIndex = 3;
+            // 
+            // BuscarGasto
+            // 
+            this.BuscarGasto.AutoSize = true;
+            this.BuscarGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.BuscarGasto.Location = new System.Drawing.Point(681, 30);
+            this.BuscarGasto.Name = "BuscarGasto";
+            this.BuscarGasto.Size = new System.Drawing.Size(75, 30);
+            this.BuscarGasto.TabIndex = 2;
+            this.BuscarGasto.Text = "Buscar";
+            this.BuscarGasto.UseVisualStyleBackColor = true;
+            this.BuscarGasto.Click += new System.EventHandler(this.BuscarGasto_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label3.Location = new System.Drawing.Point(230, 35);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Fecha de gasto";
             // 
             // panel3
             // 
@@ -157,14 +179,14 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
@@ -172,26 +194,26 @@
             this.valorGastoDataGridViewTextBoxColumn,
             this.fechaGastoDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.listaGastosBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.Size = new System.Drawing.Size(932, 322);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -251,36 +273,17 @@
             // 
             this.lista_GastosTableAdapter.ClearBeforeFill = true;
             // 
-            // label3
+            // dateGasto
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(301, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Fecha de gasto";
-            // 
-            // bGasto
-            // 
-            this.bGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.bGasto.Location = new System.Drawing.Point(453, 29);
-            this.bGasto.Name = "bGasto";
-            this.bGasto.Size = new System.Drawing.Size(185, 26);
-            this.bGasto.TabIndex = 1;
-            this.bGasto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bGasto_KeyPress);
-            // 
-            // BuscarGasto
-            // 
-            this.BuscarGasto.AutoSize = true;
-            this.BuscarGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.BuscarGasto.Location = new System.Drawing.Point(686, 25);
-            this.BuscarGasto.Name = "BuscarGasto";
-            this.BuscarGasto.Size = new System.Drawing.Size(75, 30);
-            this.BuscarGasto.TabIndex = 2;
-            this.BuscarGasto.Text = "Buscar";
-            this.BuscarGasto.UseVisualStyleBackColor = true;
-            this.BuscarGasto.Click += new System.EventHandler(this.BuscarGasto_Click);
+            this.dateGasto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateGasto.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateGasto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateGasto.Location = new System.Drawing.Point(379, 34);
+            this.dateGasto.Name = "dateGasto";
+            this.dateGasto.Size = new System.Drawing.Size(224, 20);
+            this.dateGasto.TabIndex = 3;
             // 
             // ListaGastos
             // 
@@ -333,7 +336,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn valorGastoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaGastoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button BuscarGasto;
-        private System.Windows.Forms.TextBox bGasto;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dateGasto;
     }
 }

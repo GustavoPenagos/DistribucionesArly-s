@@ -126,6 +126,7 @@
             this.nombreProducto.Name = "nombreProducto";
             this.nombreProducto.Size = new System.Drawing.Size(267, 30);
             this.nombreProducto.TabIndex = 2;
+            this.nombreProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nombreProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nombreProducto_KeyPress);
             // 
             // panel3

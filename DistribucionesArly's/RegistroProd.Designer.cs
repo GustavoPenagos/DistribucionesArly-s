@@ -65,6 +65,7 @@
             this.idProd.Name = "idProd";
             this.idProd.Size = new System.Drawing.Size(266, 30);
             this.idProd.TabIndex = 1;
+            this.idProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // nomProd
             // 
@@ -73,6 +74,7 @@
             this.nomProd.Name = "nomProd";
             this.nomProd.Size = new System.Drawing.Size(266, 30);
             this.nomProd.TabIndex = 3;
+            this.nomProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -91,6 +93,7 @@
             this.precioProd.Name = "precioProd";
             this.precioProd.Size = new System.Drawing.Size(266, 30);
             this.precioProd.TabIndex = 5;
+            this.precioProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.precioProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.precioProd_KeyPress);
             // 
             // label3

@@ -89,13 +89,6 @@ namespace DistribucionesArly_s
         {
             try
             {
-                //string queryBodega = "select * from bodega";
-                //SqlDataAdapter dat = new SqlDataAdapter(queryBodega, con);
-                //DataTable dataTable = new DataTable();
-                //dat.Fill(dataTable);
-                //var id = dataTable.Rows[0].ItemArray[0].ToString();
-                //var nProd = dataTable.Rows[0].ItemArray[1].ToString();
-
                 string queryCompra = "select * from Lista_Compras";
                 SqlDataAdapter adap = new SqlDataAdapter(queryCompra, con);
                 DataTable dTable = new DataTable();

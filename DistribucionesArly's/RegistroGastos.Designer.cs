@@ -95,9 +95,11 @@
             this.dineroGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dineroGasto.Location = new System.Drawing.Point(379, 229);
             this.dineroGasto.Name = "dineroGasto";
+            this.dineroGasto.ShortcutsEnabled = false;
             this.dineroGasto.Size = new System.Drawing.Size(326, 26);
             this.dineroGasto.TabIndex = 4;
             this.dineroGasto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dineroGasto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dineroGasto_KeyPress);
             // 
             // guardarRegistro
             // 

@@ -102,6 +102,7 @@
             this.idProdC.Name = "idProdC";
             this.idProdC.Size = new System.Drawing.Size(254, 26);
             this.idProdC.TabIndex = 1;
+            this.idProdC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.idProdC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.idProdC_KeyPress);
             // 
             // label1

@@ -75,6 +75,7 @@
             this.idProdRegis.Name = "idProdRegis";
             this.idProdRegis.Size = new System.Drawing.Size(266, 26);
             this.idProdRegis.TabIndex = 2;
+            this.idProdRegis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.idProdRegis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.idProdRegis_KeyPress);
             // 
             // button1

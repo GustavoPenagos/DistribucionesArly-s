@@ -50,6 +50,7 @@
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(242, 30);
             this.password.TabIndex = 1;
+            this.password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.password_KeyPress);
             // 
             // validarPass

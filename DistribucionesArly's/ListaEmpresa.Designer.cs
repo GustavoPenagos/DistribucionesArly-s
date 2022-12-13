@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buscarEmp = new System.Windows.Forms.Button();
+            this.bNomEmp = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.distribucionesArlysDataSet = new DistribucionesArly_s.DistribucionesArlysDataSet();
-            this.listaEmpBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lista_EmpTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.Lista_EmpTableAdapter();
             this.nitEmpresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreEmpresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productosVendeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,15 +47,15 @@
             this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.bNomEmp = new System.Windows.Forms.TextBox();
-            this.buscarEmp = new System.Windows.Forms.Button();
+            this.listaEmpBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.distribucionesArlysDataSet = new DistribucionesArly_s.DistribucionesArlysDataSet();
+            this.lista_EmpTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.Lista_EmpTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaEmpBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -91,6 +91,38 @@
             this.panel2.Size = new System.Drawing.Size(960, 100);
             this.panel2.TabIndex = 1;
             // 
+            // buscarEmp
+            // 
+            this.buscarEmp.AutoSize = true;
+            this.buscarEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buscarEmp.Location = new System.Drawing.Point(673, 23);
+            this.buscarEmp.Name = "buscarEmp";
+            this.buscarEmp.Size = new System.Drawing.Size(75, 30);
+            this.buscarEmp.TabIndex = 2;
+            this.buscarEmp.Text = "Buscar";
+            this.buscarEmp.UseVisualStyleBackColor = true;
+            this.buscarEmp.Click += new System.EventHandler(this.buscarEmp_Click);
+            // 
+            // bNomEmp
+            // 
+            this.bNomEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.bNomEmp.Location = new System.Drawing.Point(412, 27);
+            this.bNomEmp.Name = "bNomEmp";
+            this.bNomEmp.Size = new System.Drawing.Size(206, 26);
+            this.bNomEmp.TabIndex = 1;
+            this.bNomEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.bNomEmp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bNomEmp_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label2.Location = new System.Drawing.Point(219, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(169, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Nombre de la empresa";
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.dataGridView1);
@@ -107,14 +139,14 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nitEmpresaDataGridViewTextBoxColumn,
@@ -125,42 +157,28 @@
             this.departamentoDataGridViewTextBoxColumn,
             this.ciudadDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.listaEmpBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Size = new System.Drawing.Size(960, 474);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // distribucionesArlysDataSet
-            // 
-            this.distribucionesArlysDataSet.DataSetName = "DistribucionesArlysDataSet";
-            this.distribucionesArlysDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // listaEmpBindingSource
-            // 
-            this.listaEmpBindingSource.DataMember = "Lista_Emp";
-            this.listaEmpBindingSource.DataSource = this.distribucionesArlysDataSet;
-            // 
-            // lista_EmpTableAdapter
-            // 
-            this.lista_EmpTableAdapter.ClearBeforeFill = true;
             // 
             // nitEmpresaDataGridViewTextBoxColumn
             // 
@@ -211,36 +229,19 @@
             this.ciudadDataGridViewTextBoxColumn.Name = "ciudadDataGridViewTextBoxColumn";
             this.ciudadDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // label2
+            // listaEmpBindingSource
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(219, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(169, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Nombre de la empresa";
+            this.listaEmpBindingSource.DataMember = "Lista_Emp";
+            this.listaEmpBindingSource.DataSource = this.distribucionesArlysDataSet;
             // 
-            // bNomEmp
+            // distribucionesArlysDataSet
             // 
-            this.bNomEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.bNomEmp.Location = new System.Drawing.Point(412, 27);
-            this.bNomEmp.Name = "bNomEmp";
-            this.bNomEmp.Size = new System.Drawing.Size(206, 26);
-            this.bNomEmp.TabIndex = 1;
-            this.bNomEmp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bNomEmp_KeyPress);
+            this.distribucionesArlysDataSet.DataSetName = "DistribucionesArlysDataSet";
+            this.distribucionesArlysDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // buscarEmp
+            // lista_EmpTableAdapter
             // 
-            this.buscarEmp.AutoSize = true;
-            this.buscarEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buscarEmp.Location = new System.Drawing.Point(673, 23);
-            this.buscarEmp.Name = "buscarEmp";
-            this.buscarEmp.Size = new System.Drawing.Size(75, 30);
-            this.buscarEmp.TabIndex = 2;
-            this.buscarEmp.Text = "Buscar";
-            this.buscarEmp.UseVisualStyleBackColor = true;
-            this.buscarEmp.Click += new System.EventHandler(this.buscarEmp_Click);
+            this.lista_EmpTableAdapter.ClearBeforeFill = true;
             // 
             // ListaEmpresa
             // 
@@ -259,8 +260,8 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaEmpBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

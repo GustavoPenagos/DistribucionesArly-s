@@ -60,6 +60,7 @@ namespace DistribucionesArly_s
             }
             catch (Exception ex)
             {
+                con.Close();
                 MessageBox.Show(ex.Message);
             }
         }

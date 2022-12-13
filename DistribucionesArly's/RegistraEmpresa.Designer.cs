@@ -71,7 +71,7 @@
             this.NiEmp.Name = "NiEmp";
             this.NiEmp.Size = new System.Drawing.Size(213, 26);
             this.NiEmp.TabIndex = 1;
-            this.NiEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NiEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // proEmp
             // 
@@ -80,7 +80,7 @@
             this.proEmp.Name = "proEmp";
             this.proEmp.Size = new System.Drawing.Size(213, 26);
             this.proEmp.TabIndex = 3;
-            this.proEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.proEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -99,7 +99,7 @@
             this.nomEmp.Name = "nomEmp";
             this.nomEmp.Size = new System.Drawing.Size(213, 26);
             this.nomEmp.TabIndex = 5;
-            this.nomEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nomEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -118,7 +118,7 @@
             this.telEmp.Name = "telEmp";
             this.telEmp.Size = new System.Drawing.Size(213, 26);
             this.telEmp.TabIndex = 7;
-            this.telEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.telEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -171,7 +171,7 @@
             this.dirEmp.Name = "dirEmp";
             this.dirEmp.Size = new System.Drawing.Size(213, 26);
             this.dirEmp.TabIndex = 11;
-            this.dirEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.dirEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 

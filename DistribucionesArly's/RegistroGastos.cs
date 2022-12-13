@@ -36,9 +36,9 @@ namespace DistribucionesArly_s
                 MessageBox.Show("Registro de gastos exitoso");
                 borrar();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                MessageBox.Show("Error al registrar"+ex);
+                MessageBox.Show("Campo vacio");
             }
             con.Close();
             
@@ -47,14 +47,26 @@ namespace DistribucionesArly_s
         {
             this.dineroGasto.Text = "";
             this.descriGasto.Text = "";
+            this.dineroGasto.Focus();
         }
 
         private void descriGasto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 RegistroGasto();
             }
+        }
+
+        private void dineroGasto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            //{
+            //    //var n = Convert.ToDouble(this.dineroGasto.Text);
+            //    var n2 = Convert.ToDouble(this.dineroGasto.Text).ToString("C");
+            //    this.dineroGasto.Text = n2;
+            //    this.dineroGasto.Focus();
+            //}
         }
     } 
 }

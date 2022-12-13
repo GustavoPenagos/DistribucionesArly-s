@@ -38,5 +38,15 @@ namespace DistribucionesArly_s
         {
             OpenFrom(new ListaGastos());
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            OpenFrom(new RegistroGastos());
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenFrom(new ListaGastos());
+        }
     }
 }

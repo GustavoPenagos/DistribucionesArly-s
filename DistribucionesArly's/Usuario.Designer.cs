@@ -86,7 +86,7 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(9, 256);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 256);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(56, 55);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -123,7 +123,7 @@
             // 
             this.registroProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.registroProveedor.Image = ((System.Drawing.Image)(resources.GetObject("registroProveedor.Image")));
-            this.registroProveedor.Location = new System.Drawing.Point(9, 171);
+            this.registroProveedor.Location = new System.Drawing.Point(12, 171);
             this.registroProveedor.Name = "registroProveedor";
             this.registroProveedor.Size = new System.Drawing.Size(56, 55);
             this.registroProveedor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -148,9 +148,9 @@
             this.registroProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.registroProveedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.registroProveedores.ForeColor = System.Drawing.Color.White;
-            this.registroProveedores.Location = new System.Drawing.Point(0, 170);
+            this.registroProveedores.Location = new System.Drawing.Point(9, 170);
             this.registroProveedores.Name = "registroProveedores";
-            this.registroProveedores.Size = new System.Drawing.Size(206, 55);
+            this.registroProveedores.Size = new System.Drawing.Size(201, 55);
             this.registroProveedores.TabIndex = 6;
             this.registroProveedores.Text = "Registrar";
             this.registroProveedores.UseVisualStyleBackColor = true;

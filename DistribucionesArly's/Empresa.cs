@@ -39,5 +39,15 @@ namespace DistribucionesArly_s
         {
             OpenFrom(new ListaEmpresa());
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            OpenFrom(new RegistraEmpresa());
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenFrom(new ListaEmpresa());
+        }
     }
 }

@@ -21,8 +21,8 @@ namespace DistribucionesArly_s
         private void ListaProd_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'distribucionesArlysDataSet.lista_producto' table. You can move, or remove it, as needed.
-            this.lista_productoTableAdapter.Fill(this.distribucionesArlysDataSet.lista_producto);
-
+            
+            ListaProducto();
         }
 
         private void buscaProd_Click(object sender, EventArgs e)
@@ -45,6 +45,16 @@ namespace DistribucionesArly_s
             catch(Exception ex) {
                 MessageBox.Show(ex.Message);
             }
+        }
+        private void ListaProducto()
+        {
+            string query1 = "SELECT *  FROM lista_producto";
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(query1, con);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            dataGridView1.DataSource = dataTable;
+            con.Close();
         }
     }
 }

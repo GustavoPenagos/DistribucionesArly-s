@@ -73,7 +73,7 @@
             this.nomProd.Location = new System.Drawing.Point(350, 244);
             this.nomProd.Name = "nomProd";
             this.nomProd.Size = new System.Drawing.Size(266, 30);
-            this.nomProd.TabIndex = 3;
+            this.nomProd.TabIndex = 2;
             this.nomProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
@@ -92,7 +92,7 @@
             this.precioProd.Location = new System.Drawing.Point(350, 351);
             this.precioProd.Name = "precioProd";
             this.precioProd.Size = new System.Drawing.Size(266, 30);
-            this.precioProd.TabIndex = 5;
+            this.precioProd.TabIndex = 4;
             this.precioProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.precioProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.precioProd_KeyPress);
             // 
@@ -130,6 +130,8 @@
             // 
             // unidProd
             // 
+            this.unidProd.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.unidProd.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.unidProd.DataSource = this.unidadBindingSource;
             this.unidProd.DisplayMember = "Unidad";
             this.unidProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
@@ -137,7 +139,7 @@
             this.unidProd.Location = new System.Drawing.Point(350, 296);
             this.unidProd.Name = "unidProd";
             this.unidProd.Size = new System.Drawing.Size(266, 33);
-            this.unidProd.TabIndex = 9;
+            this.unidProd.TabIndex = 3;
             this.unidProd.ValueMember = "Id_Unidad";
             // 
             // unidadBindingSource

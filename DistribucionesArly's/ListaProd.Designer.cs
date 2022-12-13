@@ -44,7 +44,6 @@
             this.nombreProdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.distribucionesArlysDataSet = new DistribucionesArly_s.DistribucionesArlysDataSet();
             this.listaproductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lista_productoTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.lista_productoTableAdapter();
             this.nombreProdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioProdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -196,15 +195,6 @@
             this.distribucionesArlysDataSet.DataSetName = "DistribucionesArlysDataSet";
             this.distribucionesArlysDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // listaproductoBindingSource
-            // 
-            this.listaproductoBindingSource.DataMember = "lista_producto";
-            this.listaproductoBindingSource.DataSource = this.distribucionesArlysDataSet;
-            // 
-            // lista_productoTableAdapter
-            // 
-            this.lista_productoTableAdapter.ClearBeforeFill = true;
-            // 
             // nombreProdDataGridViewTextBoxColumn2
             // 
             this.nombreProdDataGridViewTextBoxColumn2.DataPropertyName = "Nombre_Prod";
@@ -262,11 +252,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buscaProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreProdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProdDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioproductoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productcountDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource listaproductoBindingSource;
-        private DistribucionesArlysDataSetTableAdapters.lista_productoTableAdapter lista_productoTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreProdDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioProdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unidadDataGridViewTextBoxColumn;

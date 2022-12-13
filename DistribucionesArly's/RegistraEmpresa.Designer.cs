@@ -98,7 +98,7 @@
             this.nomEmp.Location = new System.Drawing.Point(457, 183);
             this.nomEmp.Name = "nomEmp";
             this.nomEmp.Size = new System.Drawing.Size(213, 26);
-            this.nomEmp.TabIndex = 5;
+            this.nomEmp.TabIndex = 2;
             this.nomEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
@@ -117,7 +117,7 @@
             this.telEmp.Location = new System.Drawing.Point(457, 326);
             this.telEmp.Name = "telEmp";
             this.telEmp.Size = new System.Drawing.Size(213, 26);
-            this.telEmp.TabIndex = 7;
+            this.telEmp.TabIndex = 5;
             this.telEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
@@ -170,7 +170,7 @@
             this.dirEmp.Location = new System.Drawing.Point(457, 274);
             this.dirEmp.Name = "dirEmp";
             this.dirEmp.Size = new System.Drawing.Size(213, 26);
-            this.dirEmp.TabIndex = 11;
+            this.dirEmp.TabIndex = 4;
             this.dirEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
@@ -205,16 +205,20 @@
             // 
             // selectCiudad
             // 
+            this.selectCiudad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.selectCiudad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.selectCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.selectCiudad.FormattingEnabled = true;
             this.selectCiudad.Location = new System.Drawing.Point(457, 431);
             this.selectCiudad.Name = "selectCiudad";
             this.selectCiudad.Size = new System.Drawing.Size(213, 28);
-            this.selectCiudad.TabIndex = 15;
+            this.selectCiudad.TabIndex = 7;
             this.selectCiudad.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // selectDepart
             // 
+            this.selectDepart.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.selectDepart.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.selectDepart.DataSource = this.departmentBindingSource;
             this.selectDepart.DisplayMember = "Department";
             this.selectDepart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -222,7 +226,7 @@
             this.selectDepart.Location = new System.Drawing.Point(457, 378);
             this.selectDepart.Name = "selectDepart";
             this.selectDepart.Size = new System.Drawing.Size(213, 28);
-            this.selectDepart.TabIndex = 14;
+            this.selectDepart.TabIndex = 6;
             this.selectDepart.ValueMember = "Id_Department";
             this.selectDepart.SelectedIndexChanged += new System.EventHandler(this.selectDepart_SelectedIndexChanged);
             // 

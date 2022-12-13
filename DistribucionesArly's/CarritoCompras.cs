@@ -34,5 +34,10 @@ namespace DistribucionesArly_s
         {
             OpenFrom(new Compras());
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            OpenFrom(new Compras());
+        }
     }
 }

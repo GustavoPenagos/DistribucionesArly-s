@@ -16,16 +16,17 @@ namespace DistribucionesArly_s
         public ListaGastos()
         {
             InitializeComponent();
+            ListaGasto();
         }
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
         private void ListaGastos_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'distribucionesArlysDataSet.Lista_Gastos' table. You can move, or remove it, as needed.
-            this.lista_GastosTableAdapter.Fill(this.distribucionesArlysDataSet.Lista_Gastos);
-            this.gastosTableAdapter.Fill(this.distribucionesArlysDataSet.Gastos);
+            
+            ListaGasto();
+           
             try
             {
-                string query = "select sum(Valor_Gasto) as gasto from Lista_Gastos";
+                string query = "select format(sum(convert(decimal,Valor_Gasto)), 'C', 'es-co') AS Valor_Gasto from Lista_Gastos";
                 con.Open();
                 //SqlCommand cmd = new SqlCommand(query, con);
                 DataTable dt = new DataTable();
@@ -100,6 +101,16 @@ namespace DistribucionesArly_s
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        private void ListaGasto()
+        {
+            string query1 = "SELECT Id_Gasto AS ID, Desc_Gastos AS Descripcion, format(convert(decimal,Costo_Gasto),'C','es-CO') AS Valor_Gasto, Fecha_Gasto\r\nFROM dbo.Gastos";
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(query1, con);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            dataGridView1.DataSource = dataTable;
+            con.Close();
         }
 
     }

@@ -65,5 +65,10 @@ namespace DistribucionesArly_s
         {
             OpenFrom (new RegistroBodega());
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            OpenFrom(new RegistroBodega());
+        }
     }
 }

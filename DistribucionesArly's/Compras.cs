@@ -15,8 +15,8 @@ namespace DistribucionesArly_s
     {
         public Compras()
         {
-            //GuardarCompra();
             InitializeComponent();
+            ListaCompra();
         }
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
         

@@ -109,5 +109,10 @@ namespace DistribucionesArly_s
         {
             OpenFrom(new Empresa());
         }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            OpenFrom(new Empresa());
+        }
     }
 }

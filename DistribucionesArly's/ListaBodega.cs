@@ -45,7 +45,7 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string query = "SELECT *  FROM lista_bodega where Nombre_Prod like '%" + this.nombreProducto.Text + "%'";
+                string query = "SELECT *  FROM lista_bodega where nombre_Producto like '%" + this.nombreProducto.Text + "%'";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -73,6 +73,7 @@ namespace DistribucionesArly_s
             adapter.Fill(dataTable);
             dataGridView1.DataSource = dataTable;
             con.Close();
+            this.nombreProducto.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)

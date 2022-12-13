@@ -52,7 +52,6 @@
             this.gastosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gastosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gastosTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.GastosTableAdapter();
-            this.lista_GastosTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.Lista_GastosTableAdapter();
             this.dateGasto = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.gastoTotal.SuspendLayout();
@@ -269,10 +268,6 @@
             // 
             this.gastosTableAdapter.ClearBeforeFill = true;
             // 
-            // lista_GastosTableAdapter
-            // 
-            this.lista_GastosTableAdapter.ClearBeforeFill = true;
-            // 
             // dateGasto
             // 
             this.dateGasto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -330,7 +325,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.BindingSource listaGastosBindingSource;
-        private DistribucionesArlysDataSetTableAdapters.Lista_GastosTableAdapter lista_GastosTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorGastoDataGridViewTextBoxColumn;

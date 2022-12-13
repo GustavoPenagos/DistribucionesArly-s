@@ -97,7 +97,7 @@
             this.dineroGasto.Name = "dineroGasto";
             this.dineroGasto.ShortcutsEnabled = false;
             this.dineroGasto.Size = new System.Drawing.Size(326, 26);
-            this.dineroGasto.TabIndex = 4;
+            this.dineroGasto.TabIndex = 1;
             this.dineroGasto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dineroGasto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dineroGasto_KeyPress);
             // 

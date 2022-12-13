@@ -99,7 +99,7 @@
             this.telefonoUsuario.Location = new System.Drawing.Point(304, 422);
             this.telefonoUsuario.Name = "telefonoUsuario";
             this.telefonoUsuario.Size = new System.Drawing.Size(299, 26);
-            this.telefonoUsuario.TabIndex = 16;
+            this.telefonoUsuario.TabIndex = 7;
             this.telefonoUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.telefonoUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.telefonoUsuario_KeyPress);
             // 
@@ -139,7 +139,7 @@
             this.direcUsuario.Location = new System.Drawing.Point(304, 472);
             this.direcUsuario.Name = "direcUsuario";
             this.direcUsuario.Size = new System.Drawing.Size(299, 26);
-            this.direcUsuario.TabIndex = 19;
+            this.direcUsuario.TabIndex = 8;
             this.direcUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.direcUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.direcUsuario_KeyPress);
             // 
@@ -159,7 +159,7 @@
             this.nombreUsuario.Location = new System.Drawing.Point(304, 239);
             this.nombreUsuario.Name = "nombreUsuario";
             this.nombreUsuario.Size = new System.Drawing.Size(299, 26);
-            this.nombreUsuario.TabIndex = 10;
+            this.nombreUsuario.TabIndex = 3;
             this.nombreUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nombreUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nombreUsuario_KeyPress);
             // 
@@ -170,7 +170,7 @@
             this.numeroDocumento.Location = new System.Drawing.Point(304, 193);
             this.numeroDocumento.Name = "numeroDocumento";
             this.numeroDocumento.Size = new System.Drawing.Size(299, 26);
-            this.numeroDocumento.TabIndex = 22;
+            this.numeroDocumento.TabIndex = 2;
             this.numeroDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numeroDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numeroDocumento_KeyPress);
             // 
@@ -196,6 +196,8 @@
             // 
             // tipo_Documento
             // 
+            this.tipo_Documento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.tipo_Documento.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tipo_Documento.DataSource = this.tipoDocumentoBindingSource;
             this.tipo_Documento.DisplayMember = "documento";
             this.tipo_Documento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -203,7 +205,7 @@
             this.tipo_Documento.Location = new System.Drawing.Point(304, 142);
             this.tipo_Documento.Name = "tipo_Documento";
             this.tipo_Documento.Size = new System.Drawing.Size(299, 28);
-            this.tipo_Documento.TabIndex = 24;
+            this.tipo_Documento.TabIndex = 1;
             this.tipo_Documento.ValueMember = "id";
             // 
             // tipoDocumentoBindingSource
@@ -223,6 +225,8 @@
             // 
             // nitEmpresa
             // 
+            this.nitEmpresa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.nitEmpresa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.nitEmpresa.DataSource = this.companyBindingSource;
             this.nitEmpresa.DisplayMember = "Name_Company";
             this.nitEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -230,7 +234,7 @@
             this.nitEmpresa.Location = new System.Drawing.Point(304, 372);
             this.nitEmpresa.Name = "nitEmpresa";
             this.nitEmpresa.Size = new System.Drawing.Size(299, 28);
-            this.nitEmpresa.TabIndex = 25;
+            this.nitEmpresa.TabIndex = 6;
             this.nitEmpresa.ValueMember = "Nit_Company";
             this.nitEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nitEmpresa_KeyPress);
             // 
@@ -259,6 +263,8 @@
             // 
             // tipoUsuario
             // 
+            this.tipoUsuario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.tipoUsuario.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tipoUsuario.DataSource = this.tipoUsuarioBindingSource;
             this.tipoUsuario.DisplayMember = "Tipo_Usuario";
             this.tipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -266,7 +272,7 @@
             this.tipoUsuario.Location = new System.Drawing.Point(304, 327);
             this.tipoUsuario.Name = "tipoUsuario";
             this.tipoUsuario.Size = new System.Drawing.Size(299, 28);
-            this.tipoUsuario.TabIndex = 27;
+            this.tipoUsuario.TabIndex = 5;
             this.tipoUsuario.ValueMember = "Id_Type_User";
             this.tipoUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tipoUsuario_KeyPress);
             // 
@@ -319,7 +325,7 @@
             this.contrUser.Location = new System.Drawing.Point(304, 282);
             this.contrUser.Name = "contrUser";
             this.contrUser.Size = new System.Drawing.Size(299, 26);
-            this.contrUser.TabIndex = 29;
+            this.contrUser.TabIndex = 4;
             this.contrUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.contrUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contrUser_KeyPress);
             // 

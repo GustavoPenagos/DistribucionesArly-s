@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DistribucionesArly_s
 {
@@ -92,6 +93,7 @@ namespace DistribucionesArly_s
                 if (this.cancelaCon.Text.Equals("0"))
                 {
                     this.cancelaCon.Text = this.totalVenta.Text;
+                    this.cambioDe.Text = "0";
                     MessageBox.Show("El cambio al cliente es: 0");
                 }
                 else if (!this.cancelaCon.Text.Equals(""))
@@ -100,30 +102,94 @@ namespace DistribucionesArly_s
                     var value = double.Parse(this.totalVenta.Text, NumberStyles.Currency);
 
                     var cambio = cancela - value;
+                    this.cambioDe.Text = cambio.ToString("C");
                     MessageBox.Show("El cambio al cliente es:" + cambio.ToString("C"), "CAMBIO");
                 }
                 //MessageBox.Show("paso");
                 //IMPRIMIR FACTURA
 
+                var conteo = dataGridView2.Rows.Count;
+                if (conteo != 0)
+                {
+                    try
+                    {
+                        ClsFactura.CreaTicket Ticket1 = new ClsFactura.CreaTicket();
 
-                //string queryCompra = "select * from Lista_Compras";
-                //SqlDataAdapter adap = new SqlDataAdapter(queryCompra, con);
-                //DataTable dTable = new DataTable();
-                //adap.Fill(dTable);
-                //con.Open();
-                //for (int i = 0; i < dTable.Rows.Count; i++)
-                //{
-                //    var idPro = dTable.Rows[i].ItemArray[0].ToString();
-                //    var cantidad = dTable.Rows[i].ItemArray[3].ToString();
-                //    string queryDelete = "delete top (" + cantidad + ")  from bodega where Id_Prod = " + idPro;
-                //    SqlCommand cmdDelete = new SqlCommand(queryDelete, con);
-                //    cmdDelete.ExecuteNonQuery();
-                //}
-                //string queryDeleteCompras = "delete from Compras";
-                //SqlCommand cmdDeleteCompras = new SqlCommand(queryDeleteCompras, con);
-                //cmdDeleteCompras.ExecuteNonQuery();
-                //con.Close();
-                //dataGridView2.DataSource = null;
+                        Ticket1.TextoCentro("Empresa xxxxx "); //imprime una linea de descripcion
+                        Ticket1.TextoCentro("**********************************");
+
+                        Ticket1.TextoIzquierda("Dirc: xxxx");
+                        Ticket1.TextoIzquierda("Tel:xxxx ");
+                        Ticket1.TextoIzquierda("Rnc: xxxx");
+                        Ticket1.TextoIzquierda("");
+                        Ticket1.TextoCentro("Factura de Venta"); //imprime una linea de descripcion
+                        Ticket1.TextoIzquierda("No Fac:" + "0001");
+                        Ticket1.TextoIzquierda("Fecha:" + DateTime.Now.ToShortDateString() + " Hora:" + DateTime.Now.ToShortTimeString());
+                        Ticket1.TextoIzquierda("Le Atendio: xxxx");
+                        Ticket1.TextoIzquierda("");
+                        ClsFactura.CreaTicket.LineasGuion();
+
+                        ClsFactura.CreaTicket.EncabezadoVenta();
+                        ClsFactura.CreaTicket.LineasGuion();
+                        var n = dataGridView2.RowCount;
+                        foreach (DataGridViewRow r in dataGridView2.Rows)
+                        {
+                            // PROD                     //PrECIO                                    CANT                         TOTAL
+                            Ticket1.AgregaArticulo(r.Cells[1].Value.ToString(), double.Parse((double.Parse((r.Cells[2].Value.ToString()), NumberStyles.Currency)).ToString()), int.Parse(r.Cells[3].Value.ToString()), double.Parse((double.Parse((r.Cells[5].Value).ToString(), NumberStyles.Currency)).ToString())); //imprime una linea de descripcion
+                        }
+
+
+                        ClsFactura.CreaTicket.LineasGuion();
+                        Ticket1.AgregaTotales("Sub-Total", double.Parse(this.totalVenta.Text, NumberStyles.Currency) - (double.Parse(this.totalVenta.Text, NumberStyles.Currency)*0.19)); // imprime linea con Subtotal
+                        Ticket1.AgregaTotales("Menos Descuento", double.Parse("000")); // imprime linea con decuento total
+                        Ticket1.AgregaTotales("Mas ITBIS", double.Parse("000")); // imprime linea con ITBis total
+                        Ticket1.TextoIzquierda(" ");
+                        Ticket1.AgregaTotales("Total", double.Parse(this.totalVenta.Text, NumberStyles.Currency)); // imprime linea con total
+                        Ticket1.TextoIzquierda(" ");
+                        Ticket1.AgregaTotales("Efectivo Entregado:", double.Parse(this.cancelaCon.Text, NumberStyles.Currency));
+                        Ticket1.AgregaTotales("Efectivo Devuelto:", double.Parse(this.cambioDe.Text, NumberStyles.Currency));
+
+
+                        // Ticket1.LineasTotales(); // imprime linea 
+
+                        Ticket1.TextoIzquierda(" ");
+                        Ticket1.TextoCentro("**********************************");
+                        Ticket1.TextoCentro("*     Gracias por preferirnos    *");
+
+                        Ticket1.TextoCentro("**********************************");
+                        Ticket1.TextoIzquierda(" ");
+                        string impresora = "Microsoft XPS Document Writer";
+                        Ticket1.ImprimirTiket(impresora);
+
+
+
+
+                        MessageBox.Show("Gracias por preferirnos");
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
+                string queryCompra = "select * from Lista_Compras";
+                SqlDataAdapter adap = new SqlDataAdapter(queryCompra, con);
+                DataTable dTable = new DataTable();
+                adap.Fill(dTable);
+                con.Open();
+                for (int i = 0; i < dTable.Rows.Count; i++)
+                {
+                    var idPro = dTable.Rows[i].ItemArray[0].ToString();
+                    var cantidad = dTable.Rows[i].ItemArray[3].ToString();
+                    string queryDelete = "delete top (" + cantidad + ")  from bodega where Id_Prod = " + idPro;
+                    SqlCommand cmdDelete = new SqlCommand(queryDelete, con);
+                    cmdDelete.ExecuteNonQuery();
+                }
+                string queryDeleteCompras = "delete from Compras";
+                SqlCommand cmdDeleteCompras = new SqlCommand(queryDeleteCompras, con);
+                cmdDeleteCompras.ExecuteNonQuery();
+                con.Close();
+                dataGridView2.DataSource = null;
             }
             catch(Exception ex)
             {
@@ -215,9 +281,9 @@ namespace DistribucionesArly_s
                 SqlDataAdapter ad = new SqlDataAdapter(query, con);
                 ad.Fill(dt);
                 con.Close();
-                var s = dt.Rows[0].ItemArray[0].ToString();
-                double s1 = Convert.ToDouble(s);
-                this.totalVenta.Text = s1.ToString("C"); 
+                double st = Convert.ToDouble(dt.Rows[0].ItemArray[0].ToString());
+                var tv = (0.19 * st) + st;
+                this.totalVenta.Text = tv.ToString("C"); 
                 
             }
             catch(Exception ex)

@@ -89,6 +89,7 @@
     <Compile Include="CarritoCompras.Designer.cs">
       <DependentUpon>CarritoCompras.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClsFactura.cs" />
     <Compile Include="Compras.cs">
       <SubType>Form</SubType>
     </Compile>

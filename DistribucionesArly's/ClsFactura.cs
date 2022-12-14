@@ -284,7 +284,7 @@ namespace DistribucionesArly_s
                 DOCINFOA di = new DOCINFOA();
                 bool bSuccess = false; // Assume failure unless you specifically succeed.
 
-                di.pDocName = "My C#.NET RAW Document";
+                di.pDocName = "Factura (N° " + 1 + ")";
                 di.pDataType = "RAW";
                 // di.pOutputFile = @"C:\Users\Roland\Documents\Visual Studio 2015\Projects\pjtVentas\Ventas";
 

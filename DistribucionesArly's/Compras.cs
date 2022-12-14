@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +17,12 @@ namespace DistribucionesArly_s
         public Compras()
         {
             InitializeComponent();
+            DatosCompra();
             ListaCompra();
         }
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
-        
+
+
         private void butBusComp_Click(object sender, EventArgs e)
         {
             try
@@ -32,12 +35,11 @@ namespace DistribucionesArly_s
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void idProdC_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                ListaProd();
+                this.canProd.Focus();
             }
         }
         private void ListaProd()
@@ -54,24 +56,20 @@ namespace DistribucionesArly_s
                 var nombre = dt.Rows[0].ItemArray[1].ToString();
                 var precio = dt.Rows[0].ItemArray[2].ToString();
                 var unidades = dt.Rows[0].ItemArray[3].ToString();
-                //dataGridView1.Rows.Add(new object[]{id_prod, nombre, precio, unidades, "Eliminar"});
-                //var id = ""; 
-                //var nProd = "";
-                
-                //SqlDataAdapter dat = new SqlDataAdapter(queryBodega, con);
-                //DataTable dataTable = new DataTable();
-                //dat.Fill(dataTable);
-                //var id = dataTable.Rows[0].ItemArray[0].ToString();
-                //var nProd = dataTable.Rows[0].ItemArray[1].ToString();
-
-                string query2 = "INSERT INTO [dbo].[Compras] " +
-                    "([Id_Prod],[Nom_Prod],[Precio_Prod],[Unid_Prod]) " +
-                    "VALUES (" + Convert.ToInt32(id_prod) + ",'" + nombre + 
-                    "','" + precio + "'," + Convert.ToInt32(unidades) + ")";
-
-                SqlCommand cmd = new SqlCommand(query2, con);
-                cmd.ExecuteNonQuery();
                 con.Close();
+                var cantidad = Convert.ToInt64(this.canProd.Text);
+                for (int i = 0; i < cantidad; i++)
+                {
+                    string query2 = "INSERT INTO [dbo].[Compras] " +
+                    "([Id_Prod],[Nom_Prod],[Precio_Prod],[Unid_Prod]) " +
+                    "VALUES (" + Convert.ToInt32(id_prod) + ",'" + nombre +
+                    "','" + precio + "'," + Convert.ToInt32(unidades) + ")";
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(query2, con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                
                 ListaCompra();
                 this.idProdC.Text = "";
                 this.idProdC.Focus();
@@ -89,24 +87,43 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string queryCompra = "select * from Lista_Compras";
-                SqlDataAdapter adap = new SqlDataAdapter(queryCompra, con);
-                DataTable dTable = new DataTable();
-                adap.Fill(dTable);
-                con.Open();
-                string queryDeleteCompras = "delete from Compras";
-                for (int i = 0; i < dTable.Rows.Count; i++)
+                double cancela = this.cancelaCon.Text.Equals("") ? Convert.ToDouble(this.cancelaCon.Text = "0"): double.Parse(this.cancelaCon.Text, NumberStyles.Currency);
+
+                if (this.cancelaCon.Text.Equals("0"))
                 {
-                    var idPro = dTable.Rows[i].ItemArray[0].ToString();
-                    var cantidad = dTable.Rows[i].ItemArray[3].ToString();
-                    string queryDelete = "delete top (" + cantidad + ")  from bodega where Id_Prod = " +  idPro;
-                    SqlCommand cmdDelete = new SqlCommand(queryDelete, con);
-                    cmdDelete.ExecuteNonQuery();
+                    this.cancelaCon.Text = this.totalVenta.Text;
+                    MessageBox.Show("El cambio al cliente es: 0");
                 }
-                SqlCommand cmdDeleteCompras = new SqlCommand(queryDeleteCompras, con);
-                cmdDeleteCompras.ExecuteNonQuery();
-                con.Close();
-                dataGridView2.DataSource = null;
+                else if (!this.cancelaCon.Text.Equals(""))
+                {
+                    
+                    var value = double.Parse(this.totalVenta.Text, NumberStyles.Currency);
+
+                    var cambio = cancela - value;
+                    MessageBox.Show("El cambio al cliente es:" + cambio.ToString("C"), "CAMBIO");
+                }
+                //MessageBox.Show("paso");
+                //IMPRIMIR FACTURA
+
+
+                //string queryCompra = "select * from Lista_Compras";
+                //SqlDataAdapter adap = new SqlDataAdapter(queryCompra, con);
+                //DataTable dTable = new DataTable();
+                //adap.Fill(dTable);
+                //con.Open();
+                //for (int i = 0; i < dTable.Rows.Count; i++)
+                //{
+                //    var idPro = dTable.Rows[i].ItemArray[0].ToString();
+                //    var cantidad = dTable.Rows[i].ItemArray[3].ToString();
+                //    string queryDelete = "delete top (" + cantidad + ")  from bodega where Id_Prod = " + idPro;
+                //    SqlCommand cmdDelete = new SqlCommand(queryDelete, con);
+                //    cmdDelete.ExecuteNonQuery();
+                //}
+                //string queryDeleteCompras = "delete from Compras";
+                //SqlCommand cmdDeleteCompras = new SqlCommand(queryDeleteCompras, con);
+                //cmdDeleteCompras.ExecuteNonQuery();
+                //con.Close();
+                //dataGridView2.DataSource = null;
             }
             catch(Exception ex)
             {
@@ -143,30 +160,70 @@ namespace DistribucionesArly_s
                 dt.Load(dr);
                 dataGridView2.DataSource = dt;
                 con.Close();
+                this.canProd.Text = "1";
+                DatosCompra();
             }
             catch (Exception ex)
             {
+                con.Close();
                 MessageBox.Show(ex.Message);
             }
             
         }
-        private void GuardarCompra()
+        private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                string query1 = "SELECT *  FROM bodega;";
+                var cantidad = Convert.ToInt64(this.canProd.Text);
+                string query = "delete top ("+cantidad+") from Compras where Id_Prod = "+this.idProdC.Text;
+
                 con.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter(query1, con);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                dataGridView2.DataSource = dataTable;
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
                 con.Close();
+                this.idProdC.Text = "";
+                this.canProd.Text = "1";
+                ListaCompra();
             }
             catch (Exception ex)
+            {
+                con.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void canProd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                ListaProd();
+                this.idProdC.Focus();
+            }
+            else if (e.KeyChar == Convert.ToChar(Keys.Space))
+            {
+                button1_Click(sender, e);
+                this.idProdC.Focus();
+            }
+        }
+        private void DatosCompra()
+        {
+            try
+            {
+                string query = "select sum(convert(decimal, Precio_Prod)) as total from Compras";
+                con.Open();
+                //SqlCommand cmd = new SqlCommand(query, con);
+                DataTable dt = new DataTable();
+                SqlDataAdapter ad = new SqlDataAdapter(query, con);
+                ad.Fill(dt);
+                con.Close();
+                var s = dt.Rows[0].ItemArray[0].ToString();
+                double s1 = Convert.ToDouble(s);
+                this.totalVenta.Text = s1.ToString("C"); 
+                
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
     }
 }

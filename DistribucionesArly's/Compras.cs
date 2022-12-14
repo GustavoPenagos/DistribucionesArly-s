@@ -190,6 +190,9 @@ namespace DistribucionesArly_s
                 cmdDeleteCompras.ExecuteNonQuery();
                 con.Close();
                 dataGridView2.DataSource = null;
+                this.cambioDe.Text = "";
+                this.cancelaCon.Text = "";
+                this.totalVenta.Text = "";
             }
             catch(Exception ex)
             {
@@ -281,9 +284,18 @@ namespace DistribucionesArly_s
                 SqlDataAdapter ad = new SqlDataAdapter(query, con);
                 ad.Fill(dt);
                 con.Close();
-                double st = Convert.ToDouble(dt.Rows[0].ItemArray[0].ToString());
-                var tv = (0.19 * st) + st;
-                this.totalVenta.Text = tv.ToString("C"); 
+                var itemArray = dt.Rows[0].ItemArray[0].ToString();
+                if (itemArray.Equals(""))
+                {
+                    return;
+                }
+                else
+                {
+                    var st = double.Parse(itemArray.ToString());
+                    var tv = (0.19 * st) + st;
+                    this.totalVenta.Text = tv.ToString("C");
+                }
+                
                 
             }
             catch(Exception ex)

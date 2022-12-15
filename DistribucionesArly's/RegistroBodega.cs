@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DistribucionesArly_s
 {
@@ -16,6 +17,7 @@ namespace DistribucionesArly_s
         public RegistroBodega()
         {
             InitializeComponent();
+            this.idProdRegis.Focus();
         }
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
 
@@ -24,17 +26,11 @@ namespace DistribucionesArly_s
             InsertarBodega();
 
         }
-
-        private void idProdRegis_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                InsertarBodega();
-            }
-        }
         private void borrar()
         {
             this.idProdRegis.Text = "";
+            this.cantidadProd.Text = "1";
+            this.idProdRegis.Focus();
         }
         private void InsertarBodega()
         {
@@ -44,14 +40,20 @@ namespace DistribucionesArly_s
                 con.Open();
                 SqlCommand cmdConsul = new SqlCommand(queryConsult, con);
                 SqlDataReader dr = cmdConsul.ExecuteReader();
-
+                
+                var cantidadProd = Convert.ToInt32(this.cantidadProd.Text);
                 if (dr.Read())
                 {
                     con.Close();
                     con.Open();
-                    string queryInsert = "insert into Bodega values (" + Convert.ToInt16(this.idProdRegis.Text) + ")";
-                    SqlCommand cmdInsert = new SqlCommand(queryInsert, con);
-                    cmdInsert.ExecuteNonQuery();
+                    for (int i = 0; i < cantidadProd; i++)
+                    {
+                        
+                        string queryInsert = "insert into Bodega values (" + Convert.ToInt16(this.idProdRegis.Text) + ")";
+                        SqlCommand cmdInsert = new SqlCommand(queryInsert, con);
+                        cmdInsert.ExecuteNonQuery();
+                        
+                    }
                     MessageBox.Show("Se ha ingresado el producto correctamente");
                     con.Close();
                 }
@@ -68,6 +70,29 @@ namespace DistribucionesArly_s
                 MessageBox.Show("Numero ID_producto no valido (" + this.idProdRegis.Text + ")");
                 borrar();
             }
+        }
+
+        private void cantidadProd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                InsertarBodega();
+            }else if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void idProdRegis_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                this.cantidadProd.Focus();
+            }else if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
         }
     }
 }

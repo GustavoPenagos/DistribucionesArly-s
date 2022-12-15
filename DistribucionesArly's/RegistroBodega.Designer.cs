@@ -33,6 +33,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.idProdRegis = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.cantidadProd = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +76,7 @@
             this.idProdRegis.Location = new System.Drawing.Point(346, 226);
             this.idProdRegis.Name = "idProdRegis";
             this.idProdRegis.Size = new System.Drawing.Size(266, 26);
-            this.idProdRegis.TabIndex = 2;
+            this.idProdRegis.TabIndex = 1;
             this.idProdRegis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.idProdRegis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.idProdRegis_KeyPress);
             // 
@@ -82,7 +84,7 @@
             // 
             this.button1.AutoSize = true;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(528, 303);
+            this.button1.Location = new System.Drawing.Point(528, 348);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 30);
             this.button1.TabIndex = 3;
@@ -90,11 +92,34 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cantidadProd
+            // 
+            this.cantidadProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cantidadProd.Location = new System.Drawing.Point(346, 292);
+            this.cantidadProd.Name = "cantidadProd";
+            this.cantidadProd.Size = new System.Drawing.Size(266, 26);
+            this.cantidadProd.TabIndex = 2;
+            this.cantidadProd.Text = "1";
+            this.cantidadProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cantidadProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cantidadProd_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label3.Location = new System.Drawing.Point(251, 298);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Cantidad";
+            // 
             // RegistroBodega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 598);
+            this.Controls.Add(this.cantidadProd);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.idProdRegis);
             this.Controls.Add(this.label2);
@@ -115,5 +140,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox idProdRegis;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox cantidadProd;
+        private System.Windows.Forms.Label label3;
     }
 }

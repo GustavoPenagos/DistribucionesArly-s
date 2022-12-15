@@ -60,13 +60,10 @@ namespace DistribucionesArly_s
 
         private void dineroGasto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            //{
-            //    //var n = Convert.ToDouble(this.dineroGasto.Text);
-            //    var n2 = Convert.ToDouble(this.dineroGasto.Text).ToString("C");
-            //    this.dineroGasto.Text = n2;
-            //    this.dineroGasto.Focus();
-            //}
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     } 
 }

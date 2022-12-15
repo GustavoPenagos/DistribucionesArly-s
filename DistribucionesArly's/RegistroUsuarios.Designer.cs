@@ -255,7 +255,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(177, 335);
+            this.label1.Location = new System.Drawing.Point(177, 289);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 20);
             this.label1.TabIndex = 26;
@@ -269,11 +269,12 @@
             this.tipoUsuario.DisplayMember = "Tipo_Usuario";
             this.tipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.tipoUsuario.FormattingEnabled = true;
-            this.tipoUsuario.Location = new System.Drawing.Point(304, 327);
+            this.tipoUsuario.Location = new System.Drawing.Point(304, 281);
             this.tipoUsuario.Name = "tipoUsuario";
             this.tipoUsuario.Size = new System.Drawing.Size(299, 28);
             this.tipoUsuario.TabIndex = 5;
             this.tipoUsuario.ValueMember = "Id_Type_User";
+            this.tipoUsuario.SelectedIndexChanged += new System.EventHandler(this.tipoUsuario_SelectedIndexChanged);
             this.tipoUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tipoUsuario_KeyPress);
             // 
             // tipoUsuarioBindingSource
@@ -313,7 +314,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label8.Location = new System.Drawing.Point(111, 282);
+            this.label8.Location = new System.Drawing.Point(111, 324);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(161, 20);
             this.label8.TabIndex = 28;
@@ -321,8 +322,9 @@
             // 
             // contrUser
             // 
+            this.contrUser.Enabled = false;
             this.contrUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.contrUser.Location = new System.Drawing.Point(304, 282);
+            this.contrUser.Location = new System.Drawing.Point(304, 324);
             this.contrUser.Name = "contrUser";
             this.contrUser.Size = new System.Drawing.Size(299, 26);
             this.contrUser.TabIndex = 4;
@@ -333,7 +335,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 598);
+            this.ClientSize = new System.Drawing.Size(800, 673);
             this.Controls.Add(this.contrUser);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tipoUsuario);

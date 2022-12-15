@@ -72,6 +72,7 @@
             this.NiEmp.Size = new System.Drawing.Size(213, 26);
             this.NiEmp.TabIndex = 1;
             this.NiEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NiEmp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NiEmp_KeyPress);
             // 
             // proEmp
             // 
@@ -119,6 +120,7 @@
             this.telEmp.Size = new System.Drawing.Size(213, 26);
             this.telEmp.TabIndex = 5;
             this.telEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.telEmp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NiEmp_KeyPress);
             // 
             // label4
             // 

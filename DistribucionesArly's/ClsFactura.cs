@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -10,6 +12,8 @@ namespace DistribucionesArly_s
 {
     internal class ClsFactura
     {
+        
+
         public class CreaTicket
         {
             public static StringBuilder line = new StringBuilder();
@@ -163,7 +167,7 @@ namespace DistribucionesArly_s
                         {
                             espacios += " ";
                         }
-                        elementos += espacios + subtotal.ToString();
+                        elementos += espacios + subtotal.ToString("C");
 
                         int CaracterActual = 0;// indica en que caracter se quedo
                         for (int Longtext = Articulo.Length; Longtext > 16; Longtext++)
@@ -241,6 +245,7 @@ namespace DistribucionesArly_s
         #region Clase para enviar a imprsora texto plano
         public class RawPrinterHelper
         {
+
             // Structure and API declarions:
             [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
             public class DOCINFOA
@@ -316,6 +321,7 @@ namespace DistribucionesArly_s
 
             public static bool SendStringToPrinter(string szPrinterName, string szString)
             {
+                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
                 IntPtr pBytes;
                 Int32 dwCount;
                 // How many characters are in the string?
@@ -326,6 +332,13 @@ namespace DistribucionesArly_s
                 // Send the converted ANSI string to the printer.
                 SendBytesToPrinter(szPrinterName, pBytes, dwCount);
                 Marshal.FreeCoTaskMem(pBytes);
+                byte[] bytes = Encoding.ASCII.GetBytes(szString);
+                var base64EncodedBytes = System.Convert.ToBase64String(bytes).ToString();
+                string query = "INSERT INTO FACTURA VALUES('" + base64EncodedBytes + "')";
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
                 return true;
             }
         }

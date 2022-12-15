@@ -25,16 +25,9 @@ namespace DistribucionesArly_s
 
         private void verProducto_Click(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'distribucionesArlysDataSet.lista_bodega' table. You can move, or remove it, as needed.
-            //this.lista_bodegaTableAdapter.Fill(this.distribucionesArlysDataSet.lista_bodega);
             BuscarEnBodega();
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void nombreProducto_KeyPress(object sender, KeyPressEventArgs e)
+       private void nombreProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == Convert.ToChar(Keys.Enter))
             {

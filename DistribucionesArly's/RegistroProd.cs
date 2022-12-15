@@ -46,7 +46,11 @@ namespace DistribucionesArly_s
 
         private void precioProd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 InsertarProd();
             }
@@ -55,7 +59,7 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string query = "INSERT INTO [dbo].[Producto] VALUES (" + Convert.ToInt16(this.idProd.Text) + ",'" + this.nomProd.Text + "'," + this.precioProd.Text + "," + Convert.ToInt16(this.unidProd.SelectedValue) + ")";
+                string query = "INSERT INTO [dbo].[Producto] VALUES (" + Convert.ToInt16(this.idProd.Text) + ",'" + this.nomProd.Text + "'," + ((Convert.ToDouble(this.precioProd.Text) * 0.19) + Convert.ToDouble(this.precioProd.Text)) + "," + Convert.ToInt16(this.unidProd.SelectedValue) + ")";
                 SqlCommand cmd = new SqlCommand(query, con);
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -67,6 +71,14 @@ namespace DistribucionesArly_s
             {
                 con.Close();
                 MessageBox.Show("Data hasn't save in database" + ex);
+            }
+        }
+
+        private void idProd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

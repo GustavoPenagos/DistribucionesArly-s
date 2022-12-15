@@ -90,5 +90,13 @@ namespace DistribucionesArly_s
             //this.selectDepart 
             //this.selectCiudad.ValueMember 
         }
+
+        private void NiEmp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

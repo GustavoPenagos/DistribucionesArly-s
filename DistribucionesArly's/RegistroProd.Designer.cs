@@ -66,6 +66,7 @@
             this.idProd.Size = new System.Drawing.Size(266, 30);
             this.idProd.TabIndex = 1;
             this.idProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.idProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.idProd_KeyPress);
             // 
             // nomProd
             // 

@@ -35,7 +35,6 @@ namespace DistribucionesArly_s
             this.companyTableAdapter.Fill(this.distribucionesArlysDataSet.Company);
             // TODO: This line of code loads data into the 'distribucionesArlysDataSet.Tipo_Documento' table. You can move, or remove it, as needed.
             this.tipo_DocumentoTableAdapter.Fill(this.distribucionesArlysDataSet.Tipo_Documento);
-
         }
 
         private void guardarUsuario_Click(object sender, EventArgs e)
@@ -81,7 +80,11 @@ namespace DistribucionesArly_s
 
         private void numeroDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 nombreUsuario.Focus();
             }
@@ -89,6 +92,10 @@ namespace DistribucionesArly_s
 
         private void nombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 contrUser.Focus();
@@ -124,6 +131,19 @@ namespace DistribucionesArly_s
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 direcUsuario.Focus();
+            }
+        }
+
+        private void tipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if (tipoUsuario.Text == "Cliente" || tipoUsuario.Text == "Proveedor")
+            {
+                this.contrUser.Enabled = false;
+            }
+            else
+            {
+                this.contrUser.Enabled = true;
             }
         }
     }

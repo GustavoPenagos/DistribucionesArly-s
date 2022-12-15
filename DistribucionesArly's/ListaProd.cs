@@ -24,12 +24,11 @@ namespace DistribucionesArly_s
             
             ListaProducto();
         }
-
         private void buscaProd_Click(object sender, EventArgs e)
         {
             try
             {
-                string query = "select * from lista_producto where Nombre_Prod like '%" + this.buscarProd.Text + "%'";
+                string query = "select * from lista_producto where Nombre_Prod like '" + this.buscarProd.Text + "%'";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader dr = cmd.ExecuteReader();

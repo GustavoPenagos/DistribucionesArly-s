@@ -21,7 +21,9 @@ namespace DistribucionesArly_s
         private void ListaProd_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'distribucionesArlysDataSet.lista_producto' table. You can move, or remove it, as needed.
-            
+            this.lista_productoTableAdapter.Fill(this.distribucionesArlysDataSet.lista_producto);
+            // TODO: This line of code loads data into the 'distribucionesArlysDataSet.lista_producto' table. You can move, or remove it, as needed.
+
             ListaProducto();
         }
         private void buscaProd_Click(object sender, EventArgs e)

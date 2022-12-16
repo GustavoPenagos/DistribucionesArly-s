@@ -43,6 +43,8 @@
             this.unidadTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.UnidadTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.marcaProd = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.unidadBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).BeginInit();
             this.panel1.SuspendLayout();
@@ -121,7 +123,7 @@
             // 
             this.guardarProd.AutoSize = true;
             this.guardarProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.guardarProd.Location = new System.Drawing.Point(523, 423);
+            this.guardarProd.Location = new System.Drawing.Point(523, 459);
             this.guardarProd.Name = "guardarProd";
             this.guardarProd.Size = new System.Drawing.Size(93, 35);
             this.guardarProd.TabIndex = 8;
@@ -179,11 +181,32 @@
             this.label5.Text = "Registro de producto";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // marcaProd
+            // 
+            this.marcaProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.marcaProd.Location = new System.Drawing.Point(350, 400);
+            this.marcaProd.Name = "marcaProd";
+            this.marcaProd.Size = new System.Drawing.Size(266, 30);
+            this.marcaProd.TabIndex = 11;
+            this.marcaProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label6.Location = new System.Drawing.Point(258, 405);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 25);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Marca";
+            // 
             // RegistroProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 616);
+            this.Controls.Add(this.marcaProd);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.unidProd);
             this.Controls.Add(this.guardarProd);
@@ -222,5 +245,7 @@
         private DistribucionesArlysDataSetTableAdapters.UnidadTableAdapter unidadTableAdapter;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox marcaProd;
+        private System.Windows.Forms.Label label6;
     }
 }

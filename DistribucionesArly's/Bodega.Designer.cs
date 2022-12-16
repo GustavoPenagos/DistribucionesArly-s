@@ -100,7 +100,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.panel6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel6.Location = new System.Drawing.Point(-1, 415);
+            this.panel6.Location = new System.Drawing.Point(0, 317);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(10, 54);
             this.panel6.TabIndex = 15;
@@ -109,7 +109,7 @@
             // 
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(11, 414);
+            this.pictureBox4.Location = new System.Drawing.Point(12, 316);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(56, 55);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -125,11 +125,11 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(-1, 414);
+            this.button4.Location = new System.Drawing.Point(0, 316);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(223, 55);
             this.button4.TabIndex = 16;
-            this.button4.Text = "Registro de bodega";
+            this.button4.Text = "Registro inventario";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -138,7 +138,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.panel4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel4.Location = new System.Drawing.Point(-1, 332);
+            this.panel4.Location = new System.Drawing.Point(0, 393);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(10, 54);
             this.panel4.TabIndex = 12;
@@ -156,7 +156,7 @@
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(11, 331);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 392);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(56, 55);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -184,11 +184,11 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(-1, 331);
+            this.button3.Location = new System.Drawing.Point(0, 392);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(223, 55);
             this.button3.TabIndex = 13;
-            this.button3.Text = "Lista de bodega";
+            this.button3.Text = "Inventario bodega";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -205,7 +205,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(223, 55);
             this.button2.TabIndex = 10;
-            this.button2.Text = "Lista Producto";
+            this.button2.Text = "Lista de productos";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -243,7 +243,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(223, 55);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Resgistrar Producto";
+            this.button1.Text = "Nuevo registro";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

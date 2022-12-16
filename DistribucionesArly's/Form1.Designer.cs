@@ -308,7 +308,7 @@
             this.bodega.Name = "bodega";
             this.bodega.Size = new System.Drawing.Size(234, 55);
             this.bodega.TabIndex = 4;
-            this.bodega.Text = "Bogeda";
+            this.bodega.Text = "Bodega";
             this.bodega.UseVisualStyleBackColor = true;
             this.bodega.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -324,8 +324,7 @@
             this.carroCompra.Name = "carroCompra";
             this.carroCompra.Size = new System.Drawing.Size(234, 55);
             this.carroCompra.TabIndex = 3;
-            this.carroCompra.Text = "Carrito de compras";
-            this.carroCompra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.carroCompra.Text = "Ventas";
             this.carroCompra.UseVisualStyleBackColor = true;
             this.carroCompra.Click += new System.EventHandler(this.carroCompra_Click);
             // 

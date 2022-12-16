@@ -16,6 +16,7 @@ namespace DistribucionesArly_s
         public Bodega()
         {
             InitializeComponent();
+            OpenFrom(new ListaProd());
         }
         private void OpenFrom(object fromhijo)
         {

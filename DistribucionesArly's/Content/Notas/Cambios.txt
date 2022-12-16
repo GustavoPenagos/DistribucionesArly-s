@@ -1,0 +1,40 @@
+porcentaje en registro producto
+
+venta secundaria
+
+registro usuario nit
+
+proveedor empres, vendedor (tipo usuario)
+
+lsitar usuario con select
+
+control de compras a empresas
+
+(nombre dela empresa - fecha de compra - fecha de experiacion - saldo de compra - numero de factura - descripcion de la factura [foto])
+
+buscar empresa por producto que vende
+
+registro -- inventario bodega (mostrar el total al momento del registro)
+
+espacio de factura legal e ilegal
+
+enviar factura por correo (enexar en registro)
+
+marca de productos
+
+anexa validacion de existente o guardar
+
+opcion de imprimir o no imprimir
+
+------------------------
+a quien se le vende
+
+pagos por transferencia
+
+
+------------------------
+
+crear opciones de compra
+
+crear formato de correo
+

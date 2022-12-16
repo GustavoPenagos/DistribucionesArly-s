@@ -636,7 +636,7 @@ SELECT Id_Gasto, Desc_Gastos, Costo_Gasto, Fecha_Gasto FROM Gastos WHERE (Id_Gas
               <DbSource ConnectionRef="DistribucionesArlysConnectionString (Settings)" DbObjectName="DistribucionesArlys.dbo.lista_producto" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Nombre_Prod, Precio_Prod, Unidad FROM dbo.lista_producto</CommandText>
+                    <CommandText>SELECT Nombre_Prod, Precio_Prod, Unidad, Marca FROM lista_producto</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -646,6 +646,7 @@ SELECT Id_Gasto, Desc_Gastos, Costo_Gasto, Fecha_Gasto FROM Gastos WHERE (Id_Gas
               <Mapping SourceColumn="Nombre_Prod" DataSetColumn="Nombre_Prod" />
               <Mapping SourceColumn="Precio_Prod" DataSetColumn="Precio_Prod" />
               <Mapping SourceColumn="Unidad" DataSetColumn="Unidad" />
+              <Mapping SourceColumn="Marca" DataSetColumn="Marca" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1049,28 +1050,35 @@ SELECT Id_Gasto, Desc_Gastos, Costo_Gasto, Fecha_Gasto FROM Gastos WHERE (Id_Gas
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Marca" msprop:Generator_ColumnPropNameInRow="Marca" msprop:Generator_ColumnPropNameInTable="MarcaColumn" msprop:Generator_ColumnVarNameInTable="columnMarca" msprop:Generator_UserColumnName="Marca" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Lista_Gastos" msprop:Generator_RowEvHandlerName="Lista_GastosRowChangeEventHandler" msprop:Generator_RowDeletedName="Lista_GastosRowDeleted" msprop:Generator_RowDeletingName="Lista_GastosRowDeleting" msprop:Generator_RowEvArgName="Lista_GastosRowChangeEvent" msprop:Generator_TablePropName="Lista_Gastos" msprop:Generator_RowChangedName="Lista_GastosRowChanged" msprop:Generator_RowChangingName="Lista_GastosRowChanging" msprop:Generator_TableClassName="Lista_GastosDataTable" msprop:Generator_RowClassName="Lista_GastosRow" msprop:Generator_TableVarName="tableLista_Gastos" msprop:Generator_UserTableName="Lista_Gastos">
+        <xs:element name="Lista_Gastos" msprop:Generator_RowClassName="Lista_GastosRow" msprop:Generator_RowEvHandlerName="Lista_GastosRowChangeEventHandler" msprop:Generator_RowDeletedName="Lista_GastosRowDeleted" msprop:Generator_RowDeletingName="Lista_GastosRowDeleting" msprop:Generator_RowEvArgName="Lista_GastosRowChangeEvent" msprop:Generator_TablePropName="Lista_Gastos" msprop:Generator_RowChangedName="Lista_GastosRowChanged" msprop:Generator_UserTableName="Lista_Gastos" msprop:Generator_RowChangingName="Lista_GastosRowChanging" msprop:Generator_TableClassName="Lista_GastosDataTable" msprop:Generator_TableVarName="tableLista_Gastos">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="Descripcion" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_ColumnVarNameInTable="columnDescripcion" msprop:Generator_UserColumnName="Descripcion">
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="Descripcion" msprop:Generator_UserColumnName="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnVarNameInTable="columnDescripcion">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="250" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Valor_Gasto" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Valor_Gasto" msprop:Generator_ColumnPropNameInTable="Valor_GastoColumn" msprop:Generator_ColumnVarNameInTable="columnValor_Gasto" msprop:Generator_UserColumnName="Valor_Gasto" minOccurs="0">
+              <xs:element name="Valor_Gasto" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Valor_Gasto" msprop:Generator_ColumnPropNameInTable="Valor_GastoColumn" msprop:Generator_ColumnPropNameInRow="Valor_Gasto" msprop:Generator_ColumnVarNameInTable="columnValor_Gasto" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="4000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Fecha_Gasto" msprop:Generator_ColumnPropNameInRow="Fecha_Gasto" msprop:Generator_ColumnPropNameInTable="Fecha_GastoColumn" msprop:Generator_ColumnVarNameInTable="columnFecha_Gasto" msprop:Generator_UserColumnName="Fecha_Gasto">
+              <xs:element name="Fecha_Gasto" msprop:Generator_UserColumnName="Fecha_Gasto" msprop:Generator_ColumnPropNameInTable="Fecha_GastoColumn" msprop:Generator_ColumnPropNameInRow="Fecha_Gasto" msprop:Generator_ColumnVarNameInTable="columnFecha_Gasto">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -1141,9 +1149,9 @@ SELECT Id_Gasto, Desc_Gastos, Costo_Gasto, Fecha_Gasto FROM Gastos WHERE (Id_Gas
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__Municipal__Id_De__48CFD27E" msdata:parent="Department" msdata:child="Municipality" msdata:parentkey="Id_Department" msdata:childkey="Id_Department" msprop:Generator_UserParentTable="Department" msprop:Generator_UserChildTable="Municipality" msprop:Generator_RelationVarName="relationFK__Municipal__Id_De__48CFD27E" msprop:Generator_ChildPropName="GetMunicipalityRows" msprop:Generator_UserRelationName="FK__Municipal__Id_De__48CFD27E" msprop:Generator_ParentPropName="DepartmentRow" />
-      <msdata:Relationship name="FK_Company_Company" msdata:parent="Company" msdata:child="User" msdata:parentkey="Nit_Company" msdata:childkey="Nit_Company" msprop:Generator_UserParentTable="Company" msprop:Generator_UserChildTable="User" msprop:Generator_RelationVarName="relationFK_Company_Company" msprop:Generator_ChildPropName="GetUserRows" msprop:Generator_ParentPropName="CompanyRow" msprop:Generator_UserRelationName="FK_Company_Company" />
-      <msdata:Relationship name="FK_Unidad" msdata:parent="Unidad" msdata:child="Producto" msdata:parentkey="Id_Unidad" msdata:childkey="Id_Unidad" msprop:Generator_UserParentTable="Unidad" msprop:Generator_UserChildTable="Producto" msprop:Generator_RelationVarName="relationFK_Unidad" msprop:Generator_ChildPropName="GetProductoRows" msprop:Generator_UserRelationName="FK_Unidad" msprop:Generator_ParentPropName="UnidadRow" />
+      <msdata:Relationship name="FK__Municipal__Id_De__48CFD27E" msdata:parent="Department" msdata:child="Municipality" msdata:parentkey="Id_Department" msdata:childkey="Id_Department" msprop:Generator_UserParentTable="Department" msprop:Generator_UserChildTable="Municipality" msprop:Generator_RelationVarName="relationFK__Municipal__Id_De__48CFD27E" msprop:Generator_ChildPropName="GetMunicipalityRows" msprop:Generator_ParentPropName="DepartmentRow" msprop:Generator_UserRelationName="FK__Municipal__Id_De__48CFD27E" />
+      <msdata:Relationship name="FK_Company_Company" msdata:parent="Company" msdata:child="User" msdata:parentkey="Nit_Company" msdata:childkey="Nit_Company" msprop:Generator_UserParentTable="Company" msprop:Generator_UserChildTable="User" msprop:Generator_RelationVarName="relationFK_Company_Company" msprop:Generator_ChildPropName="GetUserRows" msprop:Generator_UserRelationName="FK_Company_Company" msprop:Generator_ParentPropName="CompanyRow" />
+      <msdata:Relationship name="FK_Unidad" msdata:parent="Unidad" msdata:child="Producto" msdata:parentkey="Id_Unidad" msdata:childkey="Id_Unidad" msprop:Generator_UserParentTable="Unidad" msprop:Generator_UserChildTable="Producto" msprop:Generator_RelationVarName="relationFK_Unidad" msprop:Generator_ChildPropName="GetProductoRows" msprop:Generator_ParentPropName="UnidadRow" msprop:Generator_UserRelationName="FK_Unidad" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

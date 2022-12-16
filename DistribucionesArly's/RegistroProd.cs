@@ -59,7 +59,7 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string query = "INSERT INTO [dbo].[Producto] VALUES (" + Convert.ToInt16(this.idProd.Text) + ",'" + this.nomProd.Text + "'," + ((Convert.ToDouble(this.precioProd.Text) * 0.19) + Convert.ToDouble(this.precioProd.Text)) + "," + Convert.ToInt16(this.unidProd.SelectedValue) + ")";
+                string query = "INSERT INTO Producto VALUES (" + Convert.ToInt16(this.idProd.Text) + ",'" + this.nomProd.Text + "'," + ((Convert.ToDouble(this.precioProd.Text) * 0.19) + Convert.ToDouble(this.precioProd.Text)) + "," + Convert.ToInt16(this.unidProd.SelectedValue) + ", '"+this.marcaProd.Text+"')";
                 SqlCommand cmd = new SqlCommand(query, con);
                 con.Open();
                 cmd.ExecuteNonQuery();

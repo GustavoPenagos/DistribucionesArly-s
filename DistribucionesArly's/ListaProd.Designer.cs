@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.listaproductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -43,17 +44,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nombreProdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.distribucionesArlysDataSet = new DistribucionesArly_s.DistribucionesArlysDataSet();
-            this.listaproductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nombreProdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioProdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listaproductoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.lista_productoTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.lista_productoTableAdapter();
+            this.nombreProdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.marcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaproductoBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listaproductoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaproductoBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -73,10 +77,11 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombreProdDataGridViewTextBoxColumn2,
-            this.precioProdDataGridViewTextBoxColumn,
-            this.unidadDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.listaproductoBindingSource;
+            this.nombreProdDataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.marcaDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.listaproductoBindingSource1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
@@ -195,26 +200,42 @@
             this.distribucionesArlysDataSet.DataSetName = "DistribucionesArlysDataSet";
             this.distribucionesArlysDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // nombreProdDataGridViewTextBoxColumn2
+            // listaproductoBindingSource1
             // 
-            this.nombreProdDataGridViewTextBoxColumn2.DataPropertyName = "Nombre_Prod";
-            this.nombreProdDataGridViewTextBoxColumn2.HeaderText = "Nombre_Prod";
-            this.nombreProdDataGridViewTextBoxColumn2.Name = "nombreProdDataGridViewTextBoxColumn2";
-            this.nombreProdDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.listaproductoBindingSource1.DataMember = "lista_producto";
+            this.listaproductoBindingSource1.DataSource = this.distribucionesArlysDataSet;
             // 
-            // precioProdDataGridViewTextBoxColumn
+            // lista_productoTableAdapter
             // 
-            this.precioProdDataGridViewTextBoxColumn.DataPropertyName = "Precio_Prod";
-            this.precioProdDataGridViewTextBoxColumn.HeaderText = "Precio_Prod";
-            this.precioProdDataGridViewTextBoxColumn.Name = "precioProdDataGridViewTextBoxColumn";
-            this.precioProdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lista_productoTableAdapter.ClearBeforeFill = true;
             // 
-            // unidadDataGridViewTextBoxColumn
+            // nombreProdDataGridViewTextBoxColumn1
             // 
-            this.unidadDataGridViewTextBoxColumn.DataPropertyName = "Unidad";
-            this.unidadDataGridViewTextBoxColumn.HeaderText = "Unidad";
-            this.unidadDataGridViewTextBoxColumn.Name = "unidadDataGridViewTextBoxColumn";
-            this.unidadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreProdDataGridViewTextBoxColumn1.DataPropertyName = "Nombre_Prod";
+            this.nombreProdDataGridViewTextBoxColumn1.HeaderText = "Nombre_Prod";
+            this.nombreProdDataGridViewTextBoxColumn1.Name = "nombreProdDataGridViewTextBoxColumn1";
+            this.nombreProdDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Precio_Prod";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Precio_Prod";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Unidad";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Unidad";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // marcaDataGridViewTextBoxColumn
+            // 
+            this.marcaDataGridViewTextBoxColumn.DataPropertyName = "Marca";
+            this.marcaDataGridViewTextBoxColumn.HeaderText = "Marca";
+            this.marcaDataGridViewTextBoxColumn.Name = "marcaDataGridViewTextBoxColumn";
+            this.marcaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ListaProd
             // 
@@ -228,13 +249,14 @@
             this.Text = "ListaProd";
             this.Load += new System.EventHandler(this.ListaProd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaproductoBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listaproductoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaproductoBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,5 +278,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreProdDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioProdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unidadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource listaproductoBindingSource1;
+        private DistribucionesArlysDataSetTableAdapters.lista_productoTableAdapter lista_productoTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn marcaDataGridViewTextBoxColumn;
     }
 }

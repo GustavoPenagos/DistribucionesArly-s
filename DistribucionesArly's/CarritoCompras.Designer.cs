@@ -108,7 +108,8 @@
             this.carroCompra.Name = "carroCompra";
             this.carroCompra.Size = new System.Drawing.Size(225, 55);
             this.carroCompra.TabIndex = 6;
-            this.carroCompra.Text = "Compras";
+            this.carroCompra.Text = "Compras con factura";
+            this.carroCompra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.carroCompra.UseVisualStyleBackColor = true;
             this.carroCompra.Click += new System.EventHandler(this.carroCompra_Click);
             // 

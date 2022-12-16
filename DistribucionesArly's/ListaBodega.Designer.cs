@@ -70,7 +70,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(906, 100);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Registro de bodega";
+            this.label1.Text = "Inventario de bodega";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2

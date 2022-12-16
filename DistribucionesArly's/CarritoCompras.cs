@@ -15,6 +15,7 @@ namespace DistribucionesArly_s
         public CarritoCompras()
         {
             InitializeComponent();
+            OpenFrom(new Compras());
         }
         private void OpenFrom(object fromhijo)
         {

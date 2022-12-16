@@ -19,7 +19,6 @@ namespace DistribucionesArly_s
         public Form1()
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-
             InitializeComponent();
         }
         private void OpenFrom(object fromhijo)

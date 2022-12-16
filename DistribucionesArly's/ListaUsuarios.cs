@@ -52,7 +52,11 @@ namespace DistribucionesArly_s
 
         private void idBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 BuscarUser();
             }
@@ -83,6 +87,18 @@ namespace DistribucionesArly_s
             catch (Exception ex)
             {
                 MessageBox.Show("No ha ingresado un documento no esiste");
+            }
+        }
+
+        private void idEliminar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                button1_Click(sender, e);
             }
         }
     }

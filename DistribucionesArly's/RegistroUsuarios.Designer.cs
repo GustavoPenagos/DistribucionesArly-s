@@ -272,7 +272,7 @@
             this.tipoUsuario.Location = new System.Drawing.Point(304, 281);
             this.tipoUsuario.Name = "tipoUsuario";
             this.tipoUsuario.Size = new System.Drawing.Size(299, 28);
-            this.tipoUsuario.TabIndex = 5;
+            this.tipoUsuario.TabIndex = 4;
             this.tipoUsuario.ValueMember = "Id_Type_User";
             this.tipoUsuario.SelectedIndexChanged += new System.EventHandler(this.tipoUsuario_SelectedIndexChanged);
             this.tipoUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tipoUsuario_KeyPress);
@@ -327,7 +327,7 @@
             this.contrUser.Location = new System.Drawing.Point(304, 324);
             this.contrUser.Name = "contrUser";
             this.contrUser.Size = new System.Drawing.Size(299, 26);
-            this.contrUser.TabIndex = 4;
+            this.contrUser.TabIndex = 5;
             this.contrUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.contrUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contrUser_KeyPress);
             // 

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -88,8 +89,6 @@ namespace DistribucionesArly_s
         {
             try
             {
-                Facturacion();
-
                 string queryCompra = "select * from Lista_Compras";
                 SqlDataAdapter adap = new SqlDataAdapter(queryCompra, con);
                 DataTable dTable = new DataTable();
@@ -97,20 +96,33 @@ namespace DistribucionesArly_s
                 con.Open();
                 for (int i = 0; i < dTable.Rows.Count; i++)
                 {
-                    var idPro = dTable.Rows[i].ItemArray[0].ToString();
-                    var cantidad = dTable.Rows[i].ItemArray[3].ToString();
-                    string queryDelete = "delete top (" + cantidad + ")  from bodega where Id_Prod = " + idPro;
-                    SqlCommand cmdDelete = new SqlCommand(queryDelete, con);
-                    cmdDelete.ExecuteNonQuery();
+                    DialogResult dr = MessageBox.Show("Se realiza la compra?", "Seleccionar", MessageBoxButtons.YesNo);
+                    switch (dr)
+                    {
+                        case DialogResult.Yes:
+                            Facturacion();
+                            var idPro = dTable.Rows[i].ItemArray[0].ToString();
+                            var cantidad = dTable.Rows[i].ItemArray[3].ToString();
+                            string queryDelete = "delete top (" + cantidad + ")  from bodega where Id_Prod = " + idPro;
+                            SqlCommand cmdDelete = new SqlCommand(queryDelete, con);
+                            cmdDelete.ExecuteNonQuery();
+                            string queryDeleteCompras = "delete from Compras";
+                            SqlCommand cmdDeleteCompras = new SqlCommand(queryDeleteCompras, con);
+                            cmdDeleteCompras.ExecuteNonQuery();
+                            con.Close();
+                            dataGridView2.DataSource = null;
+                            this.cambioDe.Text = "";
+                            this.cancelaCon.Text = "";
+                            this.totalVenta.Text = "";
+                            break;
+                        case DialogResult.No:
+                            con.Close();
+                            MessageBox.Show("Compra Cancelada");
+                            break;
+                    }
+                    
                 }
-                string queryDeleteCompras = "delete from Compras";
-                SqlCommand cmdDeleteCompras = new SqlCommand(queryDeleteCompras, con);
-                cmdDeleteCompras.ExecuteNonQuery();
-                con.Close();
-                dataGridView2.DataSource = null;
-                this.cambioDe.Text = "";
-                this.cancelaCon.Text = "";
-                this.totalVenta.Text = "";
+                
             }
             catch(Exception ex)
             {

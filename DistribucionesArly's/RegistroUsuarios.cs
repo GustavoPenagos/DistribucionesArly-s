@@ -128,6 +128,10 @@ namespace DistribucionesArly_s
 
         private void telefonoUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 direcUsuario.Focus();

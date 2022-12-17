@@ -1,30 +1,40 @@
-porcentaje en registro producto
+X. porcentaje en registro producto
 
 venta secundaria
 
-registro usuario nit
+X. registro usuario nit
 
 proveedor empres, vendedor (tipo usuario)
 
-lsitar usuario con select
+X. lsitar usuario con select
 
 control de compras a empresas
 
-(nombre dela empresa - fecha de compra - fecha de experiacion - saldo de compra - numero de factura - descripcion de la factura [foto])
+FACTURA DE COMPRA A PROVEEDORES:
+	(nombre de la empresa - fecha de compra - fecha de experiacion - saldo de compra - numero de factura - descripcion de la factura [foto])
 
 buscar empresa por producto que vende
 
-registro -- inventario bodega (mostrar el total al momento del registro)
+X. registro -- inventario bodega (mostrar el total al momento del registro)
 
 espacio de factura legal e ilegal
 
-enviar factura por correo (enexar en registro)
+enviar factura por correo 
 
-marca de productos
+X. enexar en registro
 
-anexa validacion de existente o guardar
+X. marca de productos
 
-opcion de imprimir o no imprimir
+X. anexa validacion de existente o guardar
+
+X. opcion de imprimir o no imprimir
+
+Select en listaEmpresa 
+-----------------------
+Nit
+Nombre
+Departamento
+Ciudad
 
 ------------------------
 a quien se le vende
@@ -37,4 +47,7 @@ pagos por transferencia
 crear opciones de compra
 
 crear formato de correo
+
+-----------------------
+
 

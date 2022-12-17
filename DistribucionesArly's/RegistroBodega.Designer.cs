@@ -116,6 +116,7 @@
             // 
             // cantProdBod
             // 
+            this.cantProdBod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cantProdBod.Enabled = false;
             this.cantProdBod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cantProdBod.Location = new System.Drawing.Point(701, 295);

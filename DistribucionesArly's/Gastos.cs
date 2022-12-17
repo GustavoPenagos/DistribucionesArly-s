@@ -15,6 +15,7 @@ namespace DistribucionesArly_s
         public Gastos()
         {
             InitializeComponent();
+            OpenFrom(new ListaGastos());
         }
         private void OpenFrom(object fromhijo)
         {

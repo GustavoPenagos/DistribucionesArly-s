@@ -15,6 +15,7 @@ namespace DistribucionesArly_s
         public Usuario()
         {
             InitializeComponent();
+            OpenFrom(new ListaUsuarios());
         }
         private void OpenFrom(object fromhijo)
         {

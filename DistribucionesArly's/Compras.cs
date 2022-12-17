@@ -57,9 +57,9 @@ namespace DistribucionesArly_s
                 da.Fill(dt);
                 var id_prod = dt.Rows[0].ItemArray[0].ToString();
                 var nombre = dt.Rows[0].ItemArray[1].ToString();
-                var precio = dt.Rows[0].ItemArray[2].ToString();
+                var precio = dt.Rows[0].ItemArray[6].ToString();
                 var unidades = dt.Rows[0].ItemArray[3].ToString();
-                con.Close();
+                //con.Close();
                 var cantidad = Convert.ToInt64(this.canProd.Text);
                 for (int i = 0; i < cantidad; i++)
                 {
@@ -67,12 +67,12 @@ namespace DistribucionesArly_s
                     "([Id_Prod],[Nom_Prod],[Precio_Prod],[Unid_Prod]) " +
                     "VALUES (" + Convert.ToInt32(id_prod) + ",'" + nombre +
                     "','" + precio + "'," + Convert.ToInt32(unidades) + ")";
-                    con.Open();
+                    //con.Open();
                     SqlCommand cmd = new SqlCommand(query2, con);
                     cmd.ExecuteNonQuery();
-                    con.Close();
                 }
-                
+                con.Close();
+
                 ListaCompra();
                 this.idProdC.Text = "";
                 this.idProdC.Focus();
@@ -89,39 +89,29 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string queryCompra = "select * from Lista_Compras";
-                SqlDataAdapter adap = new SqlDataAdapter(queryCompra, con);
-                DataTable dTable = new DataTable();
-                adap.Fill(dTable);
-                con.Open();
-                for (int i = 0; i < dTable.Rows.Count; i++)
+                
+                DialogResult dr = MessageBox.Show("Se realiza la compra?", "Seleccionar", MessageBoxButtons.YesNo);
+                switch (dr)
                 {
-                    DialogResult dr = MessageBox.Show("Se realiza la compra?", "Seleccionar", MessageBoxButtons.YesNo);
-                    switch (dr)
-                    {
-                        case DialogResult.Yes:
-                            Facturacion();
-                            var idPro = dTable.Rows[i].ItemArray[0].ToString();
-                            var cantidad = dTable.Rows[i].ItemArray[3].ToString();
-                            string queryDelete = "delete top (" + cantidad + ")  from bodega where Id_Prod = " + idPro;
-                            SqlCommand cmdDelete = new SqlCommand(queryDelete, con);
-                            cmdDelete.ExecuteNonQuery();
-                            string queryDeleteCompras = "delete from Compras";
-                            SqlCommand cmdDeleteCompras = new SqlCommand(queryDeleteCompras, con);
-                            cmdDeleteCompras.ExecuteNonQuery();
-                            con.Close();
-                            dataGridView2.DataSource = null;
-                            this.cambioDe.Text = "";
-                            this.cancelaCon.Text = "";
-                            this.totalVenta.Text = "";
-                            break;
-                        case DialogResult.No:
-                            con.Close();
-                            MessageBox.Show("Compra Cancelada");
-                            break;
-                    }
-                    
+                    case DialogResult.Yes:
+                        DialogResult dr2 = MessageBox.Show("Quiere imprimir?", "Seleccionar", MessageBoxButtons.YesNo);
+                        switch (dr2)
+                        {
+                            case DialogResult.Yes:
+                                SeleccionImp("yes");
+                                break;
+                            case DialogResult.No:
+                                SeleccionImp("no");
+                                break;
+                            default: break;
+                        }
+                        break;
+                    case DialogResult.No:
+                        con.Close();
+                        MessageBox.Show("Compra Cancelada");
+                        break;
                 }
+                
                 
             }
             catch(Exception ex)
@@ -170,14 +160,14 @@ namespace DistribucionesArly_s
                         Ticket1.TextoIzquierda("");
                         Ticket1.TextoIzquierda("");
                         Ticket1.TextoCentro("Factura de Venta"); //imprime una linea de descripcion
-                        con.Open();
+                        //con.Open();
                         string queryIdFac = "select MAX(Id_Factura) + 1 from Factura ";
                         SqlDataAdapter da = new SqlDataAdapter(queryIdFac, con);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
                         var idFactura = dt.Rows[0].ItemArray[0].ToString();
                         Ticket1.TextoIzquierda("No Fac:" + idFactura);
-                        con.Close();
+                        //con.Close();
                         Ticket1.TextoIzquierda("Fecha:" + DateTime.Now.ToShortDateString() + " Hora:" + DateTime.Now.ToShortTimeString());
                         Ticket1.TextoIzquierda("Le Atendio: Distribuciones Arly´s");
                         Ticket1.TextoIzquierda("");
@@ -195,7 +185,7 @@ namespace DistribucionesArly_s
                         var ivaComp = (totalComp / 1.19) * 0.19;
 
                         ClsFactura.CreaTicket.LineasGuion();
-                        Ticket1.AgregaTotales("Sub-Total", totalComp / 1.19); // imprime linea con Subtotal
+                        Ticket1.AgregaTotales("Sub-Total", totalComp); // imprime linea con Subtotal
                         Ticket1.AgregaTotales("Menos Descuento", double.Parse("000")); // imprime linea con decuento total
                         Ticket1.AgregaTotales("Mas IVA (19%)", ivaComp); // imprime linea con ITBis total
                         Ticket1.TextoIzquierda(" ");
@@ -215,7 +205,7 @@ namespace DistribucionesArly_s
                         Ticket1.TextoIzquierda(" ");
                         string impresora = "Microsoft XPS Document Writer";
                         Ticket1.ImprimirTiket(impresora);
-
+                        
 
 
 
@@ -224,7 +214,7 @@ namespace DistribucionesArly_s
                     catch (Exception ex)
                     {
                         con.Close();
-                        MessageBox.Show("Error");
+                        MessageBox.Show(ex.Message);
                     }
                 }
             }
@@ -320,6 +310,48 @@ namespace DistribucionesArly_s
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        private void SeleccionImp(string a)
+        {
+            try
+            {
+                
+                if (a.Equals("yes"))
+                {
+                    Facturacion();
+                }
+                else
+                {
+
+                }
+                string queryCompra = "select * from Lista_Compras";
+                SqlDataAdapter adap = new SqlDataAdapter(queryCompra, con);
+                DataTable dTable = new DataTable();
+                adap.Fill(dTable);
+                con.Open();
+                for (int i = 0; i < dTable.Rows.Count; i++)
+                {
+                    var idPro = dTable.Rows[i].ItemArray[0].ToString();
+                    var cantidad = dTable.Rows[i].ItemArray[3].ToString();
+
+                    string queryDelete = "delete top (" + cantidad + ")  from bodega where Id_Prod = " + idPro;
+                    SqlCommand cmdDelete = new SqlCommand(queryDelete, con);
+                    cmdDelete.ExecuteNonQuery();
+                    string queryDeleteCompras = "delete from Compras";
+                    SqlCommand cmdDeleteCompras = new SqlCommand(queryDeleteCompras, con);
+                    cmdDeleteCompras.ExecuteNonQuery();
+                }
+                con.Close();
+                dataGridView2.DataSource = null;
+                this.cambioDe.Text = "";
+                this.cancelaCon.Text = "";
+                this.totalVenta.Text = "";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

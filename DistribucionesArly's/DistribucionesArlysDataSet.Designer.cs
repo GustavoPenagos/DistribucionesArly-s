@@ -5125,6 +5125,8 @@ namespace DistribucionesArly_s {
             
             private global::System.Data.DataColumn columnMarca;
             
+            private global::System.Data.DataColumn columnID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public lista_productoDataTable() {
@@ -5192,6 +5194,14 @@ namespace DistribucionesArly_s {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5227,16 +5237,24 @@ namespace DistribucionesArly_s {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public lista_productoRow Addlista_productoRow(string Nombre_Prod, string Precio_Prod, string Unidad, string Marca) {
+            public lista_productoRow Addlista_productoRow(string Nombre_Prod, string Precio_Prod, string Unidad, string Marca, int ID) {
                 lista_productoRow rowlista_productoRow = ((lista_productoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Nombre_Prod,
                         Precio_Prod,
                         Unidad,
-                        Marca};
+                        Marca,
+                        ID};
                 rowlista_productoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowlista_productoRow);
                 return rowlista_productoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public lista_productoRow FindByID(int ID) {
+                return ((lista_productoRow)(this.Rows.Find(new object[] {
+                            ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5260,6 +5278,7 @@ namespace DistribucionesArly_s {
                 this.columnPrecio_Prod = base.Columns["Precio_Prod"];
                 this.columnUnidad = base.Columns["Unidad"];
                 this.columnMarca = base.Columns["Marca"];
+                this.columnID = base.Columns["ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5273,6 +5292,10 @@ namespace DistribucionesArly_s {
                 base.Columns.Add(this.columnUnidad);
                 this.columnMarca = new global::System.Data.DataColumn("Marca", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMarca);
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID}, true));
                 this.columnNombre_Prod.AllowDBNull = false;
                 this.columnNombre_Prod.MaxLength = 50;
                 this.columnPrecio_Prod.ReadOnly = true;
@@ -5280,6 +5303,8 @@ namespace DistribucionesArly_s {
                 this.columnUnidad.AllowDBNull = false;
                 this.columnUnidad.MaxLength = 50;
                 this.columnMarca.MaxLength = 100;
+                this.columnID.AllowDBNull = false;
+                this.columnID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7421,6 +7446,17 @@ namespace DistribucionesArly_s {
                 }
                 set {
                     this[this.tablelista_producto.MarcaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ID {
+                get {
+                    return ((int)(this[this.tablelista_producto.IDColumn]));
+                }
+                set {
+                    this[this.tablelista_producto.IDColumn] = value;
                 }
             }
             
@@ -12457,6 +12493,7 @@ SELECT Id_Gasto, Desc_Gastos, Costo_Gasto, Fecha_Gasto FROM Gastos WHERE (Id_Gas
             tableMapping.ColumnMappings.Add("Precio_Prod", "Precio_Prod");
             tableMapping.ColumnMappings.Add("Unidad", "Unidad");
             tableMapping.ColumnMappings.Add("Marca", "Marca");
+            tableMapping.ColumnMappings.Add("ID", "ID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -12473,7 +12510,7 @@ SELECT Id_Gasto, Desc_Gastos, Costo_Gasto, Fecha_Gasto FROM Gastos WHERE (Id_Gas
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Nombre_Prod, Precio_Prod, Unidad, Marca FROM lista_producto";
+            this._commandCollection[0].CommandText = "SELECT Nombre_Prod, Precio_Prod, Unidad, Marca, ID FROM lista_producto";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

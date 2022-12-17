@@ -15,8 +15,9 @@ namespace DistribucionesArly_s
         public Empresa()
         {
             InitializeComponent();
+            OpenFrom(new ListaEmpresa());
         }
-        //RegistraEmpresa
+        
         private void OpenFrom(object fromhijo)
         {
             if (this.panelContainEmpresa.Controls.Count > 0)

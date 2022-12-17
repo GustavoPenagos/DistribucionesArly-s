@@ -22,9 +22,7 @@ namespace DistribucionesArly_s
 
         private void ListaEmpresa_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'distribucionesArlysDataSet.Lista_Emp' table. You can move, or remove it, as needed.
-            this.lista_EmpTableAdapter.Fill(this.distribucionesArlysDataSet.Lista_Emp);
-
+            ListEmpresa();
         }
 
         private void bNomEmp_KeyPress(object sender, KeyPressEventArgs e)
@@ -81,6 +79,25 @@ namespace DistribucionesArly_s
                 {
                     BuscarEmpresa();
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+        private void ListEmpresa()
+        {
+            try
+            {
+                string query = "select * from Lista_Emp";
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                dataGridView1.DataSource = dt;
+                con.Close();
             }
             catch(Exception ex)
             {

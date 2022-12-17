@@ -45,6 +45,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.marcaProd = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.utilidad = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.unidadBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).BeginInit();
             this.panel1.SuspendLayout();
@@ -123,7 +125,7 @@
             // 
             this.guardarProd.AutoSize = true;
             this.guardarProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.guardarProd.Location = new System.Drawing.Point(523, 459);
+            this.guardarProd.Location = new System.Drawing.Point(523, 526);
             this.guardarProd.Name = "guardarProd";
             this.guardarProd.Size = new System.Drawing.Size(93, 35);
             this.guardarProd.TabIndex = 8;
@@ -200,11 +202,32 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Marca";
             // 
+            // utilidad
+            // 
+            this.utilidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.utilidad.Location = new System.Drawing.Point(350, 450);
+            this.utilidad.Name = "utilidad";
+            this.utilidad.Size = new System.Drawing.Size(266, 30);
+            this.utilidad.TabIndex = 13;
+            this.utilidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label7.Location = new System.Drawing.Point(258, 455);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 25);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Utilidad";
+            // 
             // RegistroProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 616);
+            this.Controls.Add(this.utilidad);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.marcaProd);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
@@ -247,5 +270,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox marcaProd;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox utilidad;
+        private System.Windows.Forms.Label label7;
     }
 }

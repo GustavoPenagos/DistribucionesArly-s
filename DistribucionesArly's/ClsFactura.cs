@@ -131,7 +131,12 @@ namespace DistribucionesArly_s
             // se le pasan los Aticulos  con sus detalles
             public void AgregaArticulo(string Articulo, double precio, int cant, double subtotal)
             {
-                if (cant.ToString().Length <= 3 && precio.ToString("c").Length <= 11 && subtotal.ToString("c").Length <= 11) // valida que cant precio y total esten dentro de rango
+                var can = cant.ToString().Length;
+                var pre = precio.ToString().Length;
+                var sub = subtotal.ToString().Length;
+                if (can <= 4 && 
+                    pre.ToString("c").Length <= 11 && 
+                    sub.ToString("c").Length <= 11) // valida que cant precio y total esten dentro de rango
                 {
                     string elementos = "", espacios = "";
                     bool bandera = false;

@@ -47,6 +47,8 @@
             this.tableAdapterManager = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.TableAdapterManager();
             this.label8 = new System.Windows.Forms.Label();
             this.contrUser = new System.Windows.Forms.TextBox();
+            this.eMail = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tipoDocumentoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSetBindingSource)).BeginInit();
@@ -85,7 +87,7 @@
             this.guardarUsuario.AutoSize = true;
             this.guardarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guardarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guardarUsuario.Location = new System.Drawing.Point(525, 527);
+            this.guardarUsuario.Location = new System.Drawing.Point(525, 573);
             this.guardarUsuario.Name = "guardarUsuario";
             this.guardarUsuario.Size = new System.Drawing.Size(78, 30);
             this.guardarUsuario.TabIndex = 17;
@@ -331,11 +333,32 @@
             this.contrUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.contrUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contrUser_KeyPress);
             // 
+            // eMail
+            // 
+            this.eMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.eMail.Location = new System.Drawing.Point(304, 530);
+            this.eMail.Name = "eMail";
+            this.eMail.Size = new System.Drawing.Size(299, 26);
+            this.eMail.TabIndex = 29;
+            this.eMail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label9.Location = new System.Drawing.Point(215, 536);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 20);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Correo";
+            // 
             // RegistroUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 673);
+            this.Controls.Add(this.eMail);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.contrUser);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tipoUsuario);
@@ -402,5 +425,7 @@
         private DistribucionesArlysDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox contrUser;
+        private System.Windows.Forms.TextBox eMail;
+        private System.Windows.Forms.Label label9;
     }
 }

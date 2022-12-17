@@ -24,7 +24,8 @@ namespace DistribucionesArly_s
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ConteoProd();
+            var cantidad = Convert.ToInt32(this.cantidadProd.Text);
+            ConteoProd(cantidad);
             InsertarBodega();
         }
         private void borrar()
@@ -85,8 +86,9 @@ namespace DistribucionesArly_s
             }
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                ConteoProd();
+                var cantidad = Convert.ToInt32(this.cantidadProd.Text);
                 InsertarBodega();
+                ConteoProd(cantidad);
             } 
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -117,7 +119,7 @@ namespace DistribucionesArly_s
             
         }
         
-        public void ConteoProd()
+        public void ConteoProd(int a)
         {
             string queryCantidad = "SELECT COUNT(b.Id_Prod) AS Cantidad " +
                     "FROM dbo.Producto AS p " +
@@ -128,7 +130,7 @@ namespace DistribucionesArly_s
             SqlDataAdapter ad = new SqlDataAdapter(queryCantidad, con);
             ad.Fill(dt);
             con.Close();
-            this.cantProdBod.Text = dt.Rows[0].ItemArray[0].ToString();
+            this.cantProdBod.Text = (Convert.ToInt64(dt.Rows[0].ItemArray[0]) + a).ToString();
         }
     }
 }

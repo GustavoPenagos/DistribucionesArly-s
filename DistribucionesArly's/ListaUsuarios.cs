@@ -19,19 +19,13 @@ namespace DistribucionesArly_s
         public ListaUsuarios()
         {
             InitializeComponent();
-        }
-
-        private void buscarId_Click(object sender, EventArgs e)
-        {
-            BuscarUser();            
+            
         }
 
         private void ListaUsuarios_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'distribucionesArlysDataSet.lista_usuario' table. You can move, or remove it, as needed.
-            this.lista_usuarioTableAdapter.Fill(this.distribucionesArlysDataSet.lista_usuario);
+            ListarUsuarios();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -49,12 +43,25 @@ namespace DistribucionesArly_s
                 MessageBox.Show("El numero " + this.idEliminar.Text + " no se ha eliminado correctamente");
             }
         }
-
         private void idBuscar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+        {            
+            if (this.selecBus.Text.Equals("Identificacion") || this.selecBus.Text.Equals("Telefono"))
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+            else if(this.selecBus.Text.Equals("Nombre de empresa"))
+            {
+
+            }
+            else
+            {
+                if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
             }
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
@@ -69,7 +76,76 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string query = " select * from lista_usuario where Nombre like '%" + this.idBuscar.Text + "%'";
+                var selectBusc = this.selecBus.Text;
+
+                if (this.idBuscar.Text == "")
+                {
+                    MessageBox.Show("Campo de busqueda vacio");
+                    return;
+                }
+                else
+                {
+                    switch (selectBusc)
+                    {
+                        case "Identificacion":
+                            selectBusc = "Identificacion";
+                            BuscarUsuario(selectBusc.ToString());
+                            break;
+                        case "Nombre":
+                            selectBusc = "Nombre";
+                            BuscarUsuario(selectBusc.ToString());
+                            break;
+                        case "Empresa":
+                            selectBusc = "Nombre de empresa";
+                            BuscarUsuario(selectBusc.ToString());
+                            break;
+                        case "Telefono":
+                            selectBusc = "Telefono";
+                            BuscarUsuario(selectBusc.ToString());
+                            break;
+                        default: MessageBox.Show("No ha elegido un opcion valida"); break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No ha ingresado un documento no esiste");
+            }
+        }
+        private void idEliminar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                button1_Click(sender, e);
+            }
+        }
+        private void ListarUsuarios()
+        {
+            try
+            {
+                string query1 = "SELECT *  FROM lista_usuario";
+                con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(query1, con);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
+        }
+        private void BuscarUsuario(string a)
+        {
+            try
+            {
+                string query = " select * from lista_usuario where " + a.ToString() + " like '" + this.idBuscar.Text + "%'";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -84,22 +160,19 @@ namespace DistribucionesArly_s
                 con.Close();
                 borrar();
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                MessageBox.Show("No ha ingresado un documento no esiste");
+                MessageBox.Show(ex.Message);
             }
+            
         }
-
-        private void idEliminar_KeyPress(object sender, KeyPressEventArgs e)
+        private void selecBus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                button1_Click(sender, e);
-            }
+            this.idBuscar.Text = "";
+        }
+        private void buscarId_Click(object sender, EventArgs e)
+        {
+            BuscarUser();
         }
     }
 }

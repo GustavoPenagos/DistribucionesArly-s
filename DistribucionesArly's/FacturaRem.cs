@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,10 +9,8 @@ using System.Windows.Forms;
 
 namespace DistribucionesArly_s
 {
-    internal class ClsFactura
+    internal class FacturaRem
     {
-        
-
         public class CreaTicket
         {
             public static StringBuilder line = new StringBuilder();
@@ -131,11 +128,12 @@ namespace DistribucionesArly_s
             // se le pasan los Aticulos  con sus detalles
             public void AgregaArticulo(string Articulo, double precio, int cant, double subtotal)
             {
-                int can = cant.ToString().Length;
-                int pre = precio.ToString().Length;
-                int sub = subtotal.ToString().Length;
-
-                if (can <= 4 && pre.ToString("c").Length <= 11 && sub.ToString("c").Length <= 11) // valida que cant precio y total esten dentro de rango
+                var can = cant.ToString().Length;
+                var pre = precio.ToString().Length;
+                var sub = subtotal.ToString().Length;
+                if (can <= 4 &&
+                    pre.ToString("c").Length <= 11 &&
+                    sub.ToString("c").Length <= 11) // valida que cant precio y total esten dentro de rango
                 {
                     string elementos = "", espacios = "";
                     bool bandera = false;
@@ -145,7 +143,7 @@ namespace DistribucionesArly_s
                     {
                         //cort = max - 16;
                         //parte1 = Articulo.Remove(16, cort);          // corta a 16 la descripcion del articulo
-                        nroEspacios = (3 - cant);
+                        nroEspacios = (3 - cant.ToString().Length);
                         espacios = "";
                         for (int i = 0; i < nroEspacios; i++)
                         {
@@ -338,7 +336,7 @@ namespace DistribucionesArly_s
                 Marshal.FreeCoTaskMem(pBytes);
                 byte[] bytes = Encoding.ASCII.GetBytes(szString);
                 var base64EncodedBytes = System.Convert.ToBase64String(bytes).ToString();
-                string query = "INSERT INTO FACTURA VALUES('" + base64EncodedBytes + "')";
+                string query = "INSERT INTO FacturaRem VALUES('" + base64EncodedBytes + "')";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();

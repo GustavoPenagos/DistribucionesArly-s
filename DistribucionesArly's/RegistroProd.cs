@@ -20,11 +20,9 @@ namespace DistribucionesArly_s
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
         private void RegistroProd_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'distribucionesArlysDataSet.Unidad' table. You can move, or remove it, as needed.
             this.unidadTableAdapter.Fill(this.distribucionesArlysDataSet.Unidad);
 
         }
-
         private void guardarProd_Click(object sender, EventArgs e)
         {
             InsertarProd();
@@ -43,16 +41,22 @@ namespace DistribucionesArly_s
             }           
 
         }
-
         private void precioProd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            try
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    InsertarProd();
+                }
             }
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            catch(Exception ex)
             {
-                InsertarProd();
+                MessageBox.Show(ex.Message);
             }
         }
         private void InsertarProd()
@@ -62,7 +66,7 @@ namespace DistribucionesArly_s
                 double util = Convert.ToDouble(this.utilidad.Text);
                 double precProd = Convert.ToDouble(this.precioProd.Text);
                 double precVenta = ((util/100) + 1) * precProd;
-                string query = "INSERT INTO Producto VALUES (" + Convert.ToInt16(this.idProd.Text) + ",'" + this.nomProd.Text + "'," + Convert.ToDouble(this.precioProd.Text) + "," + Convert.ToInt16(this.unidProd.SelectedValue) + ", '"+this.marcaProd.Text+"','" + this.utilidad.Text + "','" + precVenta + "')";
+                string query = "INSERT INTO Producto VALUES (" + Convert.ToInt64(this.idProd.Text) + ",'" + this.nomProd.Text + "'," + Convert.ToDouble(this.precioProd.Text) + "," + Convert.ToInt64(this.unidProd.SelectedValue) + ", '"+this.marcaProd.Text+"','" + this.utilidad.Text + "','" + precVenta + "')";
                 SqlCommand cmd = new SqlCommand(query, con);
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -76,12 +80,18 @@ namespace DistribucionesArly_s
                 MessageBox.Show("Data hasn't save in database" + ex);
             }
         }
-
         private void idProd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            try
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

@@ -36,27 +36,38 @@ namespace DistribucionesArly_s
             // TODO: This line of code loads data into the 'distribucionesArlysDataSet.Tipo_Documento' table. You can move, or remove it, as needed.
             this.tipo_DocumentoTableAdapter.Fill(this.distribucionesArlysDataSet.Tipo_Documento);
         }
-
         private void guardarUsuario_Click(object sender, EventArgs e)
         {
             InsertarUser();
         }
         public void borrar()
         {
-            this.nombreUsuario.Text = "";
-            this.telefonoUsuario.Text = "";
-            this.numeroDocumento.Text = "";
-            this.direcUsuario.Text = "";
-            this.contrUser.Text = "";
-
+            try
+            {
+                this.nombreUsuario.Text = "";
+                this.telefonoUsuario.Text = "";
+                this.numeroDocumento.Text = "";
+                this.direcUsuario.Text = "";
+                this.contrUser.Text = "";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
         private void direcUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            try
             {
-                InsertarUser();
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    InsertarUser();
+                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }   
         }
         private void InsertarUser()
         {
@@ -74,81 +85,123 @@ namespace DistribucionesArly_s
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Data hasn't save in database");
+                MessageBox.Show("Data hasn't save in database", ex.Message);
                 con.Close();
             }
         }
-
         private void numeroDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            try
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    nombreUsuario.Focus();
+                }
             }
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            catch(Exception ex)
             {
-                nombreUsuario.Focus();
+                MessageBox.Show(ex.Message);
             }
         }
-
         private void nombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+            try
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    contrUser.Focus();
+                }
             }
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            catch(Exception ex)
             {
-                contrUser.Focus();
+                MessageBox.Show(ex.Message);
             }
         }
-
         private void contrUser_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            try
             {
-                tipoUsuario.Focus();
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    tipoUsuario.Focus();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
-
         private void tipoUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            try
             {
-                nitEmpresa.Focus();
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    nitEmpresa.Focus();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
-
         private void nitEmpresa_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            try
             {
-                telefonoUsuario.Focus();
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    telefonoUsuario.Focus();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
-
         private void telefonoUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            try
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    direcUsuario.Focus();
+                }
             }
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                direcUsuario.Focus();
+            catch(Exception ex)
+            { 
+                MessageBox.Show(ex.Message);
             }
+            
         }
-
         private void tipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            if (tipoUsuario.Text == "Cliente" || tipoUsuario.Text == "Proveedor")
+            try
             {
-                this.contrUser.Enabled = false;
+                if (tipoUsuario.Text == "Cliente" || tipoUsuario.Text == "Proveedor")
+                {
+                    this.contrUser.Enabled = false;
+                }
+                else
+                {
+                    this.contrUser.Enabled = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                this.contrUser.Enabled = true;
+                MessageBox.Show(ex.Message);
             }
         }
     }

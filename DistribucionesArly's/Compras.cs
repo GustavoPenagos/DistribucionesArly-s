@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,8 +31,7 @@ namespace DistribucionesArly_s
         {
             try
             {
-                con.Close();
-                ListaProd();
+                CompareExistente();
             }
             catch(Exception ex)
             {
@@ -40,10 +40,18 @@ namespace DistribucionesArly_s
         }
         private void idProdC_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            try
             {
-                this.canProd.Focus();
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    this.canProd.Focus();
+                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
         private void ListaProd()
         {
@@ -90,11 +98,11 @@ namespace DistribucionesArly_s
             try
             {
                 
-                DialogResult dr = MessageBox.Show("Se realiza la compra?", "Seleccionar", MessageBoxButtons.YesNo);
+                DialogResult dr = MessageBox.Show("¿FINALIZAR VENTA?", "Seleccionar", MessageBoxButtons.YesNo);
                 switch (dr)
                 {
                     case DialogResult.Yes:
-                        DialogResult dr2 = MessageBox.Show("Quiere imprimir?", "Seleccionar", MessageBoxButtons.YesNo);
+                        DialogResult dr2 = MessageBox.Show("¿IMPRIMIR FACTURA?", "Seleccionar", MessageBoxButtons.YesNo);
                         switch (dr2)
                         {
                             case DialogResult.Yes:
@@ -108,7 +116,7 @@ namespace DistribucionesArly_s
                         break;
                     case DialogResult.No:
                         con.Close();
-                        MessageBox.Show("Compra Cancelada");
+                        MessageBox.Show("COMPRA CANCELADA");
                         break;
                 }
                 
@@ -120,7 +128,7 @@ namespace DistribucionesArly_s
                 MessageBox.Show(ex.Message);
             }
         }
-        private void Facturacion()
+        private void FacturacionNit()
         {
             try
             {
@@ -166,7 +174,8 @@ namespace DistribucionesArly_s
                         DataTable dt = new DataTable();
                         da.Fill(dt);
                         var idFactura = dt.Rows[0].ItemArray[0].ToString();
-                        Ticket1.TextoIzquierda("No Fac:" + idFactura);
+                        int facturaN = idFactura.Equals("")  ? 0 + 1 : Convert.ToInt32(idFactura);
+                        Ticket1.TextoIzquierda("No Fac:" + facturaN.ToString());
                         //con.Close();
                         Ticket1.TextoIzquierda("Fecha:" + DateTime.Now.ToShortDateString() + " Hora:" + DateTime.Now.ToShortTimeString());
                         Ticket1.TextoIzquierda("Le Atendio: Distribuciones Arly´s");
@@ -193,7 +202,7 @@ namespace DistribucionesArly_s
                         Ticket1.TextoIzquierda(" ");
                         Ticket1.AgregaTotales("Efectivo Entregado:", double.Parse(this.cancelaCon.Text, NumberStyles.Currency));
                         Ticket1.AgregaTotales("Efectivo Devuelto:", double.Parse(this.cambioDe.Text, NumberStyles.Currency));
-
+                        con.Close();
 
                         // Ticket1.LineasTotales(); // imprime linea 
 
@@ -221,7 +230,7 @@ namespace DistribucionesArly_s
             catch(Exception ex)
             {
                 con.Close();
-                MessageBox.Show("Error");
+                MessageBox.Show(ex.Message);
             }
         }
         private void ListaCompra()
@@ -270,16 +279,25 @@ namespace DistribucionesArly_s
         }
         private void canProd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            try
             {
-                ListaProd();
-                this.idProdC.Focus();
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    CompareExistente();
+                    
+                    this.idProdC.Focus();
+                }
+                else if (e.KeyChar == Convert.ToChar(Keys.Space))
+                {
+                    button1_Click(sender, e);
+                    this.idProdC.Focus();
+                }
             }
-            else if (e.KeyChar == Convert.ToChar(Keys.Space))
+            catch(Exception ex)
             {
-                button1_Click(sender, e);
-                this.idProdC.Focus();
+                MessageBox.Show(ex.Message);
             }
+            
         }
         private void DatosCompra()
         {
@@ -299,9 +317,17 @@ namespace DistribucionesArly_s
                 }
                 else
                 {
-                    var st = double.Parse(itemArray.ToString());
-                    var tv = (0.19 * st) + st;
-                    this.totalVenta.Text = st.ToString("C");
+                    if(dataGridView2 == null)
+                    {
+                        this.totalVenta.Text = "";
+                    }
+                    else
+                    {
+                        var st = double.Parse(itemArray.ToString());
+                        var tv = (0.19 * st) + st;
+                        this.totalVenta.Text = st.ToString("C");
+                    }
+                    
                 }
                 
                 
@@ -315,10 +341,20 @@ namespace DistribucionesArly_s
         {
             try
             {
-                
+
                 if (a.Equals("yes"))
                 {
-                    Facturacion();
+                    DialogResult dr = MessageBox.Show("¿FACTURA CON NIT?", "Seleccionar", MessageBoxButtons.YesNo);
+                    switch (dr)
+                    {
+                        case DialogResult.Yes:
+                            FacturacionNit();
+                            break;
+                        case DialogResult.No:
+                            FacturacionRem();
+                            break;
+                        default: break;
+                    }
                 }
                 else
                 {
@@ -350,6 +386,236 @@ namespace DistribucionesArly_s
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            
+        }
+        private void FacturacionRem()
+        {
+            try
+            {
+                string nombre = Microsoft.VisualBasic.Interaction.InputBox("Nombre del cliente","Datos de factura remisión");
+                string telefono = Microsoft.VisualBasic.Interaction.InputBox("Telefono del cliente", "Datos de factura remisión");
+                string direccion = Microsoft.VisualBasic.Interaction.InputBox("Dirección del cliente", "Datos de factura remisión");
+
+                double cancela = this.cancelaCon.Text.Equals("") ? Convert.ToDouble(this.cancelaCon.Text = "0") : double.Parse(this.cancelaCon.Text, NumberStyles.Currency);
+
+                if (this.cancelaCon.Text.Equals("0"))
+                {
+                    this.cancelaCon.Text = this.totalVenta.Text;
+                    this.cambioDe.Text = "0";
+                    MessageBox.Show("El cambio al cliente es: 0");
+                }
+                else if (!this.cancelaCon.Text.Equals(""))
+                {
+
+                    var value = double.Parse(this.totalVenta.Text, NumberStyles.Currency);
+
+                    var cambio = cancela - value;
+                    this.cambioDe.Text = cambio.ToString("C");
+                    MessageBox.Show("El cambio al cliente es:" + cambio.ToString("C"), "CAMBIO");
+                }
+                //MessageBox.Show("paso");
+                //IMPRIMIR FACTURA
+
+                var conteo = dataGridView2.Rows.Count;
+                if (conteo != 0)
+                {
+                    try
+                    {
+                        FacturaRem.CreaTicket Ticket1 = new FacturaRem.CreaTicket();
+
+                        //Ticket1.TextoCentro("Empresa Distribuciones Arly's ");
+                        //Ticket1.TextoCentro("NIT: 40079945-0 ");//imprime una linea de descripcion
+                        //Ticket1.TextoCentro("NOTA REMISION");
+                        Ticket1.TextoCentro("**********************************");
+
+                        Ticket1.TextoIzquierda("Nombre: " + nombre);
+                        Ticket1.TextoIzquierda("Dirc: " + direccion);
+                        Ticket1.TextoIzquierda("Tel: " + telefono);
+                        Ticket1.TextoIzquierda("");
+                        //Ticket1.TextoCentro("Factura de Venta"); //imprime una linea de descripcion
+                        //con.Open();
+                        string queryIdFac = "select MAX(Id_Factura) + 1 from Factura ";
+                        SqlDataAdapter da = new SqlDataAdapter(queryIdFac, con);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        var idFactura = dt.Rows[0].ItemArray[0].ToString();
+                        int facturaN = idFactura.Equals("") ? 0 + 1 : Convert.ToInt32(idFactura);
+                        Ticket1.TextoIzquierda("No Fac:" + facturaN.ToString());
+                        //con.Close();
+                        Ticket1.TextoIzquierda("Fecha:" + DateTime.Now.ToShortDateString() + " Hora:" + DateTime.Now.ToShortTimeString());
+                        //Ticket1.TextoIzquierda("Le Atendio: Distribuciones Arly´s");
+                        Ticket1.TextoIzquierda("");
+                        FacturaRem.CreaTicket.LineasGuion();
+
+                        FacturaRem.CreaTicket.EncabezadoVenta();
+                        FacturaRem.CreaTicket.LineasGuion();
+                        var n = dataGridView2.RowCount;
+                        foreach (DataGridViewRow r in dataGridView2.Rows)
+                        {
+                            // PROD                     //PrECIO                                    CANT                         TOTAL
+                            Ticket1.AgregaArticulo(r.Cells[1].Value.ToString(), double.Parse((double.Parse((r.Cells[2].Value.ToString()), NumberStyles.Currency)).ToString()), int.Parse(r.Cells[3].Value.ToString()), double.Parse((double.Parse((r.Cells[5].Value).ToString(), NumberStyles.Currency)).ToString())); //imprime una linea de descripcion
+                        }
+                        var totalComp = double.Parse(this.totalVenta.Text, NumberStyles.Currency);
+                        var ivaComp = (totalComp / 1.19) * 0.19;
+
+                        FacturaRem.CreaTicket.LineasGuion();
+                        Ticket1.AgregaTotales("Sub-Total", totalComp); // imprime linea con Subtotal
+                        Ticket1.AgregaTotales("Menos Descuento", double.Parse("000")); // imprime linea con decuento total
+                        Ticket1.AgregaTotales("Mas IVA (19%)", ivaComp); // imprime linea con ITBis total
+                        Ticket1.TextoIzquierda(" ");
+                        Ticket1.AgregaTotales("Total", totalComp); // imprime linea con total
+                        Ticket1.TextoIzquierda(" ");
+                        Ticket1.AgregaTotales("Efectivo Entregado:", double.Parse(this.cancelaCon.Text, NumberStyles.Currency));
+                        Ticket1.AgregaTotales("Efectivo Devuelto:", double.Parse(this.cambioDe.Text, NumberStyles.Currency));
+
+
+                        // Ticket1.LineasTotales(); // imprime linea 
+
+                        Ticket1.TextoIzquierda(" ");
+                        Ticket1.TextoCentro("**********************************");
+                        Ticket1.TextoCentro("*     Gracias por preferirnos    *");
+
+                        Ticket1.TextoCentro("**********************************");
+                        Ticket1.TextoIzquierda(" ");
+                        string impresora = "Microsoft XPS Document Writer";
+                        Ticket1.ImprimirTiket(impresora);
+
+
+
+
+                        //MessageBox.Show("Gracias por preferirnos");
+                    }
+                    catch (Exception ex)
+                    {
+                        con.Close();
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void CompareExistente()
+        {
+            try
+            {
+                string queryCompare = "Select * from bodega where Id_Prod = " + this.idProdC.Text;
+                con.Open();
+                SqlCommand cmd = new SqlCommand(queryCompare, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                var existe = dt.Rows.Count;
+                con.Close();
+                var cantidad = Convert.ToInt32(this.canProd.Text);
+                int result = existe - cantidad;
+                var id = Convert.ToInt32(this.idProdC.Text);
+                if (existe == 0)
+                {
+                    MessageBox.Show("No existen productos en bodega con este id:" + this.idProdC.Text);
+                    return;
+                }
+                else
+                {
+                    if (result >= 0)
+                    {
+                        CantidadData(existe, cantidad, id);
+                    }
+                    else
+                    {
+                        MessageBox.Show("El numero maximo de articulos en bodega es: " + existe);
+                        return;
+                    }
+                }     
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+        private void CantidadData(int existe, int cantidad, int id) //EXISTE lo que hay en data y CANTIDAD lo que se pone en el text
+        {
+            try
+            {
+                int count = Convert.ToInt32(dataGridView2.Rows.Count);
+                if (existe >= cantidad)
+                {
+                    if (count == 0)
+                    {
+                        ListaProd();
+                    }
+                    else
+                    {  
+                        for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(dataGridView2.Rows[i].Cells[0].Value) == id)
+                            {
+                                int lastRow = count - 1;
+                                var cellCant = Convert.ToInt32(dataGridView2.Rows[i].Cells[3].Value);
+                                var cellID = Convert.ToInt32(dataGridView2.Rows[i].Cells[0].Value);//error
+                                var idText = Convert.ToInt32(this.idProdC.Text);
+
+                                if (cellID == idText)
+                                {
+                                    VaidarDataGridView(lastRow, cellCant, cellID, idText);
+                                }
+                                else if (cellID != idText)
+                                {
+                                    
+                                }
+                            }else if(count == i+1)
+                            {
+                                ListaProd();
+                            }      
+                        }
+                    } 
+                }
+                else
+                {
+                    MessageBox.Show("El maximo de articulos disponibles es: " + existe + " Unidades");
+                    return;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void VaidarDataGridView(int lastRow, int cellCant, int cellID, int idText)
+        {                               //ultimo fila (index), cantidad de la fila, id de la fila, id en la caja de texto
+            string queryCompare = "Select * from bodega where Id_Prod = " + idText;
+            con.Open();
+            SqlCommand cmd = new SqlCommand(queryCompare, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            var numero = dt.Rows.Count;
+            con.Close();
+            for (int i = 0 ; i<dataGridView2.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(dataGridView2.Rows[i].Cells[0].Value) == Convert.ToInt32(this.idProdC.Text))
+                {
+                    var cant = Convert.ToInt32(dataGridView2.Rows[i].Cells[3].Value);
+                    int result = Convert.ToInt32(this.canProd.Text) + cant;
+                    if (result <= numero)
+                    {
+                        ListaProd();
+                    }
+                    else if (result > numero)
+                    {
+                        MessageBox.Show("El maximo de articulos disponibles es: " + numero + " Unidades");
+                        return;
+                    }
+                }
+                else
+                {
+
+                }
             }
             
         }

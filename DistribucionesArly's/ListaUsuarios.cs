@@ -38,34 +38,41 @@ namespace DistribucionesArly_s
                 MessageBox.Show("El numero " + this.idEliminar.Text + " se ha eliminado correctamente");
                 borrar();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("El numero " + this.idEliminar.Text + " no se ha eliminado correctamente");
             }
         }
         private void idBuscar_KeyPress(object sender, KeyPressEventArgs e)
-        {            
-            if (this.selecBus.Text.Equals("Identificacion") || this.selecBus.Text.Equals("Telefono"))
+        {
+            try
             {
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                if (this.selecBus.Text.Equals("Identificacion") || this.selecBus.Text.Equals("Telefono"))
                 {
-                    e.Handled = true;
+                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                    {
+                        e.Handled = true;
+                    }
                 }
-            }
-            else if(this.selecBus.Text.Equals("Nombre de empresa"))
-            {
+                else if (this.selecBus.Text.Equals("Nombre de empresa"))
+                {
 
-            }
-            else
-            {
-                if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+                }
+                else
                 {
-                    e.Handled = true;
+                    if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+                    {
+                        e.Handled = true;
+                    }
+                }
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    BuscarUser();
                 }
             }
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            catch(Exception ex)
             {
-                BuscarUser();
+                MessageBox.Show(ex.Message);
             }
         }
         private void borrar()
@@ -107,20 +114,27 @@ namespace DistribucionesArly_s
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("No ha ingresado un documento no esiste");
             }
         }
         private void idEliminar_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+            try
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    button1_Click(sender, e);
+                }
             }
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            catch(Exception ex)
             {
-                button1_Click(sender, e);
+                MessageBox.Show(ex.Message);
             }
         }
         private void ListarUsuarios()
@@ -137,7 +151,7 @@ namespace DistribucionesArly_s
             }
             catch(Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
             
         }

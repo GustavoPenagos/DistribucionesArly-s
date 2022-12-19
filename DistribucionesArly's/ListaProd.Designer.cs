@@ -43,19 +43,16 @@
             this.buscaProd = new System.Windows.Forms.Button();
             this.buscarProd = new System.Windows.Forms.TextBox();
             this.nombreProdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listaproductoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            
             this.distribucionesArlysDataSet = new DistribucionesArly_s.DistribucionesArlysDataSet();
             this.lista_productoTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.lista_productoTableAdapter();
-            this.listaproductoBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaproductoBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listaproductoBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listaproductoBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -190,12 +187,6 @@
             this.nombreProdDataGridViewTextBoxColumn.HeaderText = "Nombre_Prod";
             this.nombreProdDataGridViewTextBoxColumn.Name = "nombreProdDataGridViewTextBoxColumn";
             this.nombreProdDataGridViewTextBoxColumn.Width = 239;
-            // 
-            // listaproductoBindingSource1
-            // 
-            this.listaproductoBindingSource1.DataMember = "lista_producto";
-            this.listaproductoBindingSource1.DataSource = this.distribucionesArlysDataSet;
-            // 
             // distribucionesArlysDataSet
             // 
             this.distribucionesArlysDataSet.DataSetName = "DistribucionesArlysDataSet";
@@ -204,11 +195,6 @@
             // lista_productoTableAdapter
             // 
             this.lista_productoTableAdapter.ClearBeforeFill = true;
-            // 
-            // listaproductoBindingSource2
-            // 
-            this.listaproductoBindingSource2.DataMember = "lista_producto";
-            this.listaproductoBindingSource2.DataSource = this.distribucionesArlysDataSet;
             // 
             // ListaProd
             // 
@@ -227,10 +213,8 @@
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listaproductoBindingSource1)).EndInit();
+            this.panel3.PerformLayout(); 
             ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listaproductoBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -248,12 +232,8 @@
         private System.Windows.Forms.Button buscaProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreProdDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource listaproductoBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProdDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioProdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unidadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource listaproductoBindingSource1;
         private DistribucionesArlysDataSetTableAdapters.lista_productoTableAdapter lista_productoTableAdapter;
         private System.Windows.Forms.ComboBox selectBus;
-        private System.Windows.Forms.BindingSource listaproductoBindingSource2;
+
     }
 }

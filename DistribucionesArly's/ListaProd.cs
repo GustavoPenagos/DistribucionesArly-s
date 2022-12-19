@@ -80,18 +80,26 @@ namespace DistribucionesArly_s
         }
         public void ListaBusqueda(string a)
         {
-            string query = "select * from lista_producto where " + a.ToString() + " like '" + this.buscarProd.Text + "%'";
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-            dataGridView1.DataSource = dt;
-            con.Close();
-            if (dataGridView1.Rows.Count == 0)
+            try
             {
-                MessageBox.Show("No existe un producto con este nombre (" + this.buscaProd.Text + ")");
+                string query = "select * from lista_producto where " + a.ToString() + " like '" + this.buscarProd.Text + "%'";
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                dataGridView1.DataSource = dt;
+                con.Close();
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    MessageBox.Show("No existe un producto con este nombre (" + this.buscaProd.Text + ")");
+                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

@@ -24,7 +24,6 @@ namespace DistribucionesArly_s
         {
             ListEmpresa();
         }
-
         private void bNomEmp_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == Convert.ToChar(Keys.Enter))
@@ -61,7 +60,6 @@ namespace DistribucionesArly_s
         {
             this.bNomEmp.Text = "";
         }
-
         private void buscarEmp_Click(object sender, EventArgs e)
         {
             Validar();

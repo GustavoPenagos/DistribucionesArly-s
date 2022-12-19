@@ -18,14 +18,13 @@ namespace DistribucionesArly_s
             InitializeComponent();
             ListaGasto();
         }
+
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
         private void ListaGastos_Load(object sender, EventArgs e)
-        {
-            
-            ListaGasto();
-           
+        { 
             try
             {
+                ListaGasto();
                 string query = "select format(sum(convert(decimal,Valor_Gasto)), 'C', 'es-co') AS Valor_Gasto from Lista_Gastos";
                 con.Open();
                 //SqlCommand cmd = new SqlCommand(query, con);
@@ -41,7 +40,6 @@ namespace DistribucionesArly_s
             }
             
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
         }
@@ -75,7 +73,6 @@ namespace DistribucionesArly_s
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void bGasto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == Convert.ToChar(Keys.Enter))
@@ -85,9 +82,9 @@ namespace DistribucionesArly_s
         }
         private void Validar()
         {
-            var date = dateGasto.Value.ToString("dd/MM/yyyy");
             try
             {
+                var date = dateGasto.Value.ToString("dd/MM/yyyy");
                 if (date == "")
                 {
                     MessageBox.Show("Campo vacio");
@@ -104,13 +101,21 @@ namespace DistribucionesArly_s
         }
         private void ListaGasto()
         {
-            string query1 = "SELECT Id_Gasto AS ID, Desc_Gastos AS Descripcion, format(convert(decimal,Costo_Gasto),'C','es-CO') AS Valor_Gasto, Fecha_Gasto\r\nFROM dbo.Gastos";
-            con.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter(query1, con);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-            dataGridView1.DataSource = dataTable;
-            con.Close();
+            try
+            {
+                string query1 = "SELECT Id_Gasto AS ID, Desc_Gastos AS Descripcion, format(convert(decimal,Costo_Gasto),'C','es-CO') AS Valor_Gasto, Fecha_Gasto\r\nFROM dbo.Gastos";
+                con.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(query1, con);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                dataGridView1.DataSource = dataTable;
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
     }

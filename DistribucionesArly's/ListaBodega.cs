@@ -17,8 +17,8 @@ namespace DistribucionesArly_s
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
 
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
         private void RegistroBodega_Load(object sender, EventArgs e)
         {
             OrdenarLista();

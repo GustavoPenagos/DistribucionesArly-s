@@ -24,15 +24,31 @@ namespace DistribucionesArly_s
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var cantidad = Convert.ToInt32(this.cantidadProd.Text);
-            ConteoProd(cantidad);
-            InsertarBodega();
+            try
+            {
+                var cantidad = Convert.ToInt32(this.cantidadProd.Text);
+                ConteoProd(cantidad);
+                InsertarBodega();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
         private void borrar()
         {
-            this.idProdRegis.Text = "";
-            this.cantidadProd.Text = "1";
-            this.idProdRegis.Focus();
+            try
+            {
+                this.idProdRegis.Text = "";
+                this.cantidadProd.Text = "1";
+                this.idProdRegis.Focus();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
         private void InsertarBodega()
         {
@@ -67,35 +83,40 @@ namespace DistribucionesArly_s
 
                 borrar();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Numero ID_producto no valido (" + this.idProdRegis.Text + ")");
                 borrar();
             }
         }
-
         private void cantidadProd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            try
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+                if (e.KeyChar.Equals('\b'))
+                {
+                    this.cantProdBod.Text = "";
+                }
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    var cantidad = Convert.ToInt32(this.cantidadProd.Text);
+                    InsertarBodega();
+                    ConteoProd(cantidad);
+                }
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
             }
-            if (e.KeyChar.Equals('\b'))
+            catch(Exception ex)
             {
-                this.cantProdBod.Text = "";
-            }
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                var cantidad = Convert.ToInt32(this.cantidadProd.Text);
-                InsertarBodega();
-                ConteoProd(cantidad);
-            } 
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
+                MessageBox.Show(ex.Message);
             }
         }
-
         private void idProdRegis_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -118,19 +139,26 @@ namespace DistribucionesArly_s
             }
             
         }
-        
         public void ConteoProd(int a)
         {
-            string queryCantidad = "SELECT COUNT(b.Id_Prod) AS Cantidad " +
+            try
+            {
+                string queryCantidad = "SELECT COUNT(b.Id_Prod) AS Cantidad " +
                     "FROM dbo.Producto AS p " +
                     "INNER JOIN dbo.Bodega AS b ON b.Id_Prod = p.Id_Prod " +
                     "where p.Id_Prod = " + this.idProdRegis.Text + "";
-            con.Open();
-            DataTable dt = new DataTable();
-            SqlDataAdapter ad = new SqlDataAdapter(queryCantidad, con);
-            ad.Fill(dt);
-            con.Close();
-            this.cantProdBod.Text = (Convert.ToInt64(dt.Rows[0].ItemArray[0]) + a).ToString();
+                con.Open();
+                DataTable dt = new DataTable();
+                SqlDataAdapter ad = new SqlDataAdapter(queryCantidad, con);
+                ad.Fill(dt);
+                con.Close();
+                this.cantProdBod.Text = (Convert.ToInt64(dt.Rows[0].ItemArray[0]) + a).ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

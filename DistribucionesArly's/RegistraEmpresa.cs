@@ -20,19 +20,16 @@ namespace DistribucionesArly_s
 
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
         
-
         private void RegistraEmpresa_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'distribucionesArlysDataSet.Department' table. You can move, or remove it, as needed.
             this.departmentTableAdapter.Fill(this.distribucionesArlysDataSet.Department);
 
         }
-
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             
         }
-
         private void selectDepart_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -60,7 +57,6 @@ namespace DistribucionesArly_s
             }
             
         }
-
         private void GuardarEmp_Click(object sender, EventArgs e)
         {
             try
@@ -73,7 +69,7 @@ namespace DistribucionesArly_s
                 con.Close();
                 MessageBox.Show("Data has saved in database");
                 con.Close();
-                //Borrar();
+                Borrar();
             }
             catch(Exception ex)
             {
@@ -82,21 +78,33 @@ namespace DistribucionesArly_s
         }
         private void Borrar()
         {
-            this.NiEmp.Text = "";
-            this.nomEmp .Text = "";
-            this.proEmp.Text = "";
-            this.dirEmp.Text = "";
-            this.telEmp.Text = "";
-            //this.selectDepart 
-            //this.selectCiudad.ValueMember 
+            try
+            {
+                this.NiEmp.Text = "";
+                this.nomEmp.Text = "";
+                this.proEmp.Text = "";
+                this.dirEmp.Text = "";
+                this.telEmp.Text = "";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
         private void NiEmp_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            try
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

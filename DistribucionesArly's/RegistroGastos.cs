@@ -19,11 +19,11 @@ namespace DistribucionesArly_s
             InitializeComponent();
         }
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
+
         private void guardarRegistro_Click(object sender, EventArgs e)
         {
             RegistroGasto();
         }
-
         private void RegistroGasto()
         {
             try
@@ -45,24 +45,43 @@ namespace DistribucionesArly_s
         }
         private void borrar()
         {
-            this.dineroGasto.Text = "";
-            this.descriGasto.Text = "";
-            this.dineroGasto.Focus();
-        }
-
-        private void descriGasto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            try
             {
-                RegistroGasto();
+                this.dineroGasto.Text = "";
+                this.descriGasto.Text = "";
+                this.dineroGasto.Focus();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
-
+        private void descriGasto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    RegistroGasto();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void dineroGasto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            try
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     } 

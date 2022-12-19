@@ -23,16 +23,24 @@ namespace DistribucionesArly_s
         }
         private void OpenFrom(object fromhijo)
         {
-            if (this.panelContainer.Controls.Count > 0)
+            try
             {
-                this.panelContainer.Controls.RemoveAt(0);
+                if (this.panelContainer.Controls.Count > 0)
+                {
+                    this.panelContainer.Controls.RemoveAt(0);
+                }
+                Form fh = fromhijo as Form;
+                fh.TopLevel = false;
+                fh.Dock = DockStyle.Fill;
+                this.panelContainer.Controls.Add(fh);
+                this.panelContainer.Tag = fh;
+                fh.Show();
             }
-            Form fh = fromhijo as Form;
-            fh.TopLevel = false;
-            fh.Dock = DockStyle.Fill;
-            this.panelContainer.Controls.Add(fh);
-            this.panelContainer.Tag = fh;
-            fh.Show();
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
         private void carroCompra_Click(object sender, EventArgs e)
         {

@@ -58,6 +58,10 @@ namespace DistribucionesArly_s
             try
             {
                 string queryProducto = "Select * from producto where Id_Prod = " + this.idProdC.Text + "";
+                if (this.idProdC.Text.Equals(""))
+                {
+                    return;
+                }
                 //string queryBodega = "select * from bodega";
                 con.Open();
                 SqlDataAdapter da = new SqlDataAdapter(queryProducto, con);
@@ -90,7 +94,7 @@ namespace DistribucionesArly_s
                 con.Close();
                 this.idProdC.Text = "";
                 this.idProdC.Focus();
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("ListaProd", ex.Message);
             }
         }
         private void fCompra_Click(object sender, EventArgs e)
@@ -125,7 +129,7 @@ namespace DistribucionesArly_s
             catch(Exception ex)
             {
                 con.Close();
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("fCompra_Click", ex.Message);
             }
         }
         private void FacturacionNit()
@@ -192,7 +196,14 @@ namespace DistribucionesArly_s
                         }
                         var totalComp = double.Parse(this.totalVenta.Text, NumberStyles.Currency);
                         var ivaComp = (totalComp / 1.19) * 0.19;
-
+                        //DateTimeNow.Short.ToString
+                        string fecha = DateTime.Now.ToShortDateString().ToString();
+                        //
+                        con.Open();
+                        string queryFacRem = "INSERT INTO CARTERA VALUES (2,'" + totalComp.ToString() + "','" + fecha + "')";
+                        SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
+                        cmdFact.ExecuteReader();
+                        con.Close();
                         ClsFactura.CreaTicket.LineasGuion();
                         Ticket1.AgregaTotales("Sub-Total", totalComp); // imprime linea con Subtotal
                         Ticket1.AgregaTotales("Menos Descuento", double.Parse("000")); // imprime linea con decuento total
@@ -223,14 +234,14 @@ namespace DistribucionesArly_s
                     catch (Exception ex)
                     {
                         con.Close();
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("(1)FacturacionNit", ex.Message);
                     }
                 }
             }
             catch(Exception ex)
             {
                 con.Close();
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("(2)FacturacionNit", ex.Message);
             }
         }
         private void ListaCompra()
@@ -252,7 +263,7 @@ namespace DistribucionesArly_s
             catch (Exception ex)
             {
                 con.Close();
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("ListaCompra", ex.Message);
             }
             
         }
@@ -260,7 +271,18 @@ namespace DistribucionesArly_s
         {
             try
             {
+                
+                if (this.canProd.Text.Equals(""))
+                {
+                    MessageBox.Show("Campo candidad esta vacio");
+                    return;
+                }
                 var cantidad = Convert.ToInt64(this.canProd.Text);
+                if (this.idProdC.Text.Equals(""))
+                {
+                    MessageBox.Show("Campo ID esta vacio");
+                    return;
+                }
                 string query = "delete top ("+cantidad+") from Compras where Id_Prod = "+this.idProdC.Text;
 
                 con.Open();
@@ -274,7 +296,7 @@ namespace DistribucionesArly_s
             catch (Exception ex)
             {
                 con.Close();
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("button1_Click", ex.Message);
             }
         }
         private void canProd_KeyPress(object sender, KeyPressEventArgs e)
@@ -326,15 +348,12 @@ namespace DistribucionesArly_s
                         var st = double.Parse(itemArray.ToString());
                         var tv = (0.19 * st) + st;
                         this.totalVenta.Text = st.ToString("C");
-                    }
-                    
+                    }   
                 }
-                
-                
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("DatosCompra", ex.Message);
             }
         }
         private void SeleccionImp(string a)
@@ -358,7 +377,16 @@ namespace DistribucionesArly_s
                 }
                 else
                 {
-
+                    //DateTimeNow.Short.ToString
+                    string fecha = DateTime.Now.ToShortDateString().ToString();
+                    //Total Venta
+                    int totalVenta= int.Parse(this.totalVenta.Text, NumberStyles.Currency);
+                    //
+                    con.Open();
+                    string queryFacRem = "INSERT INTO CARTERA VALUES (6,'" + totalVenta.ToString() + "','" + fecha + "')";
+                    SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
+                    cmdFact.ExecuteReader();
+                    con.Close();
                 }
                 string queryCompra = "select * from Lista_Compras";
                 SqlDataAdapter adap = new SqlDataAdapter(queryCompra, con);
@@ -385,7 +413,7 @@ namespace DistribucionesArly_s
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("SeleccionImp", ex.Message);
             }
             
         }
@@ -458,7 +486,14 @@ namespace DistribucionesArly_s
                         }
                         var totalComp = double.Parse(this.totalVenta.Text, NumberStyles.Currency);
                         var ivaComp = (totalComp / 1.19) * 0.19;
-
+                        //DateTimeNow.Short.ToString
+                        string fecha = DateTime.Now.ToShortDateString().ToString();
+                        //
+                        con.Open();
+                        string queryFacRem = "INSERT INTO CARTERA VALUES (2,'" + totalComp.ToString() + "','"+fecha+"')";
+                        SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
+                        cmdFact.ExecuteReader();
+                        con.Close();
                         FacturaRem.CreaTicket.LineasGuion();
                         Ticket1.AgregaTotales("Sub-Total", totalComp); // imprime linea con Subtotal
                         Ticket1.AgregaTotales("Menos Descuento", double.Parse("000")); // imprime linea con decuento total
@@ -489,7 +524,7 @@ namespace DistribucionesArly_s
                     catch (Exception ex)
                     {
                         con.Close();
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("FacturacionRem", ex.Message);
                     }
                 }
             }
@@ -503,6 +538,14 @@ namespace DistribucionesArly_s
         {
             try
             {
+                if (this.canProd.Text.Equals(""))
+                {
+                    MessageBox.Show("Campo cantidad esta vacio"); return;
+                }
+                if (this.idProdC.Text.Equals(""))
+                {
+                    MessageBox.Show("Campo ID esta vacio"); return;
+                }
                 string queryCompare = "Select * from bodega where Id_Prod = " + this.idProdC.Text;
                 con.Open();
                 SqlCommand cmd = new SqlCommand(queryCompare, con);
@@ -523,7 +566,7 @@ namespace DistribucionesArly_s
                 {
                     if (result >= 0)
                     {
-                        CantidadData(existe, cantidad, id);
+                        CantidadData(existe, cantidad, id, result);
                     }
                     else
                     {
@@ -534,11 +577,11 @@ namespace DistribucionesArly_s
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("CompareExistente", ex.Message);
             }
             
         }
-        private void CantidadData(int existe, int cantidad, int id) //EXISTE lo que hay en data y CANTIDAD lo que se pone en el text
+        private void CantidadData(int existe, int cantidad, int id, int result) //EXISTE lo que hay en data y CANTIDAD lo que se pone en el text
         {
             try
             {
@@ -553,6 +596,7 @@ namespace DistribucionesArly_s
                     {  
                         for (int i = 0; i < dataGridView2.Rows.Count; i++)
                         {
+                            var k = i + 1;
                             if (Convert.ToInt32(dataGridView2.Rows[i].Cells[0].Value) == id)
                             {
                                 int lastRow = count - 1;
@@ -560,17 +604,20 @@ namespace DistribucionesArly_s
                                 var cellID = Convert.ToInt32(dataGridView2.Rows[i].Cells[0].Value);//error
                                 var idText = Convert.ToInt32(this.idProdC.Text);
 
-                                if (cellID == idText)
+                                if (cellID == idText && cellCant < existe)
                                 {
                                     VaidarDataGridView(lastRow, cellCant, cellID, idText);
+                                    return;
                                 }
-                                else if (cellID != idText)
+                                else
                                 {
-                                    
+                                    MessageBox.Show("La cantidad en bodega es: " + existe + " unidades");
+                                    return;
                                 }
-                            }else if(count == i+1)
+                            }else if(k == dataGridView2.Rows.Count)
                             {
                                 ListaProd();
+                                return;
                             }      
                         }
                     } 
@@ -583,41 +630,46 @@ namespace DistribucionesArly_s
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("CantidadData", ex.Message);
             }
         }
         private void VaidarDataGridView(int lastRow, int cellCant, int cellID, int idText)
-        {                               //ultimo fila (index), cantidad de la fila, id de la fila, id en la caja de texto
-            string queryCompare = "Select * from bodega where Id_Prod = " + idText;
-            con.Open();
-            SqlCommand cmd = new SqlCommand(queryCompare, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-            var numero = dt.Rows.Count;
-            con.Close();
-            for (int i = 0 ; i<dataGridView2.Rows.Count; i++)
+        {
+            try
             {
-                if (Convert.ToInt32(dataGridView2.Rows[i].Cells[0].Value) == Convert.ToInt32(this.idProdC.Text))
-                {
-                    var cant = Convert.ToInt32(dataGridView2.Rows[i].Cells[3].Value);
-                    int result = Convert.ToInt32(this.canProd.Text) + cant;
-                    if (result <= numero)
-                    {
-                        ListaProd();
-                    }
-                    else if (result > numero)
-                    {
-                        MessageBox.Show("El maximo de articulos disponibles es: " + numero + " Unidades");
-                        return;
-                    }
-                }
-                else
-                {
+                //ultimo fila (index), cantidad de la fila, id de la fila, id en la caja de texto
+                string queryCompare = "Select * from bodega where Id_Prod = " + idText;
+                con.Open();
+                SqlCommand cmd = new SqlCommand(queryCompare, con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                var numero = dt.Rows.Count;
+                con.Close();
 
+                for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                {
+                    if (Convert.ToInt32(dataGridView2.Rows[i].Cells[0].Value) == Convert.ToInt32(this.idProdC.Text))
+                    {
+                        var cant = Convert.ToInt32(dataGridView2.Rows[i].Cells[3].Value);
+                        int result = Convert.ToInt32(this.canProd.Text) + cant;
+                        if (result <= numero)
+                        {
+                            ListaProd();
+                            return;
+                        }
+                        else if (result > numero)
+                        {
+                            MessageBox.Show("El maximo de articulos disponibles es: " + numero + " Unidades");
+                            return;
+                        }
+                    }
                 }
             }
-            
+            catch(Exception ex)
+            {
+                MessageBox.Show("VaidarDataGridView ", ex.Message);
+            }
         }
     }
 }

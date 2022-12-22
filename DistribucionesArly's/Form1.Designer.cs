@@ -102,7 +102,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 24);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(234, 764);
+            this.panel2.Size = new System.Drawing.Size(228, 764);
             this.panel2.TabIndex = 1;
             // 
             // pictureBox9
@@ -136,7 +136,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(0, 536);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(234, 55);
+            this.button1.Size = new System.Drawing.Size(228, 55);
             this.button1.TabIndex = 12;
             this.button1.Text = "Empresas";
             this.button1.UseVisualStyleBackColor = true;
@@ -197,7 +197,7 @@
             this.gasto.ForeColor = System.Drawing.Color.White;
             this.gasto.Location = new System.Drawing.Point(0, 459);
             this.gasto.Name = "gasto";
-            this.gasto.Size = new System.Drawing.Size(234, 55);
+            this.gasto.Size = new System.Drawing.Size(228, 55);
             this.gasto.TabIndex = 9;
             this.gasto.Text = "Gastos";
             this.gasto.UseVisualStyleBackColor = true;
@@ -273,7 +273,7 @@
             this.control.ForeColor = System.Drawing.Color.White;
             this.control.Location = new System.Drawing.Point(0, 612);
             this.control.Name = "control";
-            this.control.Size = new System.Drawing.Size(234, 55);
+            this.control.Size = new System.Drawing.Size(228, 55);
             this.control.TabIndex = 6;
             this.control.Text = "Control";
             this.control.UseVisualStyleBackColor = true;
@@ -290,7 +290,7 @@
             this.proveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.proveedor.Location = new System.Drawing.Point(0, 387);
             this.proveedor.Name = "proveedor";
-            this.proveedor.Size = new System.Drawing.Size(234, 55);
+            this.proveedor.Size = new System.Drawing.Size(228, 55);
             this.proveedor.TabIndex = 5;
             this.proveedor.Text = "Usuarios";
             this.proveedor.UseVisualStyleBackColor = true;
@@ -306,7 +306,7 @@
             this.bodega.ForeColor = System.Drawing.Color.White;
             this.bodega.Location = new System.Drawing.Point(0, 316);
             this.bodega.Name = "bodega";
-            this.bodega.Size = new System.Drawing.Size(234, 55);
+            this.bodega.Size = new System.Drawing.Size(228, 55);
             this.bodega.TabIndex = 4;
             this.bodega.Text = "Bodega";
             this.bodega.UseVisualStyleBackColor = true;
@@ -322,7 +322,7 @@
             this.carroCompra.ForeColor = System.Drawing.Color.White;
             this.carroCompra.Location = new System.Drawing.Point(0, 246);
             this.carroCompra.Name = "carroCompra";
-            this.carroCompra.Size = new System.Drawing.Size(234, 55);
+            this.carroCompra.Size = new System.Drawing.Size(228, 55);
             this.carroCompra.TabIndex = 3;
             this.carroCompra.Text = "Ventas";
             this.carroCompra.UseVisualStyleBackColor = true;
@@ -345,9 +345,9 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panel3.Controls.Add(this.pictureBox7);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(234, 735);
+            this.panel3.Location = new System.Drawing.Point(228, 735);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(673, 53);
+            this.panel3.Size = new System.Drawing.Size(679, 53);
             this.panel3.TabIndex = 2;
             // 
             // pictureBox7
@@ -356,7 +356,7 @@
             this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(617, 0);
+            this.pictureBox7.Location = new System.Drawing.Point(623, 0);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(56, 53);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -368,9 +368,9 @@
             // 
             this.panelContainer.Controls.Add(this.pictureBox8);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(234, 24);
+            this.panelContainer.Location = new System.Drawing.Point(228, 24);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(673, 711);
+            this.panelContainer.Size = new System.Drawing.Size(679, 711);
             this.panelContainer.TabIndex = 3;
             // 
             // pictureBox8
@@ -379,7 +379,7 @@
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(0, 0);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(673, 711);
+            this.pictureBox8.Size = new System.Drawing.Size(679, 711);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 0;
             this.pictureBox8.TabStop = false;

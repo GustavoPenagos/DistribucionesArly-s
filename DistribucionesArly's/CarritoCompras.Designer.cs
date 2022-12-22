@@ -79,7 +79,7 @@
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(12, 184);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 190);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(56, 55);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -91,7 +91,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.panel4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel4.Location = new System.Drawing.Point(0, 184);
+            this.panel4.Location = new System.Drawing.Point(0, 190);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(10, 54);
             this.panel4.TabIndex = 5;
@@ -104,7 +104,7 @@
             this.carroCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.carroCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.carroCompra.ForeColor = System.Drawing.Color.White;
-            this.carroCompra.Location = new System.Drawing.Point(0, 184);
+            this.carroCompra.Location = new System.Drawing.Point(0, 190);
             this.carroCompra.Name = "carroCompra";
             this.carroCompra.Size = new System.Drawing.Size(225, 55);
             this.carroCompra.TabIndex = 6;

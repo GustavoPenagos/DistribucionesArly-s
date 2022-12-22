@@ -214,7 +214,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.panel5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel5.Location = new System.Drawing.Point(0, 165);
+            this.panel5.Location = new System.Drawing.Point(0, 166);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(10, 54);
             this.panel5.TabIndex = 6;
@@ -223,7 +223,7 @@
             // 
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(12, 164);
+            this.pictureBox3.Location = new System.Drawing.Point(12, 165);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(56, 55);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -239,7 +239,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 164);
+            this.button1.Location = new System.Drawing.Point(0, 166);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(223, 55);
             this.button1.TabIndex = 7;

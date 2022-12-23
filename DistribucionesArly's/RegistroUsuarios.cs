@@ -73,9 +73,9 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string query = "INSERT INTO [dbo].[User] VALUES (" + Convert.ToInt64(this.numeroDocumento.Text) + ",'" + this.nombreUsuario.Text + "','" + telefonoUsuario.Text +
-                    "','" + this.direcUsuario.Text + "'," + Convert.ToInt16(this.nitEmpresa.SelectedValue) + "," + Convert.ToInt16(this.tipoUsuario.SelectedValue) + "," +
-                    "" + Convert.ToInt16(this.tipo_Documento.SelectedValue) + ",'" + this.contrUser.Text + "','"+this.eMail.Text+"')";
+                string query = "INSERT INTO [dbo].[User] VALUES (" + Convert.ToInt64(this.numeroDocumento.Text) + ",'" + this.nombreUsuario.Text + "','" + this.telefonoUsuario.Text +
+                    "','" + this.direcUsuario.Text + "'," + Convert.ToInt64(this.nitEmpresa.SelectedValue) + "," + Convert.ToInt64(this.tipoUsuario.SelectedValue) + "," +
+                    "" + Convert.ToInt64(this.tipo_Documento.SelectedValue) + ",'" + this.contrUser.Text + "','"+this.eMail.Text+"')";
                 SqlCommand cmd = new SqlCommand(query, con);
                 con.Open();
                 cmd.ExecuteNonQuery();

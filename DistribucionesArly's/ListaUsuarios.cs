@@ -54,9 +54,9 @@ namespace DistribucionesArly_s
                         e.Handled = true;
                     }
                 }
-                else if (this.selecBus.Text.Equals("Nombre de empresa"))
+                else if (this.selecBus.Text.Equals("Empresa"))
                 {
-
+                    e.Handled = false;
                 }
                 else
                 {

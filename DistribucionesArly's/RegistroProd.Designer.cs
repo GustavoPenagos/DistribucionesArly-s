@@ -47,6 +47,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.utilidad = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.unidadBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).BeginInit();
             this.panel1.SuspendLayout();
@@ -210,6 +211,7 @@
             this.utilidad.Size = new System.Drawing.Size(266, 30);
             this.utilidad.TabIndex = 13;
             this.utilidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.utilidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.utilidad_KeyPress);
             // 
             // label7
             // 
@@ -221,11 +223,22 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Utilidad";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label8.Location = new System.Drawing.Point(622, 455);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(30, 25);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "%";
+            // 
             // RegistroProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 616);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.utilidad);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.marcaProd);
@@ -272,5 +285,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox utilidad;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

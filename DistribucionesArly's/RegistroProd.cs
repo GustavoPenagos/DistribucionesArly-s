@@ -94,5 +94,20 @@ namespace DistribucionesArly_s
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void utilidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

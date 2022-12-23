@@ -77,8 +77,8 @@ namespace DistribucionesArly_s
                 {
                     string query2 = "INSERT INTO [dbo].[Compras] " +
                     "([Id_Prod],[Nom_Prod],[Precio_Prod],[Unid_Prod]) " +
-                    "VALUES (" + Convert.ToInt32(id_prod) + ",'" + nombre +
-                    "','" + precio + "'," + Convert.ToInt32(unidades) + ")";
+                    "VALUES (" + Convert.ToInt64(id_prod) + ",'" + nombre +
+                    "','" + precio + "'," + Convert.ToInt64(unidades) + ")";
                     //con.Open();
                     SqlCommand cmd = new SqlCommand(query2, con);
                     cmd.ExecuteNonQuery();
@@ -178,7 +178,7 @@ namespace DistribucionesArly_s
                         DataTable dt = new DataTable();
                         da.Fill(dt);
                         var idFactura = dt.Rows[0].ItemArray[0].ToString();
-                        int facturaN = idFactura.Equals("")  ? 0 + 1 : Convert.ToInt32(idFactura);
+                        var facturaN = idFactura.Equals("")  ? 0 + 1 : Convert.ToInt64(idFactura);
                         Ticket1.TextoIzquierda("No Fac:" + facturaN.ToString());
                         //con.Close();
                         Ticket1.TextoIzquierda("Fecha:" + DateTime.Now.ToShortDateString() + " Hora:" + DateTime.Now.ToShortTimeString());
@@ -200,7 +200,7 @@ namespace DistribucionesArly_s
                         string fecha = DateTime.Now.ToShortDateString().ToString();
                         //
                         con.Open();
-                        string queryFacRem = "INSERT INTO CARTERA VALUES (2,'" + totalComp.ToString() + "','" + fecha + "')";
+                        string queryFacRem = "INSERT INTO CARTERA VALUES (1,'" + totalComp.ToString() + "','" + fecha + "','" + facturaN.ToString() + "')";
                         SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
                         cmdFact.ExecuteReader();
                         con.Close();
@@ -383,7 +383,7 @@ namespace DistribucionesArly_s
                     int totalVenta= int.Parse(this.totalVenta.Text, NumberStyles.Currency);
                     //
                     con.Open();
-                    string queryFacRem = "INSERT INTO CARTERA VALUES (6,'" + totalVenta.ToString() + "','" + fecha + "')";
+                    string queryFacRem = "INSERT INTO CARTERA VALUES (6,'" + totalVenta.ToString() + "','" + fecha + "','0')";
                     SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
                     cmdFact.ExecuteReader();
                     con.Close();
@@ -413,6 +413,7 @@ namespace DistribucionesArly_s
             }
             catch(Exception ex)
             {
+                con.Close();
                 MessageBox.Show("SeleccionImp", ex.Message);
             }
             
@@ -468,7 +469,7 @@ namespace DistribucionesArly_s
                         DataTable dt = new DataTable();
                         da.Fill(dt);
                         var idFactura = dt.Rows[0].ItemArray[0].ToString();
-                        int facturaN = idFactura.Equals("") ? 0 + 1 : Convert.ToInt32(idFactura);
+                        var facturaN = idFactura.Equals("") ? 0 + 1 : Convert.ToInt64(idFactura);
                         Ticket1.TextoIzquierda("No Fac:" + facturaN.ToString());
                         //con.Close();
                         Ticket1.TextoIzquierda("Fecha:" + DateTime.Now.ToShortDateString() + " Hora:" + DateTime.Now.ToShortTimeString());
@@ -490,7 +491,7 @@ namespace DistribucionesArly_s
                         string fecha = DateTime.Now.ToShortDateString().ToString();
                         //
                         con.Open();
-                        string queryFacRem = "INSERT INTO CARTERA VALUES (2,'" + totalComp.ToString() + "','"+fecha+"')";
+                        string queryFacRem = "INSERT INTO CARTERA VALUES (2,'" + totalComp.ToString() + "','" + fecha + "','" + facturaN.ToString() +"')";
                         SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
                         cmdFact.ExecuteReader();
                         con.Close();
@@ -554,9 +555,9 @@ namespace DistribucionesArly_s
                 dt.Load(dr);
                 var existe = dt.Rows.Count;
                 con.Close();
-                var cantidad = Convert.ToInt32(this.canProd.Text);
-                int result = existe - cantidad;
-                var id = Convert.ToInt32(this.idProdC.Text);
+                var cantidad = Convert.ToInt64(this.canProd.Text);
+                var result = existe - cantidad;
+                var id = Convert.ToInt64(this.idProdC.Text);
                 if (existe == 0)
                 {
                     MessageBox.Show("No existen productos en bodega con este id:" + this.idProdC.Text);
@@ -581,7 +582,7 @@ namespace DistribucionesArly_s
             }
             
         }
-        private void CantidadData(int existe, int cantidad, int id, int result) //EXISTE lo que hay en data y CANTIDAD lo que se pone en el text
+        private void CantidadData(int existe, long cantidad, long id, long result) //EXISTE lo que hay en data y CANTIDAD lo que se pone en el text
         {
             try
             {
@@ -597,12 +598,12 @@ namespace DistribucionesArly_s
                         for (int i = 0; i < dataGridView2.Rows.Count; i++)
                         {
                             var k = i + 1;
-                            if (Convert.ToInt32(dataGridView2.Rows[i].Cells[0].Value) == id)
+                            if (Convert.ToInt64(dataGridView2.Rows[i].Cells[0].Value) == id)
                             {
                                 int lastRow = count - 1;
                                 var cellCant = Convert.ToInt32(dataGridView2.Rows[i].Cells[3].Value);
-                                var cellID = Convert.ToInt32(dataGridView2.Rows[i].Cells[0].Value);//error
-                                var idText = Convert.ToInt32(this.idProdC.Text);
+                                var cellID = Convert.ToInt64(dataGridView2.Rows[i].Cells[0].Value);//error
+                                var idText = Convert.ToInt64(this.idProdC.Text);
 
                                 if (cellID == idText && cellCant < existe)
                                 {
@@ -633,7 +634,7 @@ namespace DistribucionesArly_s
                 MessageBox.Show("CantidadData", ex.Message);
             }
         }
-        private void VaidarDataGridView(int lastRow, int cellCant, int cellID, int idText)
+        private void VaidarDataGridView(int lastRow, int cellCant, long cellID, long idText)
         {
             try
             {
@@ -649,7 +650,7 @@ namespace DistribucionesArly_s
 
                 for (int i = 0; i < dataGridView2.Rows.Count; i++)
                 {
-                    if (Convert.ToInt32(dataGridView2.Rows[i].Cells[0].Value) == Convert.ToInt32(this.idProdC.Text))
+                    if (Convert.ToInt64(dataGridView2.Rows[i].Cells[0].Value) == Convert.ToInt64(this.idProdC.Text))
                     {
                         var cant = Convert.ToInt32(dataGridView2.Rows[i].Cells[3].Value);
                         int result = Convert.ToInt32(this.canProd.Text) + cant;

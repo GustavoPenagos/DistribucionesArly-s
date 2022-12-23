@@ -54,7 +54,7 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string queryConsult = "select Id_Prod from Producto where Id_Prod =" + Convert.ToInt16(this.idProdRegis.Text);
+                string queryConsult = "select Id_Prod from Producto where Id_Prod =" + Convert.ToInt64(this.idProdRegis.Text);
                 con.Open();
                 SqlCommand cmdConsul = new SqlCommand(queryConsult, con);
                 SqlDataReader dr = cmdConsul.ExecuteReader();
@@ -67,24 +67,25 @@ namespace DistribucionesArly_s
                     for (int i = 0; i < cantidadProd; i++)
                     {
                         
-                        string queryInsert = "insert into Bodega values (" + Convert.ToInt16(this.idProdRegis.Text) + ")";
+                        string queryInsert = "insert into Bodega values (" + Convert.ToInt64(this.idProdRegis.Text) + ")";
                         SqlCommand cmdInsert = new SqlCommand(queryInsert, con);
                         cmdInsert.ExecuteNonQuery();
                         
                     }
-                    MessageBox.Show("Se ha ingresado el producto correctamente");
                     con.Close();
+                    MessageBox.Show("Se ha ingresado el producto correctamente");
                 }
                 else
                 {
-                    MessageBox.Show("No existe este ID (" + this.idProdRegis.Text + ")");
                     con.Close();
+                    MessageBox.Show("No existe este ID (" + this.idProdRegis.Text + ")");
                 }
 
                 borrar();
             }
             catch (Exception)
             {
+                con.Close();
                 MessageBox.Show("Numero ID_producto no valido (" + this.idProdRegis.Text + ")");
                 borrar();
             }

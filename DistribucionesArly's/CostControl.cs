@@ -37,9 +37,8 @@ namespace DistribucionesArly_s
                 {
                     for (int i = 0; i < dataGridView1.Rows.Count; i++)
                     {
-                        var Cart = double.Parse(dt.Rows[i].ItemArray[1].ToString(), NumberStyles.Currency);
-                        var totalCart = Convert.ToDouble(Cart);
-                        suma = suma + totalCart;
+                        var Cart = double.Parse(dt.Rows[i].ItemArray[2].ToString(), NumberStyles.Currency);
+                        suma = suma + Cart;
                     }
                     this.totalCartera.Text = suma.ToString("C");
                 }

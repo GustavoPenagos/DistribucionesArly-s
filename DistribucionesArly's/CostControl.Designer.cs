@@ -160,7 +160,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel3.BackColor = System.Drawing.SystemColors.Control;
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.totalCartera);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -173,7 +173,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(622, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 25);
@@ -183,7 +183,7 @@
             // totalCartera
             // 
             this.totalCartera.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCartera.ForeColor = System.Drawing.Color.White;
+            this.totalCartera.ForeColor = System.Drawing.Color.Black;
             this.totalCartera.Location = new System.Drawing.Point(712, 34);
             this.totalCartera.Name = "totalCartera";
             this.totalCartera.Size = new System.Drawing.Size(157, 23);

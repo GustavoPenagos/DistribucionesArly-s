@@ -42,6 +42,10 @@ namespace DistribucionesArly_s
         {
             try
             {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
                 if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 {
                     this.canProd.Focus();
@@ -303,6 +307,10 @@ namespace DistribucionesArly_s
         {
             try
             {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
                 if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 {
                     CompareExistente();

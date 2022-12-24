@@ -77,7 +77,7 @@ namespace DistribucionesArly_s
         }
         private void borrar()
         {
-            this.idEliminar.Text = "";
+            this.idEliminar.Clear(); ;
         }
         private void BuscarUser()
         {
@@ -182,7 +182,7 @@ namespace DistribucionesArly_s
         }
         private void selecBus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.idBuscar.Text = "";
+            this.idBuscar.Clear();
         }
         private void buscarId_Click(object sender, EventArgs e)
         {

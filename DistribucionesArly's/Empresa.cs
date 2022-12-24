@@ -50,5 +50,20 @@ namespace DistribucionesArly_s
         {
             OpenFrom(new ListaEmpresa());
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenFrom(new RegistroCompras());
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OpenFrom(new ListaCompras());
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            OpenFrom(new AbonosFacturas());
+        }
     }
 }

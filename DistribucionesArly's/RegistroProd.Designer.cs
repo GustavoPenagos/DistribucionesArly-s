@@ -129,7 +129,7 @@
             this.guardarProd.Location = new System.Drawing.Point(523, 526);
             this.guardarProd.Name = "guardarProd";
             this.guardarProd.Size = new System.Drawing.Size(93, 35);
-            this.guardarProd.TabIndex = 8;
+            this.guardarProd.TabIndex = 7;
             this.guardarProd.Text = "Guardar";
             this.guardarProd.UseVisualStyleBackColor = true;
             this.guardarProd.Click += new System.EventHandler(this.guardarProd_Click);
@@ -190,7 +190,7 @@
             this.marcaProd.Location = new System.Drawing.Point(350, 400);
             this.marcaProd.Name = "marcaProd";
             this.marcaProd.Size = new System.Drawing.Size(266, 30);
-            this.marcaProd.TabIndex = 11;
+            this.marcaProd.TabIndex = 5;
             this.marcaProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
@@ -209,7 +209,7 @@
             this.utilidad.Location = new System.Drawing.Point(350, 450);
             this.utilidad.Name = "utilidad";
             this.utilidad.Size = new System.Drawing.Size(266, 30);
-            this.utilidad.TabIndex = 13;
+            this.utilidad.TabIndex = 6;
             this.utilidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.utilidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.utilidad_KeyPress);
             // 

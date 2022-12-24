@@ -78,6 +78,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbonosFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbonosFacturas.Designer.cs">
+      <DependentUpon>AbonosFacturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bodega.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,18 @@
     </Compile>
     <Compile Include="CarritoCompras.Designer.cs">
       <DependentUpon>CarritoCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaCompras.Designer.cs">
+      <DependentUpon>ListaCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistroCompras.Designer.cs">
+      <DependentUpon>RegistroCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="ClsFactura.cs" />
     <Compile Include="Compras.cs">
@@ -102,6 +120,12 @@
     </Compile>
     <Compile Include="Control.Designer.cs">
       <DependentUpon>Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlFacturas.Designer.cs">
+      <DependentUpon>ControlFacturas.cs</DependentUpon>
     </Compile>
     <Compile Include="CostControl.cs">
       <SubType>Form</SubType>
@@ -213,17 +237,29 @@
     <Compile Include="Validacion.Designer.cs">
       <DependentUpon>Validacion.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AbonosFacturas.resx">
+      <DependentUpon>AbonosFacturas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bodega.resx">
       <DependentUpon>Bodega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CarritoCompras.resx">
       <DependentUpon>CarritoCompras.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ListaCompras.resx">
+      <DependentUpon>ListaCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistroCompras.resx">
+      <DependentUpon>RegistroCompras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras.resx">
       <DependentUpon>Compras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Control.resx">
       <DependentUpon>Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlFacturas.resx">
+      <DependentUpon>ControlFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CostControl.resx">
       <DependentUpon>CostControl.cs</DependentUpon>

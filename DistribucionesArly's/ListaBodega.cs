@@ -29,6 +29,13 @@ namespace DistribucionesArly_s
         }
         private void nombreProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (this.selecBus.Text.Equals("ID"))
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
             if(e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 BuscarEnBodega();
@@ -116,6 +123,11 @@ namespace DistribucionesArly_s
                 MessageBox.Show(ex.Message);
             }
             
+        }
+
+        private void selecBus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.nombreProducto.Clear();
         }
     }
 }

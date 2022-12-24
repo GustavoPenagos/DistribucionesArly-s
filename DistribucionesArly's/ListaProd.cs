@@ -101,5 +101,25 @@ namespace DistribucionesArly_s
             }
             
         }
+
+        private void buscarProd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (this.selectBus.Text.Equals("ID"))
+                {
+                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)){
+                        e.Handled = true;
+                    }
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void selectBus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.buscarProd.Clear();
+        }
     }
 }

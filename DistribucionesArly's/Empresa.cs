@@ -65,5 +65,10 @@ namespace DistribucionesArly_s
         {
             OpenFrom(new AbonosFacturas());
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            OpenFrom(new ListaFacturas());
+        }
     }
 }

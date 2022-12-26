@@ -102,6 +102,12 @@
     <Compile Include="ListaCompras.Designer.cs">
       <DependentUpon>ListaCompras.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaFacturas.Designer.cs">
+      <DependentUpon>ListaFacturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegistroCompras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListaCompras.resx">
       <DependentUpon>ListaCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaFacturas.resx">
+      <DependentUpon>ListaFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistroCompras.resx">
       <DependentUpon>RegistroCompras.cs</DependentUpon>

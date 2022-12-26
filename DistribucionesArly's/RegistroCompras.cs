@@ -49,22 +49,23 @@ namespace DistribucionesArly_s
                 var nFactura = this.numFact.Text;
                 var valorFac = this.valorFact.Text;
                 var img = this.ImgFact.Image;
+                var date = this.dateFact.Value.ToString("d/MM/yyyy");
+                var dateLimi = this.dateLimite.Value.ToString("d/MM/yyyy");
+
                 if (nFactura.Equals("") || valorFac.Equals("") || img == null)
                 {
                     MessageBox.Show("Llene todos los campos");
                     return;
                 }
-                //byte[] bytes = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
-                //var base64Img = System.Convert.ToBase64String(bytes).ToString();
-                var date = DateTime.Now.ToShortDateString().ToString();
-                img.Save(@"C:\Users\kmtav\OneDrive\Documentos\Facturas\"+nFactura.ToString()+".jpg");
-                string queryImgCompra = "INSERT INTO Cartera VALUES(4,'" + valorFac + "','" + date + "','" + nFactura + "')";
-                //string queryInsertImg = "INSERT INTO FacturaCompras VALUES (" + Convert.ToInt64(nFactura) + ",'" + base64Img + "')";
+                byte[] bytes = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
+                var base64Img = System.Convert.ToBase64String(bytes).ToString();
+                string queryImgCompra = "INSERT INTO Cartera VALUES(4,'" + valorFac + "','" + date + "','" + nFactura + "', '"+dateLimi+"')";
+                string queryInsertImg = "INSERT INTO FacturaCompras VALUES (" + Convert.ToInt64(nFactura) + ",'" + base64Img + "')";
                 con.Open();
                 SqlCommand cmdImgCompra = new SqlCommand(queryImgCompra, con);
                 cmdImgCompra.ExecuteNonQuery();
-                //SqlCommand cmdInsertImg = new SqlCommand(queryInsertImg, con);
-                //cmdInsertImg.ExecuteNonQuery();
+                SqlCommand cmdInsertImg = new SqlCommand(queryInsertImg, con);
+                cmdInsertImg.ExecuteNonQuery();
                 con.Close();
                 Clean();
             }

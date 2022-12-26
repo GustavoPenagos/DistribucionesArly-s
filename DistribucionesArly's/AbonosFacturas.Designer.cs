@@ -38,9 +38,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.buscarFactura = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.total = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.sPendiente = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,11 +114,34 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.sPendiente);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.total);
+            this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 426);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(805, 100);
             this.panel3.TabIndex = 4;
+            // 
+            // total
+            // 
+            this.total.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total.Location = new System.Drawing.Point(134, 39);
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Size = new System.Drawing.Size(151, 26);
+            this.total.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(27, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 20);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Total abonos";
             // 
             // dataGridView1
             // 
@@ -151,6 +179,25 @@
             this.dataGridView1.Size = new System.Drawing.Size(805, 226);
             this.dataGridView1.TabIndex = 5;
             // 
+            // sPendiente
+            // 
+            this.sPendiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sPendiente.Location = new System.Drawing.Point(469, 39);
+            this.sPendiente.Name = "sPendiente";
+            this.sPendiente.ReadOnly = true;
+            this.sPendiente.Size = new System.Drawing.Size(156, 26);
+            this.sPendiente.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(339, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(125, 20);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Saldo pendiente";
+            // 
             // AbonosFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,6 +213,8 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -181,5 +230,9 @@
         private System.Windows.Forms.Button buscarFactura;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox total;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox sPendiente;
+        private System.Windows.Forms.Label label4;
     }
 }

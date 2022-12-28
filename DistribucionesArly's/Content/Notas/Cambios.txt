@@ -8,16 +8,16 @@ X. proveedor empres, vendedor (tipo usuario)
 
 X. lsitar usuario con select
 
-control de compras a empresas
+X. control de compras a empresas
 
-FACTURA DE COMPRA A PROVEEDORES:
+X. FACTURA DE COMPRA A PROVEEDORES:
 	(nombre de la empresa - fecha de compra - fecha de experiacion - saldo de compra - numero de factura - descripcion de la factura [foto])
 
 buscar empresa por producto que vende
 
 X. registro -- inventario bodega (mostrar el total al momento del registro)
 
-espacio de factura legal e ilegal
+X. espacio de factura legal e ilegal
 
 enviar factura por correo 
 
@@ -29,7 +29,7 @@ X. anexa validacion de existente o guardar
 
 X. opcion de imprimir o no imprimir
 
-Select en listaEmpresa 
+X. Select en listaEmpresa 
 -----------------------
 Nit
 Nombre
@@ -41,15 +41,14 @@ a quien se le vende
 
 pagos por transferencia
 
-
 ------------------------
 
-crear opciones de compra
+X. crear opciones de compra
 
 crear formato de correo
 
-crear base de datos nueva con los mismos nombres y cambiar las datatype de (
-- id producto fram producto [bigint] or [varchar])
+X. crear base de datos nueva con los mismos nombres y cambiar las datatype de (
+  - id producto fram producto [bigint] or [varchar])
 
 -----------------------
 123456789

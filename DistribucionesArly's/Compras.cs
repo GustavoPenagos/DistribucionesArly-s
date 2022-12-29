@@ -76,13 +76,32 @@ namespace DistribucionesArly_s
                 var precio = dt.Rows[0].ItemArray[6].ToString();
                 var unidades = dt.Rows[0].ItemArray[3].ToString();
                 //con.Close();
+                var value1 = this.ventaBut1.Checked; var value2 = this.ventaBut2.Checked;
+                var value3 = this.ventaBut3.Checked; var value4 = this.ventaBut4.Checked;
+                //
+                string v = "";
+                switch (true)
+                {
+                    case true when value1:
+                        v = "1";
+                        break;
+                    case true when value2:
+                        v = "2";
+                        break;
+                    case true when value3:
+                        v = "3";
+                        break;
+                    case true when value4:
+                        v = "4";
+                        break;
+                    default: break;
+                }
                 var cantidad = Convert.ToInt64(this.canProd.Text);
                 for (int i = 0; i < cantidad; i++)
                 {
                     string query2 = "INSERT INTO [dbo].[Compras] " +
-                    "([Id_Prod],[Nom_Prod],[Precio_Prod],[Unid_Prod]) " +
                     "VALUES (" + Convert.ToInt64(id_prod) + ",'" + nombre +
-                    "','" + precio + "'," + Convert.ToInt64(unidades) + ")";
+                    "','" + precio + "'," + Convert.ToInt64(unidades) + ", '"+v+"')";
                     //con.Open();
                     SqlCommand cmd = new SqlCommand(query2, con);
                     cmd.ExecuteNonQuery();
@@ -98,7 +117,7 @@ namespace DistribucionesArly_s
                 con.Close();
                 this.idProdC.Text = "";
                 this.idProdC.Focus();
-                MessageBox.Show("ListaProd", ex.Message);
+                MessageBox.Show("ListaProd_"+ ex.Message);
             }
         }
         private void fCompra_Click(object sender, EventArgs e)
@@ -204,7 +223,7 @@ namespace DistribucionesArly_s
                         string fecha = DateTime.Now.ToShortDateString().ToString();
                         //
                         con.Open();
-                        string queryFacRem = "INSERT INTO CARTERA VALUES (1,'" + totalComp.ToString() + "','" + fecha + "','" + facturaN.ToString() + "')";
+                        string queryFacRem = "INSERT INTO CARTERA VALUES (1,'" + totalComp.ToString() + "','" + fecha + "','" + facturaN.ToString() + "', '" + facturaN.ToString()+"')";
                         SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
                         cmdFact.ExecuteReader();
                         con.Close();
@@ -252,7 +271,27 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string query = "select * from Lista_Compras";
+                var value1 = this.ventaBut1.Checked; var value2 = this.ventaBut2.Checked;
+                var value3 = this.ventaBut3.Checked; var value4 = this.ventaBut4.Checked;
+                //
+                string v = "";
+                switch (true)
+                {
+                    case true when value1:
+                        v = "1";
+                        break;
+                    case true when value2:
+                        v = "2";
+                        break;
+                    case true when value3:
+                        v = "3";
+                        break;
+                    case true when value4:
+                        v = "4";
+                        break;
+                    default: break;
+                }
+                string query = "select * from Lista_Compras where [# Venta] like '"+v+"'";
 
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -333,7 +372,27 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string query = "select sum(convert(decimal, Precio_Prod)) as total from Compras";
+                var value1 = this.ventaBut1.Checked; var value2 = this.ventaBut2.Checked;
+                var value3 = this.ventaBut3.Checked; var value4 = this.ventaBut4.Checked;
+                //
+                string v = "";
+                switch (true)
+                {
+                    case true when value1:
+                        v = "1";
+                        break;
+                    case true when value2:
+                        v = "2";
+                        break;
+                    case true when value3:
+                        v = "3";
+                        break;
+                    case true when value4:
+                        v = "4";
+                        break;
+                    default: break;
+                }
+                string query = "select sum(convert(decimal, Precio_Prod)) as total from Compras where [Num_Venta] like '"+v+"'";
                 con.Open();
                 //SqlCommand cmd = new SqlCommand(query, con);
                 DataTable dt = new DataTable();
@@ -396,7 +455,27 @@ namespace DistribucionesArly_s
                     cmdFact.ExecuteReader();
                     con.Close();
                 }
-                string queryCompra = "select * from Lista_Compras";
+                var value1 = this.ventaBut1.Checked; var value2 = this.ventaBut2.Checked;
+                var value3 = this.ventaBut3.Checked; var value4 = this.ventaBut4.Checked;
+                //
+                string v = "";
+                switch (true)
+                {
+                    case true when value1:
+                        v = "1";;
+                        break;
+                    case true when value2:
+                        v = "2";
+                        break;
+                    case true when value3:
+                        v = "3";
+                        break;
+                    case true when value4:
+                        v = "4";
+                        break;
+                    default: break;
+                }
+                string queryCompra = "select * from Lista_Compras where [# Venta] like  '"+v+"'";
                 SqlDataAdapter adap = new SqlDataAdapter(queryCompra, con);
                 DataTable dTable = new DataTable();
                 adap.Fill(dTable);
@@ -409,7 +488,7 @@ namespace DistribucionesArly_s
                     string queryDelete = "delete top (" + cantidad + ")  from bodega where Id_Prod = " + idPro;
                     SqlCommand cmdDelete = new SqlCommand(queryDelete, con);
                     cmdDelete.ExecuteNonQuery();
-                    string queryDeleteCompras = "delete from Compras";
+                    string queryDeleteCompras = "delete from Compras where [Num_Venta] like '"+v+"'";
                     SqlCommand cmdDeleteCompras = new SqlCommand(queryDeleteCompras, con);
                     cmdDeleteCompras.ExecuteNonQuery();
                 }
@@ -678,6 +757,17 @@ namespace DistribucionesArly_s
             catch(Exception ex)
             {
                 MessageBox.Show("VaidarDataGridView ", ex.Message);
+            }
+        }
+
+        private void ventaBut1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListaCompra();
+            }catch(Exception ex)
+            {
+                MessageBox.Show("venta click" + ex.Message);
             }
         }
     }

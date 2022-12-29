@@ -234,8 +234,21 @@ namespace DistribucionesArly_s
                         Ticket1.TextoIzquierda(" ");
                         Ticket1.AgregaTotales("Total", totalComp); // imprime linea con total
                         Ticket1.TextoIzquierda(" ");
-                        Ticket1.AgregaTotales("Efectivo Entregado:", double.Parse(this.cancelaCon.Text, NumberStyles.Currency));
-                        Ticket1.AgregaTotales("Efectivo Devuelto:", double.Parse(this.cambioDe.Text, NumberStyles.Currency));
+                        var efec = this.efectivo.Checked; 
+                        var transf = this.transferencia.Checked;
+                        
+                        //
+                        switch (true)
+                        {
+                            case true when efec:
+                                Ticket1.AgregaTotales("Efectivo Entregado:", double.Parse(this.cancelaCon.Text, NumberStyles.Currency));
+                                Ticket1.AgregaTotales("Efectivo Devuelto:", double.Parse(this.cambioDe.Text, NumberStyles.Currency));
+                                break;
+                            case true when transf:
+                                Ticket1.AgregaTotales("Pago por transferencia:", double.Parse(this.cancelaCon.Text, NumberStyles.Currency));
+                                break;
+                            default: break;
+                        }
                         con.Close();
 
                         // Ticket1.LineasTotales(); // imprime linea 

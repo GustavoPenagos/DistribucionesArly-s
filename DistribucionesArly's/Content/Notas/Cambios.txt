@@ -1,6 +1,6 @@
 X. porcentaje en registro producto
 
-venta secundaria
+X. venta secundaria
 
 X. registro usuario nit
 
@@ -37,9 +37,9 @@ Departamento
 Ciudad
 
 ------------------------
-a quien se le vende
+X. a quien se le vende
 
-pagos por transferencia
+X. pagos por transferencia
 
 ------------------------
 
@@ -51,9 +51,5 @@ X. crear base de datos nueva con los mismos nombres y cambiar las datatype de (
   - id producto fram producto [bigint] or [varchar])
 
 -----------------------
-123456789
 
-987654321
-
-232463248732123234
 

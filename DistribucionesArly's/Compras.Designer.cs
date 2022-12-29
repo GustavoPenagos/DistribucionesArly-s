@@ -58,6 +58,8 @@
             this.cambioDe = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cancelaCon = new System.Windows.Forms.TextBox();
+            this.efectivo = new System.Windows.Forms.RadioButton();
+            this.transferencia = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -303,6 +305,8 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.transferencia);
+            this.panel4.Controls.Add(this.efectivo);
             this.panel4.Controls.Add(this.fCompra);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 331);
@@ -395,6 +399,28 @@
             this.cancelaCon.TabIndex = 2;
             this.cancelaCon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // efectivo
+            // 
+            this.efectivo.AutoSize = true;
+            this.efectivo.Checked = true;
+            this.efectivo.Location = new System.Drawing.Point(315, 36);
+            this.efectivo.Name = "efectivo";
+            this.efectivo.Size = new System.Drawing.Size(64, 17);
+            this.efectivo.TabIndex = 1;
+            this.efectivo.TabStop = true;
+            this.efectivo.Text = "Efectivo";
+            this.efectivo.UseVisualStyleBackColor = true;
+            // 
+            // transferencia
+            // 
+            this.transferencia.AutoSize = true;
+            this.transferencia.Location = new System.Drawing.Point(403, 36);
+            this.transferencia.Name = "transferencia";
+            this.transferencia.Size = new System.Drawing.Size(90, 17);
+            this.transferencia.TabIndex = 2;
+            this.transferencia.Text = "Transferencia";
+            this.transferencia.UseVisualStyleBackColor = true;
+            // 
             // Compras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -451,5 +477,7 @@
         private System.Windows.Forms.RadioButton ventaBut4;
         private System.Windows.Forms.RadioButton ventaBut3;
         private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.RadioButton transferencia;
+        private System.Windows.Forms.RadioButton efectivo;
     }
 }

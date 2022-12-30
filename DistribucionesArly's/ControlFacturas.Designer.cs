@@ -102,9 +102,9 @@
             this.selecBus.Items.AddRange(new object[] {
             "Factura de venta",
             "Factura Remision"});
-            this.selecBus.Location = new System.Drawing.Point(103, 25);
+            this.selecBus.Location = new System.Drawing.Point(76, 25);
             this.selecBus.Name = "selecBus";
-            this.selecBus.Size = new System.Drawing.Size(163, 33);
+            this.selecBus.Size = new System.Drawing.Size(180, 33);
             this.selecBus.TabIndex = 1;
             this.selecBus.Text = "Factura de venta";
             this.selecBus.SelectedIndexChanged += new System.EventHandler(this.selecBus_SelectedIndexChanged);

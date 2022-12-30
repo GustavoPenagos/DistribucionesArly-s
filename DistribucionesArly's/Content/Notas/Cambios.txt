@@ -13,13 +13,19 @@ X. control de compras a empresas
 X. FACTURA DE COMPRA A PROVEEDORES:
 	(nombre de la empresa - fecha de compra - fecha de experiacion - saldo de compra - numero de factura - descripcion de la factura [foto])
 
-buscar empresa por producto que vende
+X. Buscar empresa por producto que vende
 
 X. registro -- inventario bodega (mostrar el total al momento del registro)
 
 X. espacio de factura legal e ilegal
 
-enviar factura por correo 
+X. enviar factura por correo // pendiente más validaciones para envio de correo
+-------------------------
+mail: distribucionesArlys@gmail.com
+password: 123456qweR.
+-------------------------
+lzoefgskqqrulqrb
+-------------------------
 
 X. enexar en registro
 
@@ -46,6 +52,7 @@ X. pagos por transferencia
 X. crear opciones de compra
 
 crear formato de correo
+
 
 X. crear base de datos nueva con los mismos nombres y cambiar las datatype de (
   - id producto fram producto [bigint] or [varchar])

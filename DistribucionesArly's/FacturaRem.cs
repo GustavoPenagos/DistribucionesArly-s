@@ -341,6 +341,8 @@ namespace DistribucionesArly_s
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
+                SendCorreo correo = new SendCorreo();
+                correo.SendMailRem(szString);
                 return true;
             }
         }

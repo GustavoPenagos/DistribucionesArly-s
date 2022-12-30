@@ -124,7 +124,6 @@ namespace DistribucionesArly_s
         {
             try
             {
-                
                 DialogResult dr = MessageBox.Show("¿FINALIZAR VENTA?", "Seleccionar", MessageBoxButtons.YesNo);
                 switch (dr)
                 {
@@ -152,7 +151,7 @@ namespace DistribucionesArly_s
             catch(Exception ex)
             {
                 con.Close();
-                MessageBox.Show("fCompra_Click", ex.Message);
+                MessageBox.Show("fCompra_Click"+ ex.Message);
             }
         }
         private void FacturacionNit()
@@ -236,7 +235,6 @@ namespace DistribucionesArly_s
                         Ticket1.TextoIzquierda(" ");
                         var efec = this.efectivo.Checked; 
                         var transf = this.transferencia.Checked;
-                        
                         //
                         switch (true)
                         {
@@ -591,7 +589,7 @@ namespace DistribucionesArly_s
                         string fecha = DateTime.Now.ToShortDateString().ToString();
                         //
                         con.Open();
-                        string queryFacRem = "INSERT INTO CARTERA VALUES (2,'" + totalComp.ToString() + "','" + fecha + "','" + facturaN.ToString() +"')";
+                        string queryFacRem = "INSERT INTO CARTERA VALUES (1,'" + totalComp.ToString() + "','" + fecha + "','" + facturaN.ToString() + "', '" + facturaN.ToString() + "')";
                         SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
                         cmdFact.ExecuteReader();
                         con.Close();

@@ -26,6 +26,20 @@ namespace DistribucionesArly_s
         }
         private void bNomEmp_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if(empComBox.Text.Equals("Nombre") || empComBox.Text.Equals("Ciudad"))
+            {
+                if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+            else if(empComBox.Text.Equals("Nit"))
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }  
             if(e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 Validar();
@@ -35,19 +49,28 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string query = " select * from Lista_Emp where Nombre_Empresa like '%" + this.bNomEmp.Text + "%'";
-                con.Open();
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader reader = cmd.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Load(reader);
-                dataGridView1.DataSource = dt;
-
-                if (dataGridView1.Rows.Count <= 0)
+                var buscar = empComBox.Text;
+                var id = this.bNomEmp.Text;
+                switch (buscar)
                 {
-                    MessageBox.Show("No existe un registro con este numero");
+                    case ("Nit"):
+                        buscar = "where Nit = "+ id;
+                        ComboBoxEmp(buscar);
+                        break;
+                    case ("Nombre"):
+                        buscar = "where Nombre like '%" + id + "%'";
+                        ComboBoxEmp(buscar);
+                        break;
+                    case ("Productos"):
+                        buscar = "where Información like '%" + id + "%'";
+                        ComboBoxEmp(buscar);
+                        break;
+                    case ("Ciudad"):
+                        buscar = "where Ciudad like '%" + id + "%'";
+                        ComboBoxEmp(buscar);
+                        break;
                 }
-                con.Close();
+                
                 
                 //Borrar();
             }
@@ -102,6 +125,34 @@ namespace DistribucionesArly_s
                 MessageBox.Show(ex.Message);
             }
             
+        }
+        private void ComboBoxEmp(string buscar)
+        {
+            try
+            {
+                string query = " select * from Lista_Emp " + buscar;
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                dataGridView1.DataSource = dt;
+
+                if (dataGridView1.Rows.Count <= 0)
+                {
+                    MessageBox.Show("No existe un registro con este dato");
+                }
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("ComboBoxEmp" + ex.Message);
+            }
+        }
+
+        private void empComBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.bNomEmp.Clear();
         }
     }
 }

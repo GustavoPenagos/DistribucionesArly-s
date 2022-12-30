@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -343,6 +344,8 @@ namespace DistribucionesArly_s
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
+                SendCorreo correo = new SendCorreo();
+                correo.SendMail(szString);
                 return true;
             }
         }

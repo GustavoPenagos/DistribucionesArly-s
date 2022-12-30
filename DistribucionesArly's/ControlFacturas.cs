@@ -56,7 +56,8 @@ namespace DistribucionesArly_s
                 var B64ToByte = Convert.FromBase64String(codeB64);
                 var a = System.Text.Encoding.UTF8.GetString(B64ToByte);
                 con.Close();
-                this.multiFact.Text = a;  
+                this.multiFact.Text = a;
+                
             }
             catch(Exception ex)
             {

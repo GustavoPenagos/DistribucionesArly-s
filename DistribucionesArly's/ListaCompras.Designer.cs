@@ -143,6 +143,7 @@
             this.abonoFact.Name = "abonoFact";
             this.abonoFact.Size = new System.Drawing.Size(194, 30);
             this.abonoFact.TabIndex = 5;
+            this.abonoFact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bFCompra_KeyPress);
             // 
             // label4
             // 

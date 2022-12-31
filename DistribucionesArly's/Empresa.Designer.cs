@@ -32,6 +32,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -48,17 +51,14 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panelContainEmpresa = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -85,6 +85,7 @@
             // 
             // panel2
             // 
+            this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panel2.Controls.Add(this.panel8);
             this.panel2.Controls.Add(this.pictureBox6);
@@ -107,8 +108,45 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(228, 688);
+            this.panel2.Size = new System.Drawing.Size(250, 688);
             this.panel2.TabIndex = 1;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.panel8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel8.Location = new System.Drawing.Point(0, 560);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(10, 54);
+            this.panel8.TabIndex = 24;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(12, 560);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(55, 55);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 23;
+            this.pictureBox6.TabStop = false;
+            // 
+            // button6
+            // 
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(0, 560);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(228, 55);
+            this.button6.TabIndex = 25;
+            this.button6.Text = "Lista de facturas";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // panel7
             // 
@@ -300,47 +338,10 @@
             // panelContainEmpresa
             // 
             this.panelContainEmpresa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainEmpresa.Location = new System.Drawing.Point(228, 100);
+            this.panelContainEmpresa.Location = new System.Drawing.Point(250, 100);
             this.panelContainEmpresa.Name = "panelContainEmpresa";
-            this.panelContainEmpresa.Size = new System.Drawing.Size(481, 688);
+            this.panelContainEmpresa.Size = new System.Drawing.Size(459, 688);
             this.panelContainEmpresa.TabIndex = 2;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.panel8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel8.Location = new System.Drawing.Point(0, 560);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(10, 54);
-            this.panel8.TabIndex = 24;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(12, 560);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(55, 55);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 23;
-            this.pictureBox6.TabStop = false;
-            // 
-            // button6
-            // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(0, 560);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(228, 55);
-            this.button6.TabIndex = 25;
-            this.button6.Text = "Lista de facturas";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Empresa
             // 
@@ -355,12 +356,12 @@
             this.Text = "Empresa";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -63,7 +64,7 @@ namespace DistribucionesArly_s
                 //
                 MostrarImg();
                 con.Close();
-                this.totalFact.Text = resul.ToString();
+                this.totalFact.Text = resul.ToString("C");
             }
             catch(Exception ex)
             {
@@ -89,7 +90,7 @@ namespace DistribucionesArly_s
         {
             try
             {
-                var total = Convert.ToInt64(this.totalFact.Text);
+                var total = double.Parse(totalFact.Text, NumberStyles.Currency);
                 if(total == 0) 
                 {
                     MessageBox.Show("La factura esta en saldo 0");
@@ -111,7 +112,7 @@ namespace DistribucionesArly_s
                 if (resultado <0)
                 {
                     con.Close();
-                    MessageBox.Show("Ese valor es mayo al valor por pagar");
+                    MessageBox.Show("Ese valor es mayor al valor por pagar");
                     return;
                 }
                 else
@@ -119,6 +120,9 @@ namespace DistribucionesArly_s
                     string queryAbono = "INSERT INTO Abono VALUES(" + nFactura + ",'" + valorFactura + "','" + abono.ToString() + "','" + date + "')";
                     SqlCommand cmdInsert = new SqlCommand(queryAbono, con);
                     cmdInsert.ExecuteNonQuery();
+                    //
+                    MessageBox.Show("Se ha guardado el abono a la factura "+ nFactura);
+                    Borrar(resultado);
                 }
                 con.Close();
             }
@@ -153,15 +157,14 @@ namespace DistribucionesArly_s
                 MessageBox.Show(ex.Message);
             }
         }
-        private void Borrar()
+        private void Borrar(double resultado)
         {
             try
             {
-                if(!totalFact.Text.Equals("") || !abonoFact.Text.Equals(""))
-                {
-                    totalFact.Clear();
-                    abonoFact.Clear();
-                }
+                totalFact.Text = resultado.ToString("C");
+                abonoFact.Clear();
+                bFCompra.Clear();
+
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);

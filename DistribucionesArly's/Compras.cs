@@ -25,8 +25,7 @@ namespace DistribucionesArly_s
             ListaCompra();
         }
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
-
-
+        
         private void butBusComp_Click(object sender, EventArgs e)
         {
             try
@@ -38,6 +37,7 @@ namespace DistribucionesArly_s
                 MessageBox.Show(ex.Message);
             }
         }
+        
         private void idProdC_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -57,6 +57,7 @@ namespace DistribucionesArly_s
             }
             
         }
+        
         private void ListaProd()
         {
             try
@@ -120,6 +121,7 @@ namespace DistribucionesArly_s
                 MessageBox.Show("ListaProd_"+ ex.Message);
             }
         }
+        
         private void fCompra_Click(object sender, EventArgs e)
         {
             try
@@ -128,13 +130,13 @@ namespace DistribucionesArly_s
                 switch (dr)
                 {
                     case DialogResult.Yes:
-                        DialogResult dr2 = MessageBox.Show("¿IMPRIMIR FACTURA?", "Seleccionar", MessageBoxButtons.YesNo);
-                        switch (dr2)
+                        var resultImp = this.rBImprimir.Checked  ;
+                        switch (resultImp)
                         {
-                            case DialogResult.Yes:
+                            case (true):
                                 SeleccionImp("yes");
                                 break;
-                            case DialogResult.No:
+                            case (false):
                                 SeleccionImp("no");
                                 break;
                             default: break;
@@ -154,6 +156,7 @@ namespace DistribucionesArly_s
                 MessageBox.Show("fCompra_Click"+ ex.Message);
             }
         }
+        
         private void FacturacionNit()
         {
             try
@@ -278,6 +281,7 @@ namespace DistribucionesArly_s
                 MessageBox.Show("(2)FacturacionNit", ex.Message);
             }
         }
+        
         private void ListaCompra()
         {
             try
@@ -312,6 +316,7 @@ namespace DistribucionesArly_s
                 dataGridView2.DataSource = dt;
                 con.Close();
                 this.canProd.Text = "1";
+                if (dataGridView2.Rows.Count == 0) { totalVenta.Clear(); }
                 DatosCompra();
             }
             catch (Exception ex)
@@ -321,6 +326,7 @@ namespace DistribucionesArly_s
             }
             
         }
+        
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -337,7 +343,27 @@ namespace DistribucionesArly_s
                     MessageBox.Show("Campo ID esta vacio");
                     return;
                 }
-                string query = "delete top ("+cantidad+") from Compras where Id_Prod = "+this.idProdC.Text;
+                var value1 = this.ventaBut1.Checked; var value2 = this.ventaBut2.Checked;
+                var value3 = this.ventaBut3.Checked; var value4 = this.ventaBut4.Checked;
+                //
+                string v = "";
+                switch (true)
+                {
+                    case true when value1:
+                        v = "1";
+                        break;
+                    case true when value2:
+                        v = "2";
+                        break;
+                    case true when value3:
+                        v = "3";
+                        break;
+                    case true when value4:
+                        v = "4";
+                        break;
+                    default: break;
+                }
+                string query = "delete top ("+cantidad+") from Compras where Id_Prod = "+this.idProdC.Text + "and Num_Venta = " + v;
 
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -345,6 +371,8 @@ namespace DistribucionesArly_s
                 con.Close();
                 this.idProdC.Text = "";
                 this.canProd.Text = "1";
+                idProdC.Focus();
+                
                 ListaCompra();
             }
             catch (Exception ex)
@@ -353,6 +381,7 @@ namespace DistribucionesArly_s
                 MessageBox.Show("button1_Click", ex.Message);
             }
         }
+        
         private void canProd_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -379,10 +408,17 @@ namespace DistribucionesArly_s
             }
             
         }
+        
         private void DatosCompra()
         {
             try
             {
+                if (rBImprimir.Checked == false)
+                {
+                    rBFactNit.Visible = false;
+                    rBRemision.Visible = false;
+                    rBNImprimir.Visible = false;
+                }
                 var value1 = this.ventaBut1.Checked; var value2 = this.ventaBut2.Checked;
                 var value3 = this.ventaBut3.Checked; var value4 = this.ventaBut4.Checked;
                 //
@@ -434,6 +470,7 @@ namespace DistribucionesArly_s
                 MessageBox.Show("DatosCompra", ex.Message);
             }
         }
+        
         private void SeleccionImp(string a)
         {
             try
@@ -441,16 +478,14 @@ namespace DistribucionesArly_s
 
                 if (a.Equals("yes"))
                 {
-                    DialogResult dr = MessageBox.Show("¿FACTURA CON NIT?", "Seleccionar", MessageBoxButtons.YesNo);
-                    switch (dr)
+                    var resultImpNit = this.rBFactNit.Checked;
+                    var resultImpREM = this.rBRemision.Checked;
+                    if(resultImpNit == true)
                     {
-                        case DialogResult.Yes:
-                            FacturacionNit();
-                            break;
-                        case DialogResult.No:
-                            FacturacionRem();
-                            break;
-                        default: break;
+                        FacturacionNit();
+                    }else if (resultImpREM == true)
+                    {
+                        FacturacionRem();
                     }
                 }
                 else
@@ -461,7 +496,7 @@ namespace DistribucionesArly_s
                     int totalVenta= int.Parse(this.totalVenta.Text, NumberStyles.Currency);
                     //
                     con.Open();
-                    string queryFacRem = "INSERT INTO CARTERA VALUES (6,'" + totalVenta.ToString() + "','" + fecha + "','0')";
+                    string queryFacRem = "INSERT INTO CARTERA VALUES (6,'" + totalVenta.ToString() + "','" + fecha + "','0','0')";
                     SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
                     cmdFact.ExecuteReader();
                     con.Close();
@@ -473,7 +508,7 @@ namespace DistribucionesArly_s
                 switch (true)
                 {
                     case true when value1:
-                        v = "1";;
+                        v = "1";
                         break;
                     case true when value2:
                         v = "2";
@@ -516,6 +551,7 @@ namespace DistribucionesArly_s
             }
             
         }
+        
         private void FacturacionRem()
         {
             try
@@ -600,9 +636,21 @@ namespace DistribucionesArly_s
                         Ticket1.TextoIzquierda(" ");
                         Ticket1.AgregaTotales("Total", totalComp); // imprime linea con total
                         Ticket1.TextoIzquierda(" ");
-                        Ticket1.AgregaTotales("Efectivo Entregado:", double.Parse(this.cancelaCon.Text, NumberStyles.Currency));
-                        Ticket1.AgregaTotales("Efectivo Devuelto:", double.Parse(this.cambioDe.Text, NumberStyles.Currency));
-
+                        var efec = this.efectivo.Checked;
+                        var transf = this.transferencia.Checked;
+                        //
+                        switch (true)
+                        {
+                            case true when efec:
+                                Ticket1.AgregaTotales("Efectivo Entregado:", double.Parse(this.cancelaCon.Text, NumberStyles.Currency));
+                                Ticket1.AgregaTotales("Efectivo Devuelto:", double.Parse(this.cambioDe.Text, NumberStyles.Currency));
+                                break;
+                            case true when transf:
+                                Ticket1.AgregaTotales("Pago por transferencia:", double.Parse(this.cancelaCon.Text, NumberStyles.Currency));
+                                break;
+                            default: break;
+                        }
+                        con.Close();
 
                         // Ticket1.LineasTotales(); // imprime linea 
 
@@ -633,6 +681,7 @@ namespace DistribucionesArly_s
                 MessageBox.Show(ex.Message);
             }
         }
+        
         private void CompareExistente()
         {
             try
@@ -680,6 +729,7 @@ namespace DistribucionesArly_s
             }
             
         }
+        
         private void CantidadData(int existe, long cantidad, long id, long result) //EXISTE lo que hay en data y CANTIDAD lo que se pone en el text
         {
             try
@@ -732,6 +782,7 @@ namespace DistribucionesArly_s
                 MessageBox.Show("CantidadData", ex.Message);
             }
         }
+        
         private void VaidarDataGridView(int lastRow, int cellCant, long cellID, long idText)
         {
             try
@@ -779,6 +830,47 @@ namespace DistribucionesArly_s
             }catch(Exception ex)
             {
                 MessageBox.Show("venta click" + ex.Message);
+            }
+        }
+
+        private void rBImprimir_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(this.rBImprimir.Checked == true)
+                {
+                    this.rBNImprimir.Visible = true;
+                    this.rBImprimir.Visible = false;
+                }else if (this.rBImprimir.Checked == false)
+                {
+                    this.rBNImprimir.Visible = false;
+                    this.rBImprimir.Visible = true;
+                }
+                if(this.rBNImprimir.Checked == true)
+                {
+                    this.rBFactNit.Visible = false;
+                    this.rBRemision.Visible = false;
+                }
+                if (this.rBImprimir.Checked == true)
+                {
+                    this.rBFactNit.Visible = true;
+                    this.rBRemision.Visible = true;
+                }
+                
+                }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ventaBut1_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                rBImprimir.Checked= false;
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

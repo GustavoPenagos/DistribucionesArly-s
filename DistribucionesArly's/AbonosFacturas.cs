@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -87,7 +88,7 @@ namespace DistribucionesArly_s
                 this.total.Visible = true;
                 this.sPendiente.Visible = true;
                 //TOTAL ABONOS
-                var queryAbonos = send.Equals("empty") ? "select sum(convert(decimal, abono)) from Abono" : "select sum(convert(decimal, abono)) from Abono "+ send; 
+                var queryAbonos = send.Equals("empty") ? "select format(sum(convert(decimal, abono)), 'C', 'es-CO') from Abono" : "select format(sum(convert(decimal, abono)), 'C', 'es-CO') from Abono " + send; 
                 con.Open();
                 SqlCommand cmd = new SqlCommand(queryAbonos, con);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -102,9 +103,12 @@ namespace DistribucionesArly_s
                 DataTable dtP = new DataTable();
                 dtP.Load(drP);
                 var pendiente = dtP.Rows[0].ItemArray[0].ToString();
-                var result = Convert.ToInt64(pendiente) - Convert.ToInt64(totales);
-                this.sPendiente.Text = result.ToString();
+                var total = double.Parse(totales, NumberStyles.Currency);
+                var result = Convert.ToDouble(pendiente) - Convert.ToDouble(total);
+                this.sPendiente.Text = result.ToString("C");
                 con.Close();
+
+                
             }
             catch(Exception ex)
             {

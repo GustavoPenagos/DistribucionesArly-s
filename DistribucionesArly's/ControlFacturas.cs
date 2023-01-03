@@ -19,10 +19,12 @@ namespace DistribucionesArly_s
             InitializeComponent();
         }
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
+        
         private void buscarFact_Click(object sender, EventArgs e)
         {
             Buscar();
         }
+        
         private void Buscar()
         {
             try
@@ -43,6 +45,7 @@ namespace DistribucionesArly_s
                 MessageBox.Show("Buscar" +ex.Message);
             }
         }
+        
         private void Mostrar(string factura, long barras)
         {
             try
@@ -65,6 +68,7 @@ namespace DistribucionesArly_s
                 MessageBox.Show("Mostar" + ex.Message);
             }
         }
+        
         private void Clean()
         {
             try
@@ -89,5 +93,6 @@ namespace DistribucionesArly_s
                 MessageBox.Show(ex.Message);
             }
         }
+
     }
 }

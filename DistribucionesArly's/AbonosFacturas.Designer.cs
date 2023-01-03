@@ -38,11 +38,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.buscarFactura = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.sPendiente = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.total = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.sPendiente = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -74,19 +74,19 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(177, 39);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(177, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 20);
+            this.label2.Size = new System.Drawing.Size(172, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Número de factura";
             // 
             // numFactura
             // 
-            this.numFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numFactura.Location = new System.Drawing.Point(351, 33);
+            this.numFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numFactura.Location = new System.Drawing.Point(391, 31);
             this.numFactura.Name = "numFactura";
-            this.numFactura.Size = new System.Drawing.Size(203, 26);
+            this.numFactura.Size = new System.Drawing.Size(203, 30);
             this.numFactura.TabIndex = 2;
             // 
             // panel2
@@ -103,10 +103,10 @@
             // buscarFactura
             // 
             this.buscarFactura.AutoSize = true;
-            this.buscarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buscarFactura.Location = new System.Drawing.Point(586, 29);
+            this.buscarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buscarFactura.Location = new System.Drawing.Point(635, 18);
             this.buscarFactura.Name = "buscarFactura";
-            this.buscarFactura.Size = new System.Drawing.Size(75, 30);
+            this.buscarFactura.Size = new System.Drawing.Size(140, 60);
             this.buscarFactura.TabIndex = 3;
             this.buscarFactura.Text = "Buscar";
             this.buscarFactura.UseVisualStyleBackColor = true;
@@ -124,22 +124,41 @@
             this.panel3.Size = new System.Drawing.Size(805, 100);
             this.panel3.TabIndex = 4;
             // 
+            // sPendiente
+            // 
+            this.sPendiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sPendiente.Location = new System.Drawing.Point(600, 39);
+            this.sPendiente.Name = "sPendiente";
+            this.sPendiente.ReadOnly = true;
+            this.sPendiente.Size = new System.Drawing.Size(156, 30);
+            this.sPendiente.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(422, 42);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(154, 25);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Saldo pendiente";
+            // 
             // total
             // 
-            this.total.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total.Location = new System.Drawing.Point(134, 39);
+            this.total.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total.Location = new System.Drawing.Point(182, 37);
             this.total.Name = "total";
             this.total.ReadOnly = true;
-            this.total.Size = new System.Drawing.Size(151, 26);
+            this.total.Size = new System.Drawing.Size(151, 30);
             this.total.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(27, 45);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(50, 42);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 20);
+            this.label3.Size = new System.Drawing.Size(126, 25);
             this.label3.TabIndex = 3;
             this.label3.Text = "Total abonos";
             // 
@@ -178,25 +197,6 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Size = new System.Drawing.Size(805, 226);
             this.dataGridView1.TabIndex = 5;
-            // 
-            // sPendiente
-            // 
-            this.sPendiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sPendiente.Location = new System.Drawing.Point(469, 39);
-            this.sPendiente.Name = "sPendiente";
-            this.sPendiente.ReadOnly = true;
-            this.sPendiente.Size = new System.Drawing.Size(156, 26);
-            this.sPendiente.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(339, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 20);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Saldo pendiente";
             // 
             // AbonosFacturas
             // 

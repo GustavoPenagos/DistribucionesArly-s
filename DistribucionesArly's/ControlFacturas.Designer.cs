@@ -78,9 +78,9 @@
             // 
             this.buscarFact.AutoSize = true;
             this.buscarFact.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buscarFact.Location = new System.Drawing.Point(621, 25);
+            this.buscarFact.Location = new System.Drawing.Point(666, 15);
             this.buscarFact.Name = "buscarFact";
-            this.buscarFact.Size = new System.Drawing.Size(83, 35);
+            this.buscarFact.Size = new System.Drawing.Size(140, 60);
             this.buscarFact.TabIndex = 3;
             this.buscarFact.Text = "Buscar";
             this.buscarFact.UseVisualStyleBackColor = true;

@@ -147,19 +147,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateGasto.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateGasto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateGasto.Location = new System.Drawing.Point(379, 34);
+            this.dateGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateGasto.Location = new System.Drawing.Point(333, 32);
             this.dateGasto.Name = "dateGasto";
-            this.dateGasto.Size = new System.Drawing.Size(313, 26);
+            this.dateGasto.Size = new System.Drawing.Size(359, 30);
             this.dateGasto.TabIndex = 3;
             // 
             // BuscarGasto
             // 
             this.BuscarGasto.AutoSize = true;
             this.BuscarGasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuscarGasto.Location = new System.Drawing.Point(724, 29);
+            this.BuscarGasto.Location = new System.Drawing.Point(737, 19);
             this.BuscarGasto.Name = "BuscarGasto";
-            this.BuscarGasto.Size = new System.Drawing.Size(83, 35);
+            this.BuscarGasto.Size = new System.Drawing.Size(140, 60);
             this.BuscarGasto.TabIndex = 2;
             this.BuscarGasto.Text = "Buscar";
             this.BuscarGasto.UseVisualStyleBackColor = true;
@@ -168,8 +168,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label3.Location = new System.Drawing.Point(207, 34);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(161, 38);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(147, 25);
             this.label3.TabIndex = 0;

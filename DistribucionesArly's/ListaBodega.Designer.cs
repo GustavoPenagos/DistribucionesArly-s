@@ -104,10 +104,10 @@
             // button1
             // 
             this.button1.AutoSize = true;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.button1.Location = new System.Drawing.Point(747, 30);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(754, 15);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 35);
+            this.button1.Size = new System.Drawing.Size(140, 60);
             this.button1.TabIndex = 4;
             this.button1.Text = "Ordenar";
             this.button1.UseVisualStyleBackColor = true;
@@ -116,10 +116,10 @@
             // verProducto
             // 
             this.verProducto.AutoSize = true;
-            this.verProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.verProducto.Location = new System.Drawing.Point(552, 30);
+            this.verProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.verProducto.Location = new System.Drawing.Point(573, 15);
             this.verProducto.Name = "verProducto";
-            this.verProducto.Size = new System.Drawing.Size(139, 35);
+            this.verProducto.Size = new System.Drawing.Size(140, 60);
             this.verProducto.TabIndex = 3;
             this.verProducto.Text = "Buscar";
             this.verProducto.UseVisualStyleBackColor = true;
@@ -127,7 +127,7 @@
             // 
             // nombreProducto
             // 
-            this.nombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.nombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombreProducto.Location = new System.Drawing.Point(264, 35);
             this.nombreProducto.Name = "nombreProducto";
             this.nombreProducto.Size = new System.Drawing.Size(267, 30);

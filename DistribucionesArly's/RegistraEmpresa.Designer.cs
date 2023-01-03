@@ -57,67 +57,67 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(322, 139);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 20);
+            this.label1.Size = new System.Drawing.Size(118, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nit Empresa";
             // 
             // NiEmp
             // 
-            this.NiEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.NiEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NiEmp.Location = new System.Drawing.Point(457, 133);
             this.NiEmp.Name = "NiEmp";
-            this.NiEmp.Size = new System.Drawing.Size(213, 26);
+            this.NiEmp.Size = new System.Drawing.Size(213, 30);
             this.NiEmp.TabIndex = 1;
             this.NiEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NiEmp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NiEmp_KeyPress);
             // 
             // proEmp
             // 
-            this.proEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.proEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.proEmp.Location = new System.Drawing.Point(457, 225);
             this.proEmp.Name = "proEmp";
-            this.proEmp.Size = new System.Drawing.Size(213, 26);
+            this.proEmp.Size = new System.Drawing.Size(213, 30);
             this.proEmp.TabIndex = 3;
             this.proEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(247, 231);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(230, 230);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 20);
+            this.label2.Size = new System.Drawing.Size(210, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Productos de Empresa";
             // 
             // nomEmp
             // 
-            this.nomEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.nomEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nomEmp.Location = new System.Drawing.Point(457, 183);
             this.nomEmp.Name = "nomEmp";
-            this.nomEmp.Size = new System.Drawing.Size(213, 26);
+            this.nomEmp.Size = new System.Drawing.Size(213, 30);
             this.nomEmp.TabIndex = 2;
             this.nomEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(285, 189);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(276, 188);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 20);
+            this.label3.Size = new System.Drawing.Size(164, 25);
             this.label3.TabIndex = 4;
             this.label3.Text = "Nombre Empresa";
             // 
             // telEmp
             // 
-            this.telEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.telEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.telEmp.Location = new System.Drawing.Point(457, 326);
             this.telEmp.Name = "telEmp";
-            this.telEmp.Size = new System.Drawing.Size(213, 26);
+            this.telEmp.Size = new System.Drawing.Size(213, 30);
             this.telEmp.TabIndex = 5;
             this.telEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.telEmp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NiEmp_KeyPress);
@@ -125,20 +125,20 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(257, 332);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(241, 331);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(161, 20);
+            this.label4.Size = new System.Drawing.Size(199, 25);
             this.label4.TabIndex = 6;
             this.label4.Text = "Telefono de Empresa";
             // 
             // GuardarEmp
             // 
             this.GuardarEmp.AutoSize = true;
-            this.GuardarEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.GuardarEmp.Location = new System.Drawing.Point(592, 517);
+            this.GuardarEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GuardarEmp.Location = new System.Drawing.Point(748, 404);
             this.GuardarEmp.Name = "GuardarEmp";
-            this.GuardarEmp.Size = new System.Drawing.Size(78, 30);
+            this.GuardarEmp.Size = new System.Drawing.Size(140, 60);
             this.GuardarEmp.TabIndex = 8;
             this.GuardarEmp.Text = "Guardar";
             this.GuardarEmp.UseVisualStyleBackColor = true;
@@ -168,40 +168,40 @@
             // 
             // dirEmp
             // 
-            this.dirEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dirEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dirEmp.Location = new System.Drawing.Point(457, 274);
             this.dirEmp.Name = "dirEmp";
-            this.dirEmp.Size = new System.Drawing.Size(213, 26);
+            this.dirEmp.Size = new System.Drawing.Size(213, 30);
             this.dirEmp.TabIndex = 4;
             this.dirEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(253, 280);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(237, 279);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(165, 20);
+            this.label6.Size = new System.Drawing.Size(203, 25);
             this.label6.TabIndex = 10;
             this.label6.Text = "Dirección de Empresa";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.Location = new System.Drawing.Point(269, 439);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(255, 439);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(149, 20);
+            this.label7.Size = new System.Drawing.Size(185, 25);
             this.label7.TabIndex = 12;
             this.label7.Text = "Ciudad de Empresa";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label8.Location = new System.Drawing.Point(216, 386);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(195, 386);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(202, 20);
+            this.label8.Size = new System.Drawing.Size(245, 25);
             this.label8.TabIndex = 13;
             this.label8.Text = "Departamento de Empresa";
             // 
@@ -209,11 +209,11 @@
             // 
             this.selectCiudad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.selectCiudad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.selectCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.selectCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectCiudad.FormattingEnabled = true;
             this.selectCiudad.Location = new System.Drawing.Point(457, 431);
             this.selectCiudad.Name = "selectCiudad";
-            this.selectCiudad.Size = new System.Drawing.Size(213, 28);
+            this.selectCiudad.Size = new System.Drawing.Size(213, 33);
             this.selectCiudad.TabIndex = 7;
             this.selectCiudad.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -223,11 +223,11 @@
             this.selectDepart.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.selectDepart.DataSource = this.departmentBindingSource;
             this.selectDepart.DisplayMember = "Department";
-            this.selectDepart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.selectDepart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectDepart.FormattingEnabled = true;
             this.selectDepart.Location = new System.Drawing.Point(457, 378);
             this.selectDepart.Name = "selectDepart";
-            this.selectDepart.Size = new System.Drawing.Size(213, 28);
+            this.selectDepart.Size = new System.Drawing.Size(213, 33);
             this.selectDepart.TabIndex = 6;
             this.selectDepart.ValueMember = "Id_Department";
             this.selectDepart.SelectedIndexChanged += new System.EventHandler(this.selectDepart_SelectedIndexChanged);
@@ -250,7 +250,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 611);
+            this.ClientSize = new System.Drawing.Size(911, 510);
             this.Controls.Add(this.selectCiudad);
             this.Controls.Add(this.selectDepart);
             this.Controls.Add(this.label8);

@@ -217,12 +217,14 @@ namespace DistribucionesArly_s
                         foreach (DataGridViewRow r in dataGridView2.Rows)
                         {
                             // PROD                     //PrECIO                                    CANT                         TOTAL
-                            Ticket1.AgregaArticulo(r.Cells[1].Value.ToString(), double.Parse((double.Parse((r.Cells[2].Value.ToString()), NumberStyles.Currency)).ToString()), int.Parse(r.Cells[3].Value.ToString()), double.Parse((double.Parse((r.Cells[5].Value).ToString(), NumberStyles.Currency)).ToString())); //imprime una linea de descripcion
+                            Ticket1.AgregaArticulo(r.Cells[2].Value.ToString(), double.Parse((double.Parse((r.Cells[3].Value.ToString()), NumberStyles.Currency)).ToString()), int.Parse(r.Cells[4].Value.ToString()), double.Parse((double.Parse((r.Cells[6].Value).ToString(), NumberStyles.Currency)).ToString())); //imprime una linea de descripcion
                         }
                         var totalComp = double.Parse(this.totalVenta.Text, NumberStyles.Currency);
                         var ivaComp = (totalComp / 1.19) * 0.19;
                         //DateTimeNow.Short.ToString
                         string fecha = DateTime.Now.ToShortDateString().ToString();
+                        //
+                        
                         //
                         con.Open();
                         string queryFacRem = "INSERT INTO CARTERA VALUES (1,'" + totalComp.ToString() + "','" + fecha + "','" + facturaN.ToString() + "', '" + facturaN.ToString()+"')";
@@ -495,8 +497,10 @@ namespace DistribucionesArly_s
                     //Total Venta
                     int totalVenta= int.Parse(this.totalVenta.Text, NumberStyles.Currency);
                     //
+
+                    //
                     con.Open();
-                    string queryFacRem = "INSERT INTO CARTERA VALUES (6,'" + totalVenta.ToString() + "','" + fecha + "','0','0')";
+                    string queryFacRem = "INSERT INTO CARTERA VALUES (5,'" + totalVenta.ToString() + "','" + fecha + "','0','0')";
                     SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
                     cmdFact.ExecuteReader();
                     con.Close();
@@ -528,8 +532,8 @@ namespace DistribucionesArly_s
                 con.Open();
                 for (int i = 0; i < dTable.Rows.Count; i++)
                 {
-                    var idPro = dTable.Rows[i].ItemArray[0].ToString();
-                    var cantidad = dTable.Rows[i].ItemArray[3].ToString();
+                    var idPro = dTable.Rows[i].ItemArray[1].ToString();
+                    var cantidad = dTable.Rows[i].ItemArray[4].ToString();
 
                     string queryDelete = "delete top (" + cantidad + ")  from bodega where Id_Prod = " + idPro;
                     SqlCommand cmdDelete = new SqlCommand(queryDelete, con);
@@ -598,7 +602,7 @@ namespace DistribucionesArly_s
                         Ticket1.TextoIzquierda("");
                         //Ticket1.TextoCentro("Factura de Venta"); //imprime una linea de descripcion
                         //con.Open();
-                        string queryIdFac = "select MAX(Id_Factura) + 1 from Factura ";
+                        string queryIdFac = "select MAX(Id_Factura) + 1 from FacturaRem ";
                         SqlDataAdapter da = new SqlDataAdapter(queryIdFac, con);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
@@ -617,7 +621,7 @@ namespace DistribucionesArly_s
                         foreach (DataGridViewRow r in dataGridView2.Rows)
                         {
                             // PROD                     //PrECIO                                    CANT                         TOTAL
-                            Ticket1.AgregaArticulo(r.Cells[1].Value.ToString(), double.Parse((double.Parse((r.Cells[2].Value.ToString()), NumberStyles.Currency)).ToString()), int.Parse(r.Cells[3].Value.ToString()), double.Parse((double.Parse((r.Cells[5].Value).ToString(), NumberStyles.Currency)).ToString())); //imprime una linea de descripcion
+                            Ticket1.AgregaArticulo(r.Cells[2].Value.ToString(), double.Parse((double.Parse((r.Cells[3].Value.ToString()), NumberStyles.Currency)).ToString()), int.Parse(r.Cells[4].Value.ToString()), double.Parse((double.Parse((r.Cells[6].Value).ToString(), NumberStyles.Currency)).ToString())); //imprime una linea de descripcion
                         }
                         var totalComp = double.Parse(this.totalVenta.Text, NumberStyles.Currency);
                         var ivaComp = (totalComp / 1.19) * 0.19;
@@ -625,7 +629,7 @@ namespace DistribucionesArly_s
                         string fecha = DateTime.Now.ToShortDateString().ToString();
                         //
                         con.Open();
-                        string queryFacRem = "INSERT INTO CARTERA VALUES (1,'" + totalComp.ToString() + "','" + fecha + "','" + facturaN.ToString() + "', '" + facturaN.ToString() + "')";
+                        string queryFacRem = "INSERT INTO CARTERA VALUES (2,'" + totalComp.ToString() + "','" + fecha + "','" + facturaN.ToString() + "', '" + facturaN.ToString() + "')";
                         SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
                         cmdFact.ExecuteReader();
                         con.Close();
@@ -730,7 +734,7 @@ namespace DistribucionesArly_s
             
         }
         
-        private void CantidadData(int existe, long cantidad, long id, long result) //EXISTE lo que hay en data y CANTIDAD lo que se pone en el text
+        private void CantidadData(int existe, long cantidad, long id, long result) 
         {
             try
             {

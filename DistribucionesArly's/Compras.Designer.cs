@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -65,6 +65,7 @@
             this.cambioDe = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cancelaCon = new System.Windows.Forms.TextBox();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -76,6 +77,7 @@
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -132,11 +134,11 @@
             // ventaBut1
             // 
             this.ventaBut1.Checked = true;
-            this.ventaBut1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ventaBut1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ventaBut1.ForeColor = System.Drawing.Color.White;
-            this.ventaBut1.Location = new System.Drawing.Point(59, 12);
+            this.ventaBut1.Location = new System.Drawing.Point(41, 15);
             this.ventaBut1.Name = "ventaBut1";
-            this.ventaBut1.Size = new System.Drawing.Size(100, 24);
+            this.ventaBut1.Size = new System.Drawing.Size(129, 24);
             this.ventaBut1.TabIndex = 8;
             this.ventaBut1.TabStop = true;
             this.ventaBut1.Text = "Venta #1";
@@ -146,11 +148,11 @@
             // 
             // ventaBut4
             // 
-            this.ventaBut4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ventaBut4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ventaBut4.ForeColor = System.Drawing.Color.White;
-            this.ventaBut4.Location = new System.Drawing.Point(59, 102);
+            this.ventaBut4.Location = new System.Drawing.Point(41, 105);
             this.ventaBut4.Name = "ventaBut4";
-            this.ventaBut4.Size = new System.Drawing.Size(100, 24);
+            this.ventaBut4.Size = new System.Drawing.Size(129, 24);
             this.ventaBut4.TabIndex = 11;
             this.ventaBut4.Text = "Venta #4";
             this.ventaBut4.UseVisualStyleBackColor = true;
@@ -159,11 +161,11 @@
             // 
             // ventaBut2
             // 
-            this.ventaBut2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ventaBut2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ventaBut2.ForeColor = System.Drawing.Color.White;
-            this.ventaBut2.Location = new System.Drawing.Point(59, 42);
+            this.ventaBut2.Location = new System.Drawing.Point(41, 45);
             this.ventaBut2.Name = "ventaBut2";
-            this.ventaBut2.Size = new System.Drawing.Size(100, 24);
+            this.ventaBut2.Size = new System.Drawing.Size(129, 24);
             this.ventaBut2.TabIndex = 9;
             this.ventaBut2.Text = "Venta #2";
             this.ventaBut2.UseVisualStyleBackColor = true;
@@ -172,11 +174,11 @@
             // 
             // ventaBut3
             // 
-            this.ventaBut3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ventaBut3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ventaBut3.ForeColor = System.Drawing.Color.White;
-            this.ventaBut3.Location = new System.Drawing.Point(59, 72);
+            this.ventaBut3.Location = new System.Drawing.Point(41, 75);
             this.ventaBut3.Name = "ventaBut3";
-            this.ventaBut3.Size = new System.Drawing.Size(100, 24);
+            this.ventaBut3.Size = new System.Drawing.Size(129, 24);
             this.ventaBut3.TabIndex = 10;
             this.ventaBut3.Text = "Venta #3";
             this.ventaBut3.UseVisualStyleBackColor = true;
@@ -195,10 +197,10 @@
             // 
             // canProd
             // 
-            this.canProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.canProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.canProd.Location = new System.Drawing.Point(550, 28);
             this.canProd.Name = "canProd";
-            this.canProd.Size = new System.Drawing.Size(81, 26);
+            this.canProd.Size = new System.Drawing.Size(81, 30);
             this.canProd.TabIndex = 2;
             this.canProd.Text = "1";
             this.canProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -207,10 +209,10 @@
             // button1
             // 
             this.button1.AutoSize = true;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(550, 72);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 43);
+            this.button1.Size = new System.Drawing.Size(91, 43);
             this.button1.TabIndex = 4;
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
@@ -219,7 +221,7 @@
             // butBusComp
             // 
             this.butBusComp.AutoSize = true;
-            this.butBusComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.butBusComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butBusComp.Location = new System.Drawing.Point(173, 72);
             this.butBusComp.Name = "butBusComp";
             this.butBusComp.Size = new System.Drawing.Size(254, 43);
@@ -230,10 +232,10 @@
             // 
             // idProdC
             // 
-            this.idProdC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.idProdC.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idProdC.Location = new System.Drawing.Point(173, 28);
             this.idProdC.Name = "idProdC";
-            this.idProdC.Size = new System.Drawing.Size(254, 26);
+            this.idProdC.Size = new System.Drawing.Size(254, 30);
             this.idProdC.TabIndex = 1;
             this.idProdC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.idProdC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.idProdC_KeyPress);
@@ -241,10 +243,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(32, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 20);
+            this.label1.Size = new System.Drawing.Size(156, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo producto";
             // 
@@ -283,34 +285,34 @@
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView2.Size = new System.Drawing.Size(648, 331);
             this.dataGridView2.TabIndex = 0;
             // 
@@ -326,20 +328,22 @@
             // 
             // panel10
             // 
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel10.Controls.Add(this.rBFactNit);
             this.panel10.Controls.Add(this.rBRemision);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel10.Location = new System.Drawing.Point(109, 0);
+            this.panel10.Location = new System.Drawing.Point(178, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(123, 100);
+            this.panel10.Size = new System.Drawing.Size(296, 100);
             this.panel10.TabIndex = 4;
             // 
             // rBFactNit
             // 
             this.rBFactNit.AutoSize = true;
-            this.rBFactNit.Location = new System.Drawing.Point(15, 30);
+            this.rBFactNit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rBFactNit.Location = new System.Drawing.Point(51, 13);
             this.rBFactNit.Name = "rBFactNit";
-            this.rBFactNit.Size = new System.Drawing.Size(103, 17);
+            this.rBFactNit.Size = new System.Drawing.Size(170, 29);
             this.rBFactNit.TabIndex = 1;
             this.rBFactNit.TabStop = true;
             this.rBFactNit.Text = "Factura con NIT";
@@ -348,9 +352,10 @@
             // rBRemision
             // 
             this.rBRemision.AutoSize = true;
-            this.rBRemision.Location = new System.Drawing.Point(15, 71);
+            this.rBRemision.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rBRemision.Location = new System.Drawing.Point(51, 59);
             this.rBRemision.Name = "rBRemision";
-            this.rBRemision.Size = new System.Drawing.Size(68, 17);
+            this.rBRemision.Size = new System.Drawing.Size(110, 29);
             this.rBRemision.TabIndex = 2;
             this.rBRemision.TabStop = true;
             this.rBRemision.Text = "Remisión";
@@ -358,20 +363,22 @@
             // 
             // panel9
             // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel9.Controls.Add(this.rBImprimir);
             this.panel9.Controls.Add(this.rBNImprimir);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(109, 100);
+            this.panel9.Size = new System.Drawing.Size(178, 100);
             this.panel9.TabIndex = 3;
             // 
             // rBImprimir
             // 
             this.rBImprimir.AutoSize = true;
-            this.rBImprimir.Location = new System.Drawing.Point(26, 48);
+            this.rBImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rBImprimir.Location = new System.Drawing.Point(10, 34);
             this.rBImprimir.Name = "rBImprimir";
-            this.rBImprimir.Size = new System.Drawing.Size(60, 17);
+            this.rBImprimir.Size = new System.Drawing.Size(98, 29);
             this.rBImprimir.TabIndex = 2;
             this.rBImprimir.TabStop = true;
             this.rBImprimir.Text = "Imprimir";
@@ -381,9 +388,10 @@
             // rBNImprimir
             // 
             this.rBNImprimir.AutoSize = true;
-            this.rBNImprimir.Location = new System.Drawing.Point(26, 48);
+            this.rBNImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rBNImprimir.Location = new System.Drawing.Point(10, 34);
             this.rBNImprimir.Name = "rBNImprimir";
-            this.rBNImprimir.Size = new System.Drawing.Size(77, 17);
+            this.rBNImprimir.Size = new System.Drawing.Size(128, 29);
             this.rBNImprimir.TabIndex = 1;
             this.rBNImprimir.TabStop = true;
             this.rBNImprimir.Text = "No Imprimir";
@@ -391,10 +399,9 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.panel11);
             this.panel5.Controls.Add(this.fCompra);
-            this.panel5.Controls.Add(this.transferencia);
             this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.efectivo);
             this.panel5.Controls.Add(this.totalVenta);
             this.panel5.Controls.Add(this.cambioDe);
             this.panel5.Controls.Add(this.label4);
@@ -409,7 +416,7 @@
             // 
             this.fCompra.AutoSize = true;
             this.fCompra.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.fCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.fCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fCompra.Location = new System.Drawing.Point(0, 331);
             this.fCompra.Name = "fCompra";
             this.fCompra.Size = new System.Drawing.Size(200, 100);
@@ -421,9 +428,10 @@
             // transferencia
             // 
             this.transferencia.AutoSize = true;
-            this.transferencia.Location = new System.Drawing.Point(20, 225);
+            this.transferencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transferencia.Location = new System.Drawing.Point(20, 58);
             this.transferencia.Name = "transferencia";
-            this.transferencia.Size = new System.Drawing.Size(90, 17);
+            this.transferencia.Size = new System.Drawing.Size(150, 29);
             this.transferencia.TabIndex = 2;
             this.transferencia.Text = "Transferencia";
             this.transferencia.UseVisualStyleBackColor = true;
@@ -431,10 +439,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(36, 45);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(34, 5);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 20);
+            this.label6.Size = new System.Drawing.Size(56, 25);
             this.label6.TabIndex = 7;
             this.label6.Text = "Total";
             // 
@@ -442,9 +450,10 @@
             // 
             this.efectivo.AutoSize = true;
             this.efectivo.Checked = true;
-            this.efectivo.Location = new System.Drawing.Point(20, 202);
+            this.efectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.efectivo.Location = new System.Drawing.Point(20, 12);
             this.efectivo.Name = "efectivo";
-            this.efectivo.Size = new System.Drawing.Size(64, 17);
+            this.efectivo.Size = new System.Drawing.Size(99, 29);
             this.efectivo.TabIndex = 1;
             this.efectivo.TabStop = true;
             this.efectivo.Text = "Efectivo";
@@ -453,20 +462,20 @@
             // totalVenta
             // 
             this.totalVenta.Enabled = false;
-            this.totalVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.totalVenta.Location = new System.Drawing.Point(22, 68);
+            this.totalVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalVenta.Location = new System.Drawing.Point(20, 33);
             this.totalVenta.Name = "totalVenta";
-            this.totalVenta.Size = new System.Drawing.Size(166, 26);
+            this.totalVenta.Size = new System.Drawing.Size(166, 30);
             this.totalVenta.TabIndex = 6;
             this.totalVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cambioDe
             // 
             this.cambioDe.Enabled = false;
-            this.cambioDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cambioDe.Location = new System.Drawing.Point(20, 248);
+            this.cambioDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cambioDe.Location = new System.Drawing.Point(18, 254);
             this.cambioDe.Name = "cambioDe";
-            this.cambioDe.Size = new System.Drawing.Size(168, 26);
+            this.cambioDe.Size = new System.Drawing.Size(168, 30);
             this.cambioDe.TabIndex = 4;
             this.cambioDe.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cambioDe.Visible = false;
@@ -474,21 +483,31 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(36, 136);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(34, 79);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 20);
+            this.label4.Size = new System.Drawing.Size(122, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "Cancela con";
             // 
             // cancelaCon
             // 
-            this.cancelaCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cancelaCon.Location = new System.Drawing.Point(22, 159);
+            this.cancelaCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelaCon.Location = new System.Drawing.Point(20, 107);
             this.cancelaCon.Name = "cancelaCon";
-            this.cancelaCon.Size = new System.Drawing.Size(166, 26);
+            this.cancelaCon.Size = new System.Drawing.Size(166, 30);
             this.cancelaCon.TabIndex = 2;
             this.cancelaCon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel11
+            // 
+            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel11.Controls.Add(this.efectivo);
+            this.panel11.Controls.Add(this.transferencia);
+            this.panel11.Location = new System.Drawing.Point(0, 143);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(200, 100);
+            this.panel11.TabIndex = 8;
             // 
             // Compras
             // 
@@ -516,6 +535,8 @@
             this.panel9.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -556,5 +577,6 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.RadioButton rBImprimir;
         private System.Windows.Forms.RadioButton rBNImprimir;
+        private System.Windows.Forms.Panel panel11;
     }
 }

@@ -57,7 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label1.Location = new System.Drawing.Point(214, 194);
+            this.label1.Location = new System.Drawing.Point(213, 135);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 25);
             this.label1.TabIndex = 0;
@@ -66,7 +66,7 @@
             // idProd
             // 
             this.idProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.idProd.Location = new System.Drawing.Point(350, 189);
+            this.idProd.Location = new System.Drawing.Point(349, 130);
             this.idProd.Name = "idProd";
             this.idProd.Size = new System.Drawing.Size(266, 30);
             this.idProd.TabIndex = 1;
@@ -76,7 +76,7 @@
             // nomProd
             // 
             this.nomProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.nomProd.Location = new System.Drawing.Point(350, 244);
+            this.nomProd.Location = new System.Drawing.Point(349, 185);
             this.nomProd.Name = "nomProd";
             this.nomProd.Size = new System.Drawing.Size(266, 30);
             this.nomProd.TabIndex = 2;
@@ -86,7 +86,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label2.Location = new System.Drawing.Point(143, 247);
+            this.label2.Location = new System.Drawing.Point(142, 188);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(191, 25);
             this.label2.TabIndex = 2;
@@ -95,7 +95,7 @@
             // precioProd
             // 
             this.precioProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.precioProd.Location = new System.Drawing.Point(350, 351);
+            this.precioProd.Location = new System.Drawing.Point(349, 292);
             this.precioProd.Name = "precioProd";
             this.precioProd.Size = new System.Drawing.Size(266, 30);
             this.precioProd.TabIndex = 4;
@@ -106,7 +106,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label3.Location = new System.Drawing.Point(148, 356);
+            this.label3.Location = new System.Drawing.Point(147, 297);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 25);
             this.label3.TabIndex = 4;
@@ -116,7 +116,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label4.Location = new System.Drawing.Point(168, 304);
+            this.label4.Location = new System.Drawing.Point(167, 245);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(157, 25);
             this.label4.TabIndex = 6;
@@ -126,9 +126,9 @@
             // 
             this.guardarProd.AutoSize = true;
             this.guardarProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.guardarProd.Location = new System.Drawing.Point(523, 526);
+            this.guardarProd.Location = new System.Drawing.Point(475, 445);
             this.guardarProd.Name = "guardarProd";
-            this.guardarProd.Size = new System.Drawing.Size(93, 35);
+            this.guardarProd.Size = new System.Drawing.Size(140, 60);
             this.guardarProd.TabIndex = 7;
             this.guardarProd.Text = "Guardar";
             this.guardarProd.UseVisualStyleBackColor = true;
@@ -142,7 +142,7 @@
             this.unidProd.DisplayMember = "Unidad";
             this.unidProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.unidProd.FormattingEnabled = true;
-            this.unidProd.Location = new System.Drawing.Point(350, 296);
+            this.unidProd.Location = new System.Drawing.Point(349, 237);
             this.unidProd.Name = "unidProd";
             this.unidProd.Size = new System.Drawing.Size(266, 33);
             this.unidProd.TabIndex = 3;
@@ -187,7 +187,7 @@
             // marcaProd
             // 
             this.marcaProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.marcaProd.Location = new System.Drawing.Point(350, 400);
+            this.marcaProd.Location = new System.Drawing.Point(349, 341);
             this.marcaProd.Name = "marcaProd";
             this.marcaProd.Size = new System.Drawing.Size(266, 30);
             this.marcaProd.TabIndex = 5;
@@ -197,7 +197,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label6.Location = new System.Drawing.Point(258, 405);
+            this.label6.Location = new System.Drawing.Point(257, 346);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 25);
             this.label6.TabIndex = 12;
@@ -206,7 +206,7 @@
             // utilidad
             // 
             this.utilidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.utilidad.Location = new System.Drawing.Point(350, 450);
+            this.utilidad.Location = new System.Drawing.Point(349, 391);
             this.utilidad.Name = "utilidad";
             this.utilidad.Size = new System.Drawing.Size(266, 30);
             this.utilidad.TabIndex = 6;
@@ -217,7 +217,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label7.Location = new System.Drawing.Point(258, 455);
+            this.label7.Location = new System.Drawing.Point(257, 396);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 25);
             this.label7.TabIndex = 14;
@@ -227,7 +227,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label8.Location = new System.Drawing.Point(622, 455);
+            this.label8.Location = new System.Drawing.Point(621, 396);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(30, 25);
             this.label8.TabIndex = 15;
@@ -237,7 +237,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 616);
+            this.ClientSize = new System.Drawing.Size(883, 517);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.utilidad);
             this.Controls.Add(this.label7);

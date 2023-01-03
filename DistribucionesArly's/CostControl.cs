@@ -27,7 +27,7 @@ namespace DistribucionesArly_s
             try
             {
                 con.Open();
-                string query = "SELECT * FROM Lista_Cartera";
+                string query = "select * from Lista_Ventas";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -55,7 +55,7 @@ namespace DistribucionesArly_s
         {
             try
             {
-                BuscarCartera();
+                selectCartera_SelectedIndexChanged(sender, e);
             }
             catch(Exception ex)
             {
@@ -69,7 +69,38 @@ namespace DistribucionesArly_s
         {
             try
             {
-                BuscarCartera();
+                if (selectCartera.Text.Equals("Fecha de venta") || selectCartera.Text.Equals("Venta sin factura"))
+                {
+                    dateCartera.Visible = true;
+                    tBoxBusca.Visible = false;
+                }
+                else
+                {
+                    dateCartera.Visible = false;
+                    tBoxBusca.Visible = true;
+                }
+                string selecBox = selectCartera.Text;
+                var date = dateCartera.Value.ToString("d/MM/yyyy");
+
+                switch (selecBox)
+                {
+                    case ("Factura Nit"):
+                        selecBox = "[Tipo de venta] = 'Factura con Nit' and [Factura] = "+ this.tBoxBusca.Text;
+                        BuscarCartera(selecBox);
+                        break;
+                    case ("Remision"):
+                        selecBox = "[Tipo de venta] = 'Remision' and [Factura] = "+ this.tBoxBusca.Text;
+                        BuscarCartera(selecBox);
+                        break;
+                    case ("Venta sin factura"):
+                        selecBox = "[Tipo de venta] = 'Venta sin factura' and [Fecha de venta] like '"+ date +"'";
+                        BuscarCartera(selecBox);
+                        break;
+                    case ("Fecha de venta"):
+                        selecBox = "[Fecha de venta] like '" + date + "'";
+                        BuscarCartera(selecBox);
+                        break;
+                }
                 con.Close();
             }
             catch(Exception ex)
@@ -77,13 +108,21 @@ namespace DistribucionesArly_s
                 MessageBox.Show("selectCartera_SelectedIndexChanged", ex.Message);
             }   
         }
-        private void BuscarCartera()
+        private void BuscarCartera(string selecBox)
         {
             try
             {
-                string selecBox = selectCartera.Text;
+                string querySWhere = "";
                 string fecha = dateCartera.Value.ToString("d/MM/yyyy");
-                string querySWhere = "SELECT * FROM Lista_Cartera WHERE [Tipo venta] LIKE '" + selecBox + "' AND [Fecha venta] like '" + fecha + "'";
+                if (this.tBoxBusca.Text.Equals("") && dateCartera.Visible == false)
+                {
+                    querySWhere = "select * from Lista_Ventas";
+                }
+                else
+                {
+                    querySWhere = "select * from Lista_Ventas WHERE " + selecBox;
+                }
+                
                 con.Open();
                 SqlDataAdapter da = new SqlDataAdapter(querySWhere, con);
                 DataTable dt = new DataTable();
@@ -95,7 +134,7 @@ namespace DistribucionesArly_s
                 {
                     for (int i = 0 ; i < dataGridView1.Rows.Count ; i++)
                     {
-                        var Cart = double.Parse(dt.Rows[i].ItemArray[1].ToString(), NumberStyles.Currency);
+                        var Cart = double.Parse(dt.Rows[i].ItemArray[2].ToString(), NumberStyles.Currency);
                         var totalCart = Convert.ToDouble(Cart);
                         suma = suma + totalCart;
                     }
@@ -108,6 +147,18 @@ namespace DistribucionesArly_s
             {
                 con.Close();
                 MessageBox.Show("BuscarCartera", ex.Message);
+            }
+        }
+
+        private void selectCartera_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Select" + ex.Message);
             }
         }
     }

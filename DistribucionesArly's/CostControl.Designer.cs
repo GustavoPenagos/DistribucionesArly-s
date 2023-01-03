@@ -34,6 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tBoxBusca = new System.Windows.Forms.TextBox();
             this.dateCartera = new System.Windows.Forms.DateTimePicker();
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.selectCartera = new System.Windows.Forms.ComboBox();
@@ -69,6 +70,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.tBoxBusca);
             this.panel2.Controls.Add(this.dateCartera);
             this.panel2.Controls.Add(this.buttonBuscar);
             this.panel2.Controls.Add(this.selectCartera);
@@ -78,23 +80,33 @@
             this.panel2.Size = new System.Drawing.Size(922, 100);
             this.panel2.TabIndex = 1;
             // 
+            // tBoxBusca
+            // 
+            this.tBoxBusca.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBoxBusca.Location = new System.Drawing.Point(307, 29);
+            this.tBoxBusca.Name = "tBoxBusca";
+            this.tBoxBusca.Size = new System.Drawing.Size(357, 30);
+            this.tBoxBusca.TabIndex = 4;
+            // 
             // dateCartera
             // 
             this.dateCartera.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateCartera.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateCartera.Location = new System.Drawing.Point(65, 37);
+            this.dateCartera.Location = new System.Drawing.Point(307, 27);
             this.dateCartera.Name = "dateCartera";
             this.dateCartera.Size = new System.Drawing.Size(357, 30);
             this.dateCartera.TabIndex = 3;
+            this.dateCartera.Visible = false;
+            this.dateCartera.ValueChanged += new System.EventHandler(this.selectCartera_SelectedIndexChanged);
             // 
             // buttonBuscar
             // 
             this.buttonBuscar.AutoSize = true;
             this.buttonBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBuscar.Location = new System.Drawing.Point(767, 32);
+            this.buttonBuscar.Location = new System.Drawing.Point(729, 14);
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.buttonBuscar.Size = new System.Drawing.Size(102, 35);
+            this.buttonBuscar.Size = new System.Drawing.Size(140, 60);
             this.buttonBuscar.TabIndex = 2;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
@@ -106,17 +118,16 @@
             this.selectCartera.FormattingEnabled = true;
             this.selectCartera.Items.AddRange(new object[] {
             "Factura Nit",
-            "Factura Remision",
-            "Gastos",
-            "Factura de compra",
-            "Ingreso capital",
-            "Venta sin factura"});
-            this.selectCartera.Location = new System.Drawing.Point(463, 32);
+            "Remision",
+            "Venta sin factura",
+            "Fecha de venta"});
+            this.selectCartera.Location = new System.Drawing.Point(39, 29);
             this.selectCartera.Name = "selectCartera";
             this.selectCartera.Size = new System.Drawing.Size(221, 33);
             this.selectCartera.TabIndex = 0;
             this.selectCartera.Text = "Factura Nit";
             this.selectCartera.SelectedIndexChanged += new System.EventHandler(this.selectCartera_SelectedIndexChanged);
+            this.selectCartera.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.selectCartera_KeyPress);
             // 
             // dataGridView1
             // 
@@ -223,5 +234,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label totalCartera;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox tBoxBusca;
     }
 }

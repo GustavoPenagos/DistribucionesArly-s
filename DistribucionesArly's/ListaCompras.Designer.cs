@@ -82,9 +82,9 @@
             // 
             this.buscarFactura.AutoSize = true;
             this.buscarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buscarFactura.Location = new System.Drawing.Point(654, 28);
+            this.buscarFactura.Location = new System.Drawing.Point(670, 18);
             this.buscarFactura.Name = "buscarFactura";
-            this.buscarFactura.Size = new System.Drawing.Size(87, 35);
+            this.buscarFactura.Size = new System.Drawing.Size(140, 60);
             this.buscarFactura.TabIndex = 2;
             this.buscarFactura.Text = "Buscar";
             this.buscarFactura.UseVisualStyleBackColor = true;
@@ -159,9 +159,9 @@
             // 
             this.insertAbono.AutoSize = true;
             this.insertAbono.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.insertAbono.Location = new System.Drawing.Point(777, 440);
+            this.insertAbono.Location = new System.Drawing.Point(724, 453);
             this.insertAbono.Name = "insertAbono";
-            this.insertAbono.Size = new System.Drawing.Size(87, 35);
+            this.insertAbono.Size = new System.Drawing.Size(140, 60);
             this.insertAbono.TabIndex = 6;
             this.insertAbono.Text = "Abonar";
             this.insertAbono.UseVisualStyleBackColor = true;

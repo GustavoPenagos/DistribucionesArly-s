@@ -24,6 +24,7 @@ namespace DistribucionesArly_s
         {
             try
             {
+
                 OpenFileDialog abrirImg = new OpenFileDialog();
 
                 if (abrirImg.ShowDialog() == DialogResult.OK)
@@ -31,6 +32,7 @@ namespace DistribucionesArly_s
                     ImgFact.ImageLocation = abrirImg.FileName;
                     ImgFact.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
+                this.GuardarFact.Visible = true;
 
             }
             catch (Exception ex)

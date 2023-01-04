@@ -93,5 +93,19 @@ namespace DistribucionesArly_s
                 MessageBox.Show("ListarBuscar" + ex.Message);
             }
         }
+
+        private void boxSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (boxSelect.Text.Equals("Numero factura"))
+            {
+                this.boxBuscar.Visible = true;
+                this.dateTimePicker1.Visible = false;
+            }
+            else if (boxSelect.Text.Equals("Fecha recibido"))
+            {
+                this.boxBuscar.Visible = false;
+                this.dateTimePicker1.Visible = true;
+            }
+        }
     }
 }

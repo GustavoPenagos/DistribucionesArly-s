@@ -40,7 +40,7 @@ namespace DistribucionesArly_s
                         var Cart = double.Parse(dt.Rows[i].ItemArray[2].ToString(), NumberStyles.Currency);
                         suma = suma + Cart;
                     }
-                    this.totalCartera.Text = suma.ToString("C");
+                    this.totalCartera.Text = suma.ToString("C").Replace(",00", string.Empty);
                 }
                 con.Close();
             }
@@ -138,7 +138,7 @@ namespace DistribucionesArly_s
                         var totalCart = Convert.ToDouble(Cart);
                         suma = suma + totalCart;
                     }
-                    this.totalCartera.Text = suma.ToString("C");
+                    this.totalCartera.Text = suma.ToString("C").Replace(",00", string.Empty);
                 }
 
                 con.Close();

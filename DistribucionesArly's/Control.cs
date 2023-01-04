@@ -44,5 +44,10 @@ namespace DistribucionesArly_s
         {
             OpenFrom(new ControlFacturas());
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenFrom(new ControlCaja());
+        }
     }
 }

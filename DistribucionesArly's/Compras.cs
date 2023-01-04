@@ -175,8 +175,8 @@ namespace DistribucionesArly_s
                     var value = double.Parse(this.totalVenta.Text, NumberStyles.Currency);
 
                     var cambio = cancela - value;
-                    this.cambioDe.Text = cambio.ToString("C");
-                    MessageBox.Show("El cambio al cliente es:" + cambio.ToString("C"), "CAMBIO");
+                    this.cambioDe.Text = cambio.ToString("C").Replace(",00", string.Empty);
+                    MessageBox.Show("El cambio al cliente es:" + cambio.ToString("C").Replace(",00", string.Empty), "CAMBIO");
                 }
                 //MessageBox.Show("paso");
                 //IMPRIMIR FACTURA
@@ -463,7 +463,7 @@ namespace DistribucionesArly_s
                     {
                         var st = double.Parse(itemArray.ToString());
                         var tv = (0.19 * st) + st;
-                        this.totalVenta.Text = st.ToString("C");
+                        this.totalVenta.Text = st.ToString("C").Replace(",00", string.Empty);
                     }   
                 }
             }
@@ -578,8 +578,8 @@ namespace DistribucionesArly_s
                     var value = double.Parse(this.totalVenta.Text, NumberStyles.Currency);
 
                     var cambio = cancela - value;
-                    this.cambioDe.Text = cambio.ToString("C");
-                    MessageBox.Show("El cambio al cliente es:" + cambio.ToString("C"), "CAMBIO");
+                    this.cambioDe.Text = cambio.ToString("C").Replace(",00", string.Empty);
+                    MessageBox.Show("El cambio al cliente es:" + cambio.ToString("C").Replace(",00", string.Empty), "CAMBIO");
                 }
                 //MessageBox.Show("paso");
                 //IMPRIMIR FACTURA
@@ -709,9 +709,9 @@ namespace DistribucionesArly_s
                 var cantidad = Convert.ToInt64(this.canProd.Text);
                 var result = existe - cantidad;
                 var id = Convert.ToInt64(this.idProdC.Text);
-                if (existe == 0)
+                if (existe == 0 || result == 0)
                 {
-                    MessageBox.Show("No existen productos en bodega con este id:" + this.idProdC.Text);
+                    MessageBox.Show("El numero maximo de articulos en bodega es: " + existe);
                     return;
                 }
                 else

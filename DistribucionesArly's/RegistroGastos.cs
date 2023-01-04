@@ -33,13 +33,13 @@ namespace DistribucionesArly_s
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Registro de gastos exitoso");
                 //DateTimeNow.Short.ToString
                 string fecha = DateTime.Now.ToShortDateString().ToString();
                 //
-                string queryFacRem = "INSERT INTO CARTERA VALUES (3,'" + this.dineroGasto.Text + "','" + fecha + "')";
+                string queryFacRem = "INSERT INTO CARTERA VALUES (3,'" + this.dineroGasto.Text + "','" + fecha + "','0','"+fecha+"')";
                 SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
                 cmdFact.ExecuteReader();
+                MessageBox.Show("Registro de gastos exitoso");
                 borrar();
             }
             catch (Exception )

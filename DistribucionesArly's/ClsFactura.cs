@@ -119,7 +119,7 @@ namespace DistribucionesArly_s
                 }
                 else { parte1 = par1; }                      // **********
                 ticket = parte1;
-                parte2 = total.ToString("c");
+                parte2 = total.ToString("c").Replace(",00", string.Empty);
                 max = 40 - (parte1.Length + parte2.Length);
                 for (int i = 0; i < max; i++)                // **********
                 {
@@ -172,7 +172,7 @@ namespace DistribucionesArly_s
                         {
                             espacios += " ";
                         }
-                        elementos += espacios + subtotal.ToString("C");
+                        elementos += espacios + subtotal.ToString("C").Replace(",00", string.Empty);
 
                         int CaracterActual = 0;// indica en que caracter se quedo
                         for (int Longtext = Articulo.Length; Longtext > 16; Longtext++)

@@ -105,7 +105,7 @@ namespace DistribucionesArly_s
                 var pendiente = dtP.Rows[0].ItemArray[0].ToString();
                 var total = double.Parse(totales, NumberStyles.Currency);
                 var result = Convert.ToDouble(pendiente) - Convert.ToDouble(total);
-                this.sPendiente.Text = result.ToString("C");
+                this.sPendiente.Text = result.ToString("C").Replace(",00", string.Empty);
                 con.Close();
 
                 

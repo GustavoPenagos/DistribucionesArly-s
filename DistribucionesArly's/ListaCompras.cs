@@ -64,7 +64,7 @@ namespace DistribucionesArly_s
                 //
                 MostrarImg();
                 con.Close();
-                this.totalFact.Text = resul.ToString("C");
+                this.totalFact.Text = resul.ToString("C").Replace(",00", string.Empty);
             }
             catch(Exception ex)
             {
@@ -161,7 +161,7 @@ namespace DistribucionesArly_s
         {
             try
             {
-                totalFact.Text = resultado.ToString("C");
+                totalFact.Text = resultado.ToString("C").Replace(",00", string.Empty);
                 abonoFact.Clear();
                 bFCompra.Clear();
 

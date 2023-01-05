@@ -14,6 +14,8 @@ using System.Runtime.Remoting.Messaging;
 using System.Data.SqlClient;
 using System.Data;
 using System.Text.RegularExpressions;
+using Aspose.Words;
+using IronPdf;
 
 namespace DistribucionesArly_s
 {
@@ -25,7 +27,9 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string path = @"C:\\Users\\kmtav\\OneDrive\\Documentos\\Factura.txt";
+                string text = "Factura.txt";
+                string pdf = "Factura.pdf";
+                string path = @"C:\\Users\\kmtav\\OneDrive\\Documentos\\";
                 string mail = "";
                 DialogResult de = MessageBox.Show("¿Enviar correo?", "Seleccionar", MessageBoxButtons.YesNo);
                 switch (de)
@@ -38,10 +42,6 @@ namespace DistribucionesArly_s
                             if (Regex.Replace(id, sFormato, String.Empty).Length == 0)
                             {
                                 MessageBox.Show("Correo enviado");
-                            }
-                            else
-                            {
-                               
                             }
                         }
                         else
@@ -70,8 +70,10 @@ namespace DistribucionesArly_s
                         var B64ToByte = Convert.FromBase64String(codeB64);
                         var a = System.Text.Encoding.UTF8.GetString(B64ToByte);
                         con.Close();
-                        File.WriteAllText(path, a);
-
+                        File.WriteAllText(path+text, a);
+                        //
+                        //var doc = new Document(path+text);
+                        //doc.Save(path+pdf);
                         //
 
                         MailMessage correo = new MailMessage();
@@ -80,7 +82,7 @@ namespace DistribucionesArly_s
                         correo.To.Add(mail.Equals("") ? id : mail); //Correo destino
                         correo.Subject = "Gracias por su compra Distribuciones Arly's"; //Asunto
                         correo.Body = "El día de hoy se realiza el envio de su factura,\n Gracias por su compra"; //Mensaje del correo
-                        correo.Attachments.Add(new Attachment(path)); 
+                        correo.Attachments.Add(new Attachment(path + text)); 
                         correo.IsBodyHtml = true;
                         correo.Priority = MailPriority.Normal;
                         SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);

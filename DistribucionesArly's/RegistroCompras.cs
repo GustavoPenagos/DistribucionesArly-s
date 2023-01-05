@@ -69,6 +69,11 @@ namespace DistribucionesArly_s
                 SqlCommand cmdInsertImg = new SqlCommand(queryInsertImg, con);
                 cmdInsertImg.ExecuteNonQuery();
                 con.Close();
+                string queryAbonoP = "INSERT INTO Abono VALUES ("+nFactura+", '"+valorFac+"', '0', "+date+")";
+                con.Open();
+                SqlCommand cmdAP = new SqlCommand(queryAbonoP, con);
+                cmdAP.ExecuteNonQuery();
+                con.Close();
                 Clean();
             }
             catch (Exception ex)

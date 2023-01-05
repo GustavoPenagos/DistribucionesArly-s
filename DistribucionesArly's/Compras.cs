@@ -58,7 +58,25 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string queryProducto = "Select * from producto where Id_Prod = " + this.idProdC.Text + "";
+                long numericValue;
+                bool isNumber = long.TryParse(this.idProdC.Text, out numericValue);
+                string queryProducto = ""; long ID = 0;
+                if (!isNumber)
+                {
+                    string query = "select ID from lista_bodega where Producto like '%" + this.idProdC.Text + "%'";
+                    con.Open();
+                    SqlDataAdapter ad = new SqlDataAdapter(query, con);
+                    DataTable dtt = new DataTable();
+                    ad.Fill(dtt);
+                    ID = Convert.ToInt64(dtt.Rows[0].ItemArray[0].ToString());
+                    con.Close();
+                    queryProducto = "Select * from producto where Id_Prod = " + ID;
+                }
+                else
+                {
+                    queryProducto = "Select * from producto where Id_Prod = " + this.idProdC.Text;
+                }
+                //queryProducto = "Select * from producto where Id_Prod = " + this.idProdC.Text;
                 if (this.idProdC.Text.Equals(""))
                 {
                     return;
@@ -122,6 +140,13 @@ namespace DistribucionesArly_s
         {
             try
             {
+                double total = double.Parse(this.totalVenta.Text, NumberStyles.Currency); 
+                double cancela = double.Parse(this.cancelaCon.Text);
+                if (total > cancela)
+                {
+                    MessageBox.Show(cancela + " es menor a la venta de " + total);
+                    return;
+                }
                 DialogResult dr = MessageBox.Show("¿FINALIZAR VENTA?", "Seleccionar", MessageBoxButtons.YesNo);
                 switch (dr)
                 {
@@ -401,7 +426,25 @@ namespace DistribucionesArly_s
                         break;
                     default: break;
                 }
-                string query = "delete top ("+cantidad+") from Compras where Id_Prod = "+this.idProdC.Text + "and Num_Venta = " + v;
+                long numericValue;
+                bool isNumber = long.TryParse(this.idProdC.Text, out numericValue);
+                string query = ""; long ID = 0;
+                if (!isNumber)
+                {
+                    string queryC = "select ID from lista_bodega where Producto like '%" + this.idProdC.Text + "%'";
+                    con.Open();
+                    SqlDataAdapter ad = new SqlDataAdapter(queryC, con);
+                    DataTable dtt = new DataTable();
+                    ad.Fill(dtt);
+                    ID = Convert.ToInt64(dtt.Rows[0].ItemArray[0].ToString());
+                    con.Close();
+                    query = "delete top (" + cantidad + ") from Compras where Id_Prod = " + ID + "and Num_Venta = " + v;
+                }
+                else
+                {
+                    query = "delete top (" + cantidad + ") from Compras where Id_Prod = " + this.idProdC.Text + "and Num_Venta = " + v;
+                }
+                
 
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -579,14 +622,14 @@ namespace DistribucionesArly_s
                     dataAdapter.Fill(data);
                     //
                     var cantCompra = Convert.ToDouble(dTable.Rows[i].ItemArray[4].ToString());
-                    var cantBodega = Convert.ToDouble(data.Rows[i].ItemArray[2].ToString());
+                    var cantBodega = Convert.ToDouble(data.Rows[0].ItemArray[2].ToString());
                     var totalCan = cantBodega - cantCompra;
                     //
                     string queryDelete = "update Bodega set cantidad = " + totalCan + " where Id_Prod = " + idPro;
                     SqlCommand cmdDelete = new SqlCommand(queryDelete, con);
                     cmdDelete.ExecuteNonQuery();
                     //
-                    string queryDeleteCompras = "delete from Compras where [Num_Venta] like '"+v+"'";
+                    string queryDeleteCompras = "delete from Compras where [Num_Venta] like '"+v+ "' and Id_Prod =" + idPro;
                     SqlCommand cmdDeleteCompras = new SqlCommand(queryDeleteCompras, con);
                     cmdDeleteCompras.ExecuteNonQuery();
                 }
@@ -749,7 +792,7 @@ namespace DistribucionesArly_s
                 //
                 long numericValue;
                 bool isNumber = long.TryParse(this.idProdC.Text, out numericValue);
-                string queryCompare = ""; var ID = "";
+                string queryCompare = ""; long ID = 0;
                 if (!isNumber)
                 {
                     string query = "select ID from lista_bodega where Producto like '%" + this.idProdC.Text + "%'";
@@ -757,7 +800,7 @@ namespace DistribucionesArly_s
                     SqlDataAdapter ad = new SqlDataAdapter(query, con);
                     DataTable dtt = new DataTable();
                     ad.Fill(dtt);
-                    ID = dtt.Rows[0].ItemArray[0].ToString();
+                    ID = Convert.ToInt64(dtt.Rows[0].ItemArray[0].ToString());
                     con.Close();
                     queryCompare = "Select * from bodega where Id_Prod = " + ID;
                 }
@@ -776,7 +819,7 @@ namespace DistribucionesArly_s
                 con.Close();
                 var cantidad = Convert.ToInt64(this.canProd.Text);
                 var result = existe - cantidad;
-                var id = Convert.ToInt64(this.idProdC.Text);
+                //var id = Convert.ToInt64(this.idProdC.Text);
                 if (existe <= 0 && result == 0)
                 {
                     MessageBox.Show("El numero maximo de articulos en bodega es: " + existe);
@@ -786,7 +829,7 @@ namespace DistribucionesArly_s
                 {
                     if (result >= 0)
                     {
-                        CantidadData(existe, cantidad, id, result);
+                        CantidadData(existe, cantidad, ID, result);
                     }
                     else
                     {

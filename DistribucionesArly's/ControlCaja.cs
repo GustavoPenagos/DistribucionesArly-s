@@ -125,7 +125,8 @@ namespace DistribucionesArly_s
                 SqlDataAdapter da = new SqlDataAdapter(queryVenta, con);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                var s = double.Parse(dt.Rows[0].ItemArray[0].ToString());
+                
+                var s = dt.Rows.Count == 1 ? 0 : double.Parse(dt.Rows[0].ItemArray[0].ToString());
                 this.tBAbono.Text = s.ToString("C").Replace(",00", string.Empty);
                 con.Close();
                 Total();

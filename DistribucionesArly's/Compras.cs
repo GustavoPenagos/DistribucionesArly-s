@@ -42,10 +42,6 @@ namespace DistribucionesArly_s
         {
             try
             {
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = true;
-                }
                 if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 {
                     this.canProd.Focus();
@@ -186,14 +182,54 @@ namespace DistribucionesArly_s
                 {
                     try
                     {
+                        string ID = Microsoft.VisualBasic.Interaction.InputBox("Identificación del cliente", "Datos de factura Nit");
                         ClsFactura.CreaTicket Ticket1 = new ClsFactura.CreaTicket();
 
                         Ticket1.TextoCentro("Empresa Distribuciones Arly's ");
                         Ticket1.TextoCentro("NIT: 40079945-0 ");//imprime una linea de descripcion
                         Ticket1.TextoCentro("**********************************");
-
-                        Ticket1.TextoIzquierda("Dirc: xxxx");
-                        Ticket1.TextoIzquierda("Tel: xxxx");
+                        //
+                        string queryNit = "select * from [User] where Id_User = " + ID;
+                        SqlDataAdapter ad = new SqlDataAdapter(queryNit, con);
+                        DataTable td = new DataTable();
+                        ad.Fill(td);
+                        var cc = ""; int i = 0;
+                        var nombre=""; var direc="";var tel = ""; var nit = "";
+                        for(i=0; i < td.Rows.Count; i++)
+                        {
+                            cc = td.Rows[i].ItemArray[0].ToString();
+                            if (cc == ID)
+                            {
+                                //
+                                nombre = td.Rows[i].ItemArray[1].ToString();
+                                direc = td.Rows[i].ItemArray[3].ToString();
+                                tel = td.Rows[i].ItemArray[2].ToString();
+                                nit = td.Rows[i].ItemArray[4].ToString();
+                                //
+                                Ticket1.TextoIzquierda("Nombre: " + nombre);
+                                Ticket1.TextoIzquierda("Dirc: " + direc);
+                                Ticket1.TextoIzquierda("Tel: " + tel);
+                                Ticket1.TextoIzquierda("Nit: " + nit);
+                                break;
+                            }
+                        }
+                        if(i == td.Rows.Count)
+                        {
+                            //
+                            MessageBox.Show("No existe este cliente");
+                            //
+                            string nombreStr = Microsoft.VisualBasic.Interaction.InputBox("Por favor\nEsribir nombre", "Datos de factura Nit");//NIT OTRA EMPRESA
+                            string direcStr = Microsoft.VisualBasic.Interaction.InputBox("Por favor\nEsribir dirección", "Datos de factura Nit");//NIT OTRA EMPRESA
+                            string telStr = Microsoft.VisualBasic.Interaction.InputBox("Por favor\nEsribir telefono", "Datos de factura Nit");//NIT OTRA EMPRESA
+                            string nitStr = Microsoft.VisualBasic.Interaction.InputBox("Por favor\nEsribir NIT", "Datos de factura Nit");//NIT OTRA EMPRESA
+                            //
+                            Ticket1.TextoIzquierda("Nombre: " + nombreStr);
+                            Ticket1.TextoIzquierda("Dirc: " + direcStr);
+                            Ticket1.TextoIzquierda("Tel: " + telStr);
+                            Ticket1.TextoIzquierda("Nit: " + nitStr);
+                        }
+                        //                       
+                        
                         Ticket1.TextoIzquierda("");
                         Ticket1.TextoIzquierda("");
                         Ticket1.TextoCentro("Factura de Venta"); //imprime una linea de descripcion
@@ -469,6 +505,7 @@ namespace DistribucionesArly_s
             }
             catch(Exception ex)
             {
+                con.Close();
                 MessageBox.Show("DatosCompra", ex.Message);
             }
         }
@@ -530,14 +567,25 @@ namespace DistribucionesArly_s
                 DataTable dTable = new DataTable();
                 adap.Fill(dTable);
                 con.Open();
+                
                 for (int i = 0; i < dTable.Rows.Count; i++)
                 {
+                    
                     var idPro = dTable.Rows[i].ItemArray[1].ToString();
-                    var cantidad = dTable.Rows[i].ItemArray[4].ToString();
-
-                    string queryDelete = "delete top (" + cantidad + ")  from bodega where Id_Prod = " + idPro;
+                    //
+                    string queryBodega = "select * from Bodega where Id_Prod = " + idPro;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(queryBodega, con);
+                    DataTable data = new DataTable();
+                    dataAdapter.Fill(data);
+                    //
+                    var cantCompra = Convert.ToDouble(dTable.Rows[i].ItemArray[4].ToString());
+                    var cantBodega = Convert.ToDouble(data.Rows[i].ItemArray[2].ToString());
+                    var totalCan = cantBodega - cantCompra;
+                    //
+                    string queryDelete = "update Bodega set cantidad = " + totalCan + " where Id_Prod = " + idPro;
                     SqlCommand cmdDelete = new SqlCommand(queryDelete, con);
                     cmdDelete.ExecuteNonQuery();
+                    //
                     string queryDeleteCompras = "delete from Compras where [Num_Venta] like '"+v+"'";
                     SqlCommand cmdDeleteCompras = new SqlCommand(queryDeleteCompras, con);
                     cmdDeleteCompras.ExecuteNonQuery();
@@ -698,18 +746,38 @@ namespace DistribucionesArly_s
                 {
                     MessageBox.Show("Campo ID esta vacio"); return;
                 }
-                string queryCompare = "Select * from bodega where Id_Prod = " + this.idProdC.Text;
+                //
+                long numericValue;
+                bool isNumber = long.TryParse(this.idProdC.Text, out numericValue);
+                string queryCompare = ""; var ID = "";
+                if (!isNumber)
+                {
+                    string query = "select ID from lista_bodega where Producto like '%" + this.idProdC.Text + "%'";
+                    con.Open();
+                    SqlDataAdapter ad = new SqlDataAdapter(query, con);
+                    DataTable dtt = new DataTable();
+                    ad.Fill(dtt);
+                    ID = dtt.Rows[0].ItemArray[0].ToString();
+                    con.Close();
+                    queryCompare = "Select * from bodega where Id_Prod = " + ID;
+                }
+                else
+                {
+                    queryCompare = "Select * from bodega where Id_Prod = " + this.idProdC.Text;
+                }
+                
+                //
                 con.Open();
                 SqlCommand cmd = new SqlCommand(queryCompare, con);
                 SqlDataReader dr = cmd.ExecuteReader();
                 DataTable dt = new DataTable();
                 dt.Load(dr);
-                var existe = dt.Rows.Count;
+                var existe = Convert.ToInt64(dt.Rows[0].ItemArray[2].ToString());
                 con.Close();
                 var cantidad = Convert.ToInt64(this.canProd.Text);
                 var result = existe - cantidad;
                 var id = Convert.ToInt64(this.idProdC.Text);
-                if (existe == 0 || result == 0)
+                if (existe <= 0 && result == 0)
                 {
                     MessageBox.Show("El numero maximo de articulos en bodega es: " + existe);
                     return;
@@ -729,12 +797,13 @@ namespace DistribucionesArly_s
             }
             catch(Exception ex)
             {
+                con.Close();
                 MessageBox.Show("CompareExistente", ex.Message);
             }
             
         }
         
-        private void CantidadData(int existe, long cantidad, long id, long result) 
+        private void CantidadData(long existe, long cantidad, long id, long result) 
         {
             try
             {
@@ -753,11 +822,11 @@ namespace DistribucionesArly_s
                             if (Convert.ToInt64(dataGridView2.Rows[i].Cells[0].Value) == id)
                             {
                                 int lastRow = count - 1;
-                                var cellCant = Convert.ToInt32(dataGridView2.Rows[i].Cells[3].Value);
+                                var cellCant = Convert.ToInt64(dataGridView2.Rows[i].Cells[4].Value);
                                 var cellID = Convert.ToInt64(dataGridView2.Rows[i].Cells[0].Value);//error
                                 var idText = Convert.ToInt64(this.idProdC.Text);
 
-                                if (cellID == idText && cellCant < existe)
+                                if (cellID == idText && cellCant <= existe)
                                 {
                                     VaidarDataGridView(lastRow, cellCant, cellID, idText);
                                     return;
@@ -787,7 +856,7 @@ namespace DistribucionesArly_s
             }
         }
         
-        private void VaidarDataGridView(int lastRow, int cellCant, long cellID, long idText)
+        private void VaidarDataGridView(int lastRow, long cellCant, long cellID, long idText)
         {
             try
             {
@@ -798,14 +867,14 @@ namespace DistribucionesArly_s
                 SqlDataReader dr = cmd.ExecuteReader();
                 DataTable dt = new DataTable();
                 dt.Load(dr);
-                var numero = dt.Rows.Count;
+                var numero = Convert.ToInt32(dt.Rows[0].ItemArray[2].ToString());
                 con.Close();
 
                 for (int i = 0; i < dataGridView2.Rows.Count; i++)
                 {
                     if (Convert.ToInt64(dataGridView2.Rows[i].Cells[0].Value) == Convert.ToInt64(this.idProdC.Text))
                     {
-                        var cant = Convert.ToInt32(dataGridView2.Rows[i].Cells[3].Value);
+                        var cant = Convert.ToInt32(dataGridView2.Rows[i].Cells[4].Value);
                         int result = Convert.ToInt32(this.canProd.Text) + cant;
                         if (result <= numero)
                         {
@@ -822,6 +891,7 @@ namespace DistribucionesArly_s
             }
             catch(Exception ex)
             {
+                con.Close();
                 MessageBox.Show("VaidarDataGridView ", ex.Message);
             }
         }
@@ -875,6 +945,34 @@ namespace DistribucionesArly_s
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void idProdC_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string query = "select * from lista_bodega where Producto like '%" + this.idProdC.Text + "%'";
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataAdapter ad = new SqlDataAdapter(query, con);
+                DataTable dt = new DataTable();
+                ad.Fill(dt);
+                //this.idProdC.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                //this.idProdC.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                AutoCompleteStringCollection data = new AutoCompleteStringCollection();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    data.Add(dt.Rows[i].ItemArray[1].ToString());
+
+                }
+                this.idProdC.AutoCompleteCustomSource = data;
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+                con.Close();
+                MessageBox.Show("idProdC" + ex.Message);
             }
         }
     }

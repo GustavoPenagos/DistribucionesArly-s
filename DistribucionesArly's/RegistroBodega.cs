@@ -60,20 +60,46 @@ namespace DistribucionesArly_s
                 SqlDataReader dr = cmdConsul.ExecuteReader();
                 
                 var cantidadProd = Convert.ToInt32(this.cantidadProd.Text);
+                int sum=0; 
                 if (dr.Read())
                 {
                     con.Close();
+                    //
+                    string queryVal = "Select * from Bodega";
                     con.Open();
-                    for (int i = 0; i < cantidadProd; i++)
+                    SqlDataAdapter ad = new SqlDataAdapter(queryVal, con);
+                    DataTable data = new DataTable();
+                    ad.Fill(data);
+                    //
+                   
+                    for(int i = 0; i < data.Rows.Count; i++)
                     {
-                        
-                        string queryInsert = "insert into Bodega values (" + Convert.ToInt64(this.idProdRegis.Text) + ")";
+                        var idProd = data.Rows[i].ItemArray[1].ToString();
+
+                        if (idProd == this.idProdRegis.Text)
+                        {
+                            var cantidad = Convert.ToDouble(data.Rows[i].ItemArray[2].ToString());
+                            var total = cantidadProd + cantidad;
+                            string queryInsert = "update Bodega set cantidad = "+total+" where Id_Prod = " + this.idProdRegis.Text;
+                            SqlCommand cmdInsert = new SqlCommand(queryInsert, con);
+                            cmdInsert.ExecuteNonQuery();
+                            con.Close();
+                            MessageBox.Show("Se ha ingresado el producto correctamente");
+                            return;
+
+                        }
+                        sum = 1 + sum;
+                    } 
+                    if(sum == data.Rows.Count)
+                    {
+                        string queryInsert = "insert into Bodega values (" + Convert.ToInt64(this.idProdRegis.Text) + ", '" + cantidadProd + "')";
+                        //con.Open();
                         SqlCommand cmdInsert = new SqlCommand(queryInsert, con);
                         cmdInsert.ExecuteNonQuery();
-                        
+                        con.Close();
+                        MessageBox.Show("Se ha ingresado el producto correctamente");
                     }
-                    con.Close();
-                    MessageBox.Show("Se ha ingresado el producto correctamente");
+                    
                 }
                 else
                 {
@@ -135,7 +161,6 @@ namespace DistribucionesArly_s
             }
             catch (Exception ex)
             {
-                con.Close();
                 MessageBox.Show(ex.Message);
             }
             
@@ -157,6 +182,7 @@ namespace DistribucionesArly_s
             }
             catch(Exception ex)
             {
+                con.Close();
                 MessageBox.Show(ex.Message);
             }
             

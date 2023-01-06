@@ -34,17 +34,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.butBusComp = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.idProdC = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.canProd = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.ventaBut1 = new System.Windows.Forms.RadioButton();
             this.ventaBut4 = new System.Windows.Forms.RadioButton();
             this.ventaBut2 = new System.Windows.Forms.RadioButton();
             this.ventaBut3 = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.canProd = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.butBusComp = new System.Windows.Forms.Button();
-            this.idProdC = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -66,8 +69,11 @@
             this.cambioDe = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cancelaCon = new System.Windows.Forms.TextBox();
+            this.DEL = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -87,7 +93,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(848, 100);
+            this.panel1.Size = new System.Drawing.Size(928, 100);
             this.panel1.TabIndex = 0;
             // 
             // label2
@@ -97,25 +103,124 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(848, 100);
+            this.label2.Size = new System.Drawing.Size(928, 100);
             this.label2.TabIndex = 0;
             this.label2.Text = "Compras";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel13);
+            this.panel2.Controls.Add(this.panel12);
+            this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.panel8);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.canProd);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.butBusComp);
-            this.panel2.Controls.Add(this.idProdC);
-            this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(848, 139);
+            this.panel2.Size = new System.Drawing.Size(928, 139);
             this.panel2.TabIndex = 1;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.butBusComp);
+            this.panel13.Controls.Add(this.button1);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel13.Location = new System.Drawing.Point(361, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(278, 139);
+            this.panel13.TabIndex = 15;
+            // 
+            // butBusComp
+            // 
+            this.butBusComp.AutoSize = true;
+            this.butBusComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butBusComp.Location = new System.Drawing.Point(42, 16);
+            this.butBusComp.Name = "butBusComp";
+            this.butBusComp.Size = new System.Drawing.Size(210, 43);
+            this.butBusComp.TabIndex = 3;
+            this.butBusComp.Text = "Agregar";
+            this.butBusComp.UseVisualStyleBackColor = true;
+            this.butBusComp.Click += new System.EventHandler(this.butBusComp_Click);
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(46, 79);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(206, 43);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Eliminar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.idProdC);
+            this.panel12.Controls.Add(this.label1);
+            this.panel12.Controls.Add(this.canProd);
+            this.panel12.Controls.Add(this.label3);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(639, 139);
+            this.panel12.TabIndex = 14;
+            // 
+            // idProdC
+            // 
+            this.idProdC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.idProdC.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idProdC.Location = new System.Drawing.Point(117, 16);
+            this.idProdC.Name = "idProdC";
+            this.idProdC.Size = new System.Drawing.Size(254, 30);
+            this.idProdC.TabIndex = 1;
+            this.idProdC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.idProdC.TextChanged += new System.EventHandler(this.idProdC_TextChanged);
+            this.idProdC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.idProdC_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Producto";
+            // 
+            // canProd
+            // 
+            this.canProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.canProd.Location = new System.Drawing.Point(117, 66);
+            this.canProd.Name = "canProd";
+            this.canProd.Size = new System.Drawing.Size(81, 30);
+            this.canProd.TabIndex = 2;
+            this.canProd.Text = "1";
+            this.canProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.canProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.canProd_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(13, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 25);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Cantidad";
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(639, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(89, 139);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Vaciar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel8
             // 
@@ -125,7 +230,7 @@
             this.panel8.Controls.Add(this.ventaBut2);
             this.panel8.Controls.Add(this.ventaBut3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(648, 0);
+            this.panel8.Location = new System.Drawing.Point(728, 0);
             this.panel8.Name = "panel8";
             this.panel8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.panel8.Size = new System.Drawing.Size(200, 139);
@@ -185,81 +290,13 @@
             this.ventaBut3.CheckedChanged += new System.EventHandler(this.ventaBut1_CheckedChanged);
             this.ventaBut3.Click += new System.EventHandler(this.ventaBut1_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(471, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Cantidad";
-            // 
-            // canProd
-            // 
-            this.canProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.canProd.Location = new System.Drawing.Point(550, 28);
-            this.canProd.Name = "canProd";
-            this.canProd.Size = new System.Drawing.Size(81, 30);
-            this.canProd.TabIndex = 2;
-            this.canProd.Text = "1";
-            this.canProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.canProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.canProd_KeyPress);
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(550, 72);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 43);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Eliminar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // butBusComp
-            // 
-            this.butBusComp.AutoSize = true;
-            this.butBusComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butBusComp.Location = new System.Drawing.Point(173, 72);
-            this.butBusComp.Name = "butBusComp";
-            this.butBusComp.Size = new System.Drawing.Size(254, 43);
-            this.butBusComp.TabIndex = 3;
-            this.butBusComp.Text = "Agregar";
-            this.butBusComp.UseVisualStyleBackColor = true;
-            this.butBusComp.Click += new System.EventHandler(this.butBusComp_Click);
-            // 
-            // idProdC
-            // 
-            this.idProdC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.idProdC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.idProdC.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idProdC.Location = new System.Drawing.Point(173, 28);
-            this.idProdC.Name = "idProdC";
-            this.idProdC.Size = new System.Drawing.Size(254, 30);
-            this.idProdC.TabIndex = 1;
-            this.idProdC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.idProdC.TextChanged += new System.EventHandler(this.idProdC_TextChanged);
-            this.idProdC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.idProdC_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(68, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Producto";
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 239);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(848, 431);
+            this.panel3.Size = new System.Drawing.Size(928, 431);
             this.panel3.TabIndex = 2;
             // 
             // panel6
@@ -271,7 +308,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(848, 431);
+            this.panel6.Size = new System.Drawing.Size(928, 431);
             this.panel6.TabIndex = 3;
             // 
             // panel7
@@ -280,12 +317,14 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(648, 331);
+            this.panel7.Size = new System.Drawing.Size(728, 331);
             this.panel7.TabIndex = 3;
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowDrop = true;
             this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToOrderColumns = true;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -297,6 +336,8 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DEL});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -308,6 +349,7 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -316,8 +358,10 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView2.Size = new System.Drawing.Size(648, 331);
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.Size = new System.Drawing.Size(728, 331);
             this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // panel4
             // 
@@ -326,7 +370,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 331);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(648, 100);
+            this.panel4.Size = new System.Drawing.Size(728, 100);
             this.panel4.TabIndex = 2;
             // 
             // panel10
@@ -410,7 +454,7 @@
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.cancelaCon);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(648, 0);
+            this.panel5.Location = new System.Drawing.Point(728, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(200, 431);
             this.panel5.TabIndex = 1;
@@ -512,11 +556,20 @@
             this.cancelaCon.TabIndex = 2;
             this.cancelaCon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // DEL
+            // 
+            this.DEL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DEL.HeaderText = "Eliminar";
+            this.DEL.Name = "DEL";
+            this.DEL.ReadOnly = true;
+            this.DEL.Text = "DEL";
+            this.DEL.ToolTipText = "Eliminar";
+            // 
             // Compras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(848, 670);
+            this.ClientSize = new System.Drawing.Size(928, 670);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -525,7 +578,10 @@
             this.Text = "Compras";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -581,5 +637,9 @@
         private System.Windows.Forms.RadioButton rBImprimir;
         private System.Windows.Forms.RadioButton rBNImprimir;
         private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.DataGridViewButtonColumn DEL;
     }
 }

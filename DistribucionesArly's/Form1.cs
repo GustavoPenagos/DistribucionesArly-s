@@ -44,7 +44,7 @@ namespace DistribucionesArly_s
         }
         private void carroCompra_Click(object sender, EventArgs e)
         {
-            OpenFrom(new CarritoCompras());
+            OpenFrom(new Compras());
         }
         
         private void button2_Click(object sender, EventArgs e)

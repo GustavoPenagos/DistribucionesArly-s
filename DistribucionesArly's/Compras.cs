@@ -1002,30 +1002,30 @@ namespace DistribucionesArly_s
 
         private void idProdC_TextChanged(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    string query = "select * from lista_bodega where Producto like '%" + this.idProdC.Text + "%'";
-            //    con.Open();
-            //    SqlCommand cmd = new SqlCommand(query, con);
-            //    SqlDataAdapter ad = new SqlDataAdapter(query, con);
-            //    DataTable dt = new DataTable();
-            //    ad.Fill(dt);
-            //    //this.idProdC.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            //    //this.idProdC.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            //    AutoCompleteStringCollection data = new AutoCompleteStringCollection();
-            //    for (int i = 0; i < dt.Rows.Count; i++)
-            //    {
-            //        data.Add(dt.Rows[i].ItemArray[1].ToString());
+            try
+            {
+                string query = "select * from lista_bodega where Producto like '%" + this.idProdC.Text + "%'";
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataAdapter ad = new SqlDataAdapter(query, con);
+                DataTable dt = new DataTable();
+                ad.Fill(dt);
+                this.idProdC.AutoCompleteMode = AutoCompleteMode.Suggest;
+                this.idProdC.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                AutoCompleteStringCollection data = new AutoCompleteStringCollection();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    data.Add(dt.Rows[i].ItemArray[1].ToString());
 
-            //    }
-            //    this.idProdC.AutoCompleteCustomSource = data;
-            //    con.Close();
-            //}
-            //catch(Exception ex)
-            //{
-            //    con.Close();
-            //    MessageBox.Show("idProdC" + ex.Message);
-            //}
+                }
+                this.idProdC.AutoCompleteCustomSource = data;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                MessageBox.Show("idProdC" + ex.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

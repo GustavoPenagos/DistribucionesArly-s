@@ -18,25 +18,28 @@ namespace DistribucionesArly_s
         {
             InitializeComponent();
         }
+
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
 
         private void guardarRegistro_Click(object sender, EventArgs e)
         {
             RegistroGasto();
         }
+
         private void RegistroGasto()
         {
             try
             {
+                var valor = double.Parse(this.dineroGasto.Text.ToString()).ToString("C").Replace(",00","").Trim();
                 string date = DateTime.Now.ToShortDateString();
-                string query = "INSERT INTO [dbo].[Gastos] VALUES ('" + this.descriGasto.Text + "'," + this.dineroGasto.Text + ",'" + date + "')";
+                string query = "INSERT INTO [dbo].[Gastos] VALUES ('" + this.descriGasto.Text + "','" + valor + "','" + date + "')";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 //DateTimeNow.Short.ToString
                 string fecha = DateTime.Now.ToShortDateString().ToString();
                 //
-                string queryFacRem = "INSERT INTO CARTERA VALUES (3,'" + this.dineroGasto.Text + "','" + fecha + "','0','"+fecha+"')";
+                string queryFacRem = "INSERT INTO CARTERA VALUES (3,'" + this.dineroGasto.Text + "','" + fecha + "','0','0')";
                 SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
                 cmdFact.ExecuteReader();
                 MessageBox.Show("Registro de gastos exitoso");
@@ -49,6 +52,7 @@ namespace DistribucionesArly_s
             con.Close();
             
         }
+
         private void borrar()
         {
             try
@@ -62,6 +66,7 @@ namespace DistribucionesArly_s
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void descriGasto_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -76,6 +81,7 @@ namespace DistribucionesArly_s
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void dineroGasto_KeyPress(object sender, KeyPressEventArgs e)
         {
             try

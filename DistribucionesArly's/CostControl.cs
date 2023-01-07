@@ -40,7 +40,7 @@ namespace DistribucionesArly_s
                         var Cart = double.Parse(dt.Rows[i].ItemArray[2].ToString(), NumberStyles.Currency);
                         suma = suma + Cart;
                     }
-                    this.totalCartera.Text = suma.ToString("C").Replace(",00", string.Empty);
+                    this.totalCartera.Text = suma.ToString("C").Replace(",00", "").Trim();
                 }
                 con.Close();
             }
@@ -72,16 +72,18 @@ namespace DistribucionesArly_s
                 if (selectCartera.Text.Equals("Fecha de venta") || selectCartera.Text.Equals("Venta sin factura"))
                 {
                     dateCartera.Visible = true;
+                    dateFin.Visible = true;
                     tBoxBusca.Visible = false;
                 }
                 else
                 {
                     dateCartera.Visible = false;
+                    dateFin.Visible = false;
                     tBoxBusca.Visible = true;
                 }
                 string selecBox = selectCartera.Text;
-                var date = dateCartera.Value.ToString("d/MM/yyyy");
-
+                var date1 = dateCartera.Value.ToString("yyyy-d-MM");
+                var date2 = dateFin.Value.ToString("yyyy-d-MM");
                 switch (selecBox)
                 {
                     case ("Factura Nit"):
@@ -93,11 +95,11 @@ namespace DistribucionesArly_s
                         BuscarCartera(selecBox);
                         break;
                     case ("Venta sin factura"):
-                        selecBox = "[Tipo de venta] = 'Venta sin factura' and [Fecha de venta] like '"+ date +"'";
+                        selecBox = "[Tipo de venta] = 'Venta sin factura' and [Fecha de venta] between convert(date, '"+date1+"') and  convert(date, '"+date2+ "')";
                         BuscarCartera(selecBox);
                         break;
                     case ("Fecha de venta"):
-                        selecBox = "[Fecha de venta] like '" + date + "'";
+                        selecBox = "[Fecha de venta] between convert(date, '"+date1+"') and  convert(date, '"+date2+"')";
                         BuscarCartera(selecBox);
                         break;
                 }
@@ -113,7 +115,6 @@ namespace DistribucionesArly_s
             try
             {
                 string querySWhere = "";
-                string fecha = dateCartera.Value.ToString("d/MM/yyyy");
                 if (this.tBoxBusca.Text.Equals("") && dateCartera.Visible == false)
                 {
                     querySWhere = "select * from Lista_Ventas";

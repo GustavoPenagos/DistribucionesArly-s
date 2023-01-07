@@ -44,10 +44,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorGastoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaGastoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listaGastosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.distribucionesArlysDataSet = new DistribucionesArly_s.DistribucionesArlysDataSet();
             this.gastosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -188,7 +184,6 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -200,12 +195,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
-            this.descripcionDataGridViewTextBoxColumn,
-            this.valorGastoDataGridViewTextBoxColumn,
-            this.fechaGastoDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.listaGastosBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
@@ -228,34 +217,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Size = new System.Drawing.Size(932, 322);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descripcionDataGridViewTextBoxColumn
-            // 
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // valorGastoDataGridViewTextBoxColumn
-            // 
-            this.valorGastoDataGridViewTextBoxColumn.DataPropertyName = "Valor_Gasto";
-            this.valorGastoDataGridViewTextBoxColumn.HeaderText = "Valor_Gasto";
-            this.valorGastoDataGridViewTextBoxColumn.Name = "valorGastoDataGridViewTextBoxColumn";
-            this.valorGastoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaGastoDataGridViewTextBoxColumn
-            // 
-            this.fechaGastoDataGridViewTextBoxColumn.DataPropertyName = "Fecha_Gasto";
-            this.fechaGastoDataGridViewTextBoxColumn.HeaderText = "Fecha_Gasto";
-            this.fechaGastoDataGridViewTextBoxColumn.Name = "fechaGastoDataGridViewTextBoxColumn";
-            this.fechaGastoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // listaGastosBindingSource
             // 
@@ -326,10 +288,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.BindingSource listaGastosBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorGastoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaGastoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button BuscarGasto;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateGasto;

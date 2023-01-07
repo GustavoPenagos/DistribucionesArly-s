@@ -88,6 +88,7 @@ namespace DistribucionesArly_s
             {
                 this.buscaID.Clear();
                 this.multiFact.Clear();
+
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);

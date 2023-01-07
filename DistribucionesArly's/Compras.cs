@@ -24,6 +24,14 @@ namespace DistribucionesArly_s
         public Compras()
         {
             InitializeComponent();
+            //
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            btn.HeaderText = "Eliminar";
+            btn.Text = "Eliminar";
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+            dataGridView2.Columns.Add(btn);
+            //
             DatosCompra();
             ListaCompra();
         }
@@ -382,6 +390,7 @@ namespace DistribucionesArly_s
                 dataGridView2.DataSource = dt;
                 con.Close();
                 this.canProd.Text = "1";
+                
                 if (dataGridView2.Rows.Count == 0) { totalVenta.Clear(); }
                 DatosCompra();
             }
@@ -866,16 +875,16 @@ namespace DistribucionesArly_s
                         for (int i = 0; i < dataGridView2.Rows.Count; i++)
                         {
                             var k = i + 1;
-                            if (Convert.ToInt64(dataGridView2.Rows[i].Cells[0].Value) == id)
+                            if (Convert.ToInt64(dataGridView2.Rows[i].Cells[2].Value) == id)
                             {
                                 int lastRow = count - 1;
-                                var cellCant = Convert.ToInt64(dataGridView2.Rows[i].Cells[4].Value);
-                                var cellID = Convert.ToInt64(dataGridView2.Rows[i].Cells[0].Value);//error
-                                var idText = Convert.ToInt64(this.idProdC.Text);
+                                var cellCant = Convert.ToInt64(dataGridView2.Rows[i].Cells[5].Value);
+                                var cellID = Convert.ToInt64(dataGridView2.Rows[i].Cells[2].Value);//error
+                                //var idText = Convert.ToInt64(this.idProdC.Text);
 
-                                if (cellID == idText && cellCant <= existe)
+                                if (cellID == id && cellCant <= existe)
                                 {
-                                    VaidarDataGridView(lastRow, cellCant, cellID, idText);
+                                    VaidarDataGridView(lastRow, cellCant, cellID, id);
                                     return;
                                 }
                                 else
@@ -920,9 +929,9 @@ namespace DistribucionesArly_s
 
                 for (int i = 0; i < dataGridView2.Rows.Count; i++)
                 {
-                    if (Convert.ToInt64(dataGridView2.Rows[i].Cells[0].Value) == Convert.ToInt64(this.idProdC.Text))
+                    if (Convert.ToInt64(dataGridView2.Rows[i].Cells[2].Value) == Convert.ToInt64(idText))
                     {
-                        var cant = Convert.ToInt32(dataGridView2.Rows[i].Cells[4].Value);
+                        var cant = Convert.ToInt32(dataGridView2.Rows[i].Cells[5].Value);
                         int result = Convert.ToInt32(this.canProd.Text) + cant;
                         if (result <= numero)
                         {
@@ -1092,6 +1101,7 @@ namespace DistribucionesArly_s
         {
             try
             {
+                
                 int index = str.Equals("") ? Convert.ToInt32(dataGridView2.CurrentCell.RowIndex.ToString()) : row;
                 long ID = Convert.ToInt64(dataGridView2.Rows[index].Cells["ID"].Value);
                 var cantidad = dataGridView2.Rows[index].Cells["cantidad"].Value.ToString();

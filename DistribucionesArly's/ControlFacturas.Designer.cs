@@ -65,6 +65,7 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.buscarFact);
             this.panel2.Controls.Add(this.buscaID);
             this.panel2.Controls.Add(this.selecBus);

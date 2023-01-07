@@ -29,21 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
             this.butBusComp = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.idProdC = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.canProd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.ventaBut1 = new System.Windows.Forms.RadioButton();
             this.ventaBut4 = new System.Windows.Forms.RadioButton();
@@ -53,7 +54,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.DEL = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.rBFactNit = new System.Windows.Forms.RadioButton();
@@ -74,11 +74,11 @@
             this.distribucionesArlysDataSet = new DistribucionesArly_s.DistribucionesArlysDataSet();
             this.listabodegaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lista_bodegaTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.lista_bodegaTableAdapter();
-            this.panel14 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -91,7 +91,6 @@
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listabodegaBindingSource)).BeginInit();
-            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -126,14 +125,29 @@
             this.panel2.Size = new System.Drawing.Size(928, 139);
             this.panel2.TabIndex = 1;
             // 
-            // panel13
+            // panel12
             // 
-            this.panel13.Controls.Add(this.button2);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel13.Location = new System.Drawing.Point(595, 0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(133, 139);
-            this.panel13.TabIndex = 15;
+            this.panel12.Controls.Add(this.panel14);
+            this.panel12.Controls.Add(this.panel13);
+            this.panel12.Controls.Add(this.idProdC);
+            this.panel12.Controls.Add(this.label1);
+            this.panel12.Controls.Add(this.canProd);
+            this.panel12.Controls.Add(this.label3);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(728, 139);
+            this.panel12.TabIndex = 14;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.butBusComp);
+            this.panel14.Controls.Add(this.button1);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel14.Location = new System.Drawing.Point(451, 0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(144, 139);
+            this.panel14.TabIndex = 16;
             // 
             // butBusComp
             // 
@@ -161,19 +175,29 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel12
+            // panel13
             // 
-            this.panel12.Controls.Add(this.panel14);
-            this.panel12.Controls.Add(this.panel13);
-            this.panel12.Controls.Add(this.idProdC);
-            this.panel12.Controls.Add(this.label1);
-            this.panel12.Controls.Add(this.canProd);
-            this.panel12.Controls.Add(this.label3);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(0, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(728, 139);
-            this.panel12.TabIndex = 14;
+            this.panel13.Controls.Add(this.button2);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel13.Location = new System.Drawing.Point(595, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(133, 139);
+            this.panel13.TabIndex = 15;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(133, 139);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Limpiar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // idProdC
             // 
@@ -217,21 +241,6 @@
             this.label3.Size = new System.Drawing.Size(91, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "Cantidad";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 139);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel8
             // 
@@ -338,50 +347,39 @@
             this.dataGridView2.AllowUserToOrderColumns = true;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DEL});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.Size = new System.Drawing.Size(728, 331);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // DEL
-            // 
-            this.DEL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DEL.HeaderText = "Eliminar";
-            this.DEL.Name = "DEL";
-            this.DEL.ReadOnly = true;
-            this.DEL.Text = "DEL";
-            this.DEL.ToolTipText = "Eliminar";
             // 
             // panel4
             // 
@@ -590,16 +588,6 @@
             // 
             this.lista_bodegaTableAdapter.ClearBeforeFill = true;
             // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.butBusComp);
-            this.panel14.Controls.Add(this.button1);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel14.Location = new System.Drawing.Point(451, 0);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(144, 139);
-            this.panel14.TabIndex = 16;
-            // 
             // Compras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -613,9 +601,11 @@
             this.Text = "Compras";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel13.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -632,8 +622,6 @@
             this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listabodegaBindingSource)).EndInit();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -678,7 +666,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.DataGridViewButtonColumn DEL;
         private DistribucionesArlysDataSet distribucionesArlysDataSet;
         private System.Windows.Forms.BindingSource listabodegaBindingSource;
         private DistribucionesArlysDataSetTableAdapters.lista_bodegaTableAdapter lista_bodegaTableAdapter;

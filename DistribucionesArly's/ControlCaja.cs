@@ -17,6 +17,14 @@ namespace DistribucionesArly_s
         public ControlCaja()
         {
             InitializeComponent();
+            //
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            btn.HeaderText = "Eliminar";
+            btn.Text = "Eliminar";
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+            dataGridView1.Columns.Add(btn);
+            //
             Capital();
         }
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
@@ -36,6 +44,7 @@ namespace DistribucionesArly_s
             }
             catch (Exception ex)
             {
+                con.Close();
                 MessageBox.Show("Capital" + ex.Message);
             }
         }
@@ -141,11 +150,19 @@ namespace DistribucionesArly_s
         {
             try
             {
-                string password = ""; string capital = ""; var sum = 0.00; var num = 0.00;
+                string password = ""; string capital = ""; var sum = 0.00; var num = 0.00;int n = 0;
                 var date = DateTime.Now.ToShortDateString();
+                //
+                string passw = "select (u.Password) from [User] as u where Id_User = 1006508619";
+                con.Open();
+                SqlDataAdapter adT = new SqlDataAdapter(passw, con);
+                DataTable dtT = new DataTable();
+                adT.Fill(dtT);
+                var passW = dtT.Rows[0].ItemArray[0].ToString();
+                con.Close();
+                //
                 password = Microsoft.VisualBasic.Interaction.InputBox("Contraseña", "Password");
-                
-                if (password.Equals("123pp"))
+                if (password.Equals(passW))
                 {
                     double cont = 0.00; int r = 0;
                     while (cont <= 0 && r != 3)
@@ -162,7 +179,7 @@ namespace DistribucionesArly_s
                             r = r + 3;
                         }
                     }
-
+                    capital = capital.Equals("") ? "0" : capital;
                     string queryCapital = "INSERT INTO Cartera values (6, '"+capital.Trim()+"', '"+date+"', '0', '"+date+"')";
                     con.Open();
                     SqlCommand cmdCap = new SqlCommand(queryCapital, con);
@@ -284,6 +301,50 @@ namespace DistribucionesArly_s
             }catch(Exception ex)
             {
                 MessageBox.Show("Listar "+ex.Message);
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                string passw = "select (u.Password) from [User] as u where Id_User = 1006508619";
+                con.Open();
+                SqlDataAdapter ad = new SqlDataAdapter(passw, con);
+                DataTable dt = new DataTable();
+                ad.Fill(dt);
+                var passW = dt.Rows[0].ItemArray[0].ToString();
+                con.Close();
+                string password = Microsoft.VisualBasic.Interaction.InputBox("CONTRASEÑA DE ADMINISTRADOR", "Prohibido el acceso");
+                if (password.Equals(passW))
+                {
+                    int ind = Convert.ToInt32(e.RowIndex.ToString());
+                    string row = dataGridView1.Rows[ind].Cells["Valor ingreso"].Value.ToString();
+                    double valor = double.Parse(row, NumberStyles.Currency);
+                    Eliminar(valor);
+                    Listar();
+                }
+                else
+                {
+
+                    MessageBox.Show("Contraseña Incorrecta", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+        private void Eliminar(double valor)
+        {
+            try
+            {
+                string query = "delete from Cartera where Id_Cartera = " + 6 + " and Valor_Cartera = '" + valor + "'";
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Eliminar" + ex.Message); ;
             }
         }
     }

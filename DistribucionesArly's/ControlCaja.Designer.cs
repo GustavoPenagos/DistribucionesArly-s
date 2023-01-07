@@ -48,9 +48,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.ListaCapital = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -129,6 +129,7 @@
             this.tBVenta.ReadOnly = true;
             this.tBVenta.Size = new System.Drawing.Size(222, 30);
             this.tBVenta.TabIndex = 1;
+            this.tBVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tBGasto
             // 
@@ -140,6 +141,7 @@
             this.tBGasto.ReadOnly = true;
             this.tBGasto.Size = new System.Drawing.Size(222, 30);
             this.tBGasto.TabIndex = 2;
+            this.tBGasto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tBAbono
             // 
@@ -151,6 +153,7 @@
             this.tBAbono.ReadOnly = true;
             this.tBAbono.Size = new System.Drawing.Size(222, 30);
             this.tBAbono.TabIndex = 3;
+            this.tBAbono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tBTotal
             // 
@@ -174,6 +177,7 @@
             this.tBTotalF.ReadOnly = true;
             this.tBTotalF.Size = new System.Drawing.Size(222, 30);
             this.tBTotalF.TabIndex = 5;
+            this.tBTotalF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -195,6 +199,7 @@
             this.tBCapital.ReadOnly = true;
             this.tBCapital.Size = new System.Drawing.Size(222, 30);
             this.tBCapital.TabIndex = 7;
+            this.tBCapital.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
             // 
@@ -230,6 +235,7 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.ListaCapital);
             this.panel2.Controls.Add(this.button1);
@@ -238,6 +244,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(781, 100);
             this.panel2.TabIndex = 11;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(214, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(160, 65);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Resumen de caja";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel3
             // 
@@ -298,18 +316,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(125, 97);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.Visible = false;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(214, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(160, 65);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Resumen de caja";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ControlCaja
             // 

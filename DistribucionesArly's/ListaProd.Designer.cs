@@ -91,6 +91,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Size = new System.Drawing.Size(999, 250);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // panel1
             // 
@@ -164,7 +165,7 @@
             // 
             this.buscaProd.AutoSize = true;
             this.buscaProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buscaProd.Location = new System.Drawing.Point(686, 16);
+            this.buscaProd.Location = new System.Drawing.Point(690, 16);
             this.buscaProd.Name = "buscaProd";
             this.buscaProd.Size = new System.Drawing.Size(140, 60);
             this.buscaProd.TabIndex = 2;
@@ -236,6 +237,5 @@
         private System.Windows.Forms.BindingSource listaproductoBindingSource;
         private DistribucionesArlysDataSetTableAdapters.lista_productoTableAdapter lista_productoTableAdapter;
         private System.Windows.Forms.ComboBox selectBus;
-
     }
 }

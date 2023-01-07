@@ -24,6 +24,14 @@ namespace DistribucionesArly_s
 
         private void ListaUsuarios_Load(object sender, EventArgs e)
         {
+            //
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            btn.HeaderText = "Eliminar";
+            btn.Text = "Eliminar";
+            btn.Name = "btn";
+            btn.UseColumnTextForButtonValue = true;
+            dataGridView1.Columns.Add(btn);
+            //
             ListarUsuarios();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -187,6 +195,60 @@ namespace DistribucionesArly_s
         private void buscarId_Click(object sender, EventArgs e)
         {
             BuscarUser();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == 0)
+                {
+                    string passw = "select (u.Password) from [User] as u where Id_User = 1006508619";
+                    con.Open();
+                    SqlDataAdapter ad = new SqlDataAdapter(passw, con);
+                    DataTable dt = new DataTable();
+                    ad.Fill(dt);
+                    var passW = dt.Rows[0].ItemArray[0].ToString();
+                    con.Close();
+                    string password = Microsoft.VisualBasic.Interaction.InputBox("CONTRASEÑA DE ADMINISTRADOR", "Prohibido el acceso");
+                    if (password.Equals(passW))
+                    {
+                        int ind = Convert.ToInt32(e.RowIndex.ToString());
+                        long row = Convert.ToInt64(dataGridView1.Rows[ind].Cells["identificacion"].Value.ToString());
+                        if(row == 1006508619)
+                        {
+                            MessageBox.Show("Este usuario no se puede eliminar", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        }
+                        Eliminar(row);
+                        //ListaProducto();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Contraseña Incorrecta", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Datagridview2" + ex.Message);
+            }
+        }
+        private void Eliminar(long row)
+        {
+            try
+            {
+                string query = "delete from Producto where Id_Prod = " + row;
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Eliminar" + ex.Message); ;
+            }
         }
     }
 }

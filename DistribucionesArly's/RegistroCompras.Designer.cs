@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.ImgFact = new System.Windows.Forms.PictureBox();
@@ -41,8 +42,18 @@
             this.dateLimite = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cBoxEmp = new System.Windows.Forms.ComboBox();
+            this.distribucionesArlysDataSet = new DistribucionesArly_s.DistribucionesArlysDataSet();
+            this.listaCarteraBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lista_CarteraTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.Lista_CarteraTableAdapter();
+            this.listaEmpBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lista_EmpTableAdapter = new DistribucionesArly_s.DistribucionesArlysDataSetTableAdapters.Lista_EmpTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgFact)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaCarteraBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaEmpBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -100,7 +111,7 @@
             // 
             this.CargarImg.AutoSize = true;
             this.CargarImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CargarImg.Location = new System.Drawing.Point(368, 348);
+            this.CargarImg.Location = new System.Drawing.Point(368, 403);
             this.CargarImg.Name = "CargarImg";
             this.CargarImg.Size = new System.Drawing.Size(151, 60);
             this.CargarImg.TabIndex = 4;
@@ -112,7 +123,7 @@
             // 
             this.GuardarFact.AutoSize = true;
             this.GuardarFact.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GuardarFact.Location = new System.Drawing.Point(379, 462);
+            this.GuardarFact.Location = new System.Drawing.Point(379, 517);
             this.GuardarFact.Name = "GuardarFact";
             this.GuardarFact.Size = new System.Drawing.Size(140, 60);
             this.GuardarFact.TabIndex = 5;
@@ -178,11 +189,58 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Fecha limite";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(30, 350);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 25);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Empresa";
+            // 
+            // cBoxEmp
+            // 
+            this.cBoxEmp.DataSource = this.listaEmpBindingSource;
+            this.cBoxEmp.DisplayMember = "Nombre";
+            this.cBoxEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxEmp.FormattingEnabled = true;
+            this.cBoxEmp.Location = new System.Drawing.Point(177, 342);
+            this.cBoxEmp.Name = "cBoxEmp";
+            this.cBoxEmp.Size = new System.Drawing.Size(342, 33);
+            this.cBoxEmp.TabIndex = 13;
+            this.cBoxEmp.ValueMember = "NIT";
+            // 
+            // distribucionesArlysDataSet
+            // 
+            this.distribucionesArlysDataSet.DataSetName = "DistribucionesArlysDataSet";
+            this.distribucionesArlysDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // listaCarteraBindingSource
+            // 
+            this.listaCarteraBindingSource.DataMember = "Lista_Cartera";
+            this.listaCarteraBindingSource.DataSource = this.distribucionesArlysDataSet;
+            // 
+            // lista_CarteraTableAdapter
+            // 
+            this.lista_CarteraTableAdapter.ClearBeforeFill = true;
+            // 
+            // listaEmpBindingSource
+            // 
+            this.listaEmpBindingSource.DataMember = "Lista_Emp";
+            this.listaEmpBindingSource.DataSource = this.distribucionesArlysDataSet;
+            // 
+            // lista_EmpTableAdapter
+            // 
+            this.lista_EmpTableAdapter.ClearBeforeFill = true;
+            // 
             // RegistroCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 603);
+            this.Controls.Add(this.cBoxEmp);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateLimite);
@@ -198,8 +256,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistroCompras";
             this.Text = "CarteraCompras";
+            this.Load += new System.EventHandler(this.RegistroCompras_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ImgFact)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distribucionesArlysDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaCarteraBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaEmpBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,5 +282,12 @@
         private System.Windows.Forms.DateTimePicker dateLimite;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cBoxEmp;
+        private DistribucionesArlysDataSet distribucionesArlysDataSet;
+        private System.Windows.Forms.BindingSource listaCarteraBindingSource;
+        private DistribucionesArlysDataSetTableAdapters.Lista_CarteraTableAdapter lista_CarteraTableAdapter;
+        private System.Windows.Forms.BindingSource listaEmpBindingSource;
+        private DistribucionesArlysDataSetTableAdapters.Lista_EmpTableAdapter lista_EmpTableAdapter;
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.Win32.SafeHandles;
+﻿using Aspose.Words.Drawing;
+using Aspose.Words.Shaping;
+using Microsoft.Win32.SafeHandles;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,6 +27,7 @@ namespace DistribucionesArly_s
         {
             InitializeComponent();
             //
+
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
             btn.HeaderText = "Eliminar";
             btn.Text = "Eliminar";
@@ -152,7 +155,7 @@ namespace DistribucionesArly_s
             try
             {
                 double total = double.Parse(this.totalVenta.Text, NumberStyles.Currency);
-                double cancela = double.Parse(this.cancelaCon.Text);
+                double cancela = this.cancelaCon.Text.Equals("") ? total : double.Parse(this.cancelaCon.Text);
                 if (total > cancela)
                 {
                     MessageBox.Show(cancela + " es menor a la venta de " + total);
@@ -214,28 +217,37 @@ namespace DistribucionesArly_s
                 //IMPRIMIR FACTURA
 
                 var conteo = dataGridView2.Rows.Count;
+                string nombreStr = "";
+                string direcStr = "";
+                string telStr = "";
+                string nitStr = "";
+                
                 if (conteo != 0)
                 {
                     try
                     {
                         string ID = Microsoft.VisualBasic.Interaction.InputBox("Identificación del cliente", "Datos de factura Nit");
+                       
                         ClsFactura.CreaTicket Ticket1 = new ClsFactura.CreaTicket();
 
                         Ticket1.TextoCentro("Empresa Distribuciones Arly's ");
                         Ticket1.TextoCentro("NIT: 40079945-0 ");//imprime una linea de descripcion
                         Ticket1.TextoCentro("**********************************");
                         //
-                        string queryNit = "select * from [User] where Id_User = " + ID;
+                        string queryNit = "select * from [User] where Id_User like '" + ID + "'";
+                        con.Open();
                         SqlDataAdapter ad = new SqlDataAdapter(queryNit, con);
                         DataTable td = new DataTable();
                         ad.Fill(td);
                         var cc = ""; int i = 0;
-                        var nombre = ""; var direc = ""; var tel = ""; var nit = "";
+                        var nombre = ""; var direc = ""; var tel = ""; var nit = ""; 
                         for (i = 0; i < td.Rows.Count; i++)
                         {
                             cc = td.Rows[i].ItemArray[0].ToString();
                             if (cc == ID)
                             {
+                                //
+                                cc = td.Rows[i].ItemArray[0].ToString();
                                 //
                                 nombre = td.Rows[i].ItemArray[1].ToString();
                                 direc = td.Rows[i].ItemArray[3].ToString();
@@ -251,21 +263,20 @@ namespace DistribucionesArly_s
                         }
                         if (i == td.Rows.Count)
                         {
-                            //
-                            MessageBox.Show("No existe este cliente");
-                            //
-                            string nombreStr = Microsoft.VisualBasic.Interaction.InputBox("Por favor\nEsribir nombre", "Datos de factura Nit");//NIT OTRA EMPRESA
-                            string direcStr = Microsoft.VisualBasic.Interaction.InputBox("Por favor\nEsribir dirección", "Datos de factura Nit");//NIT OTRA EMPRESA
-                            string telStr = Microsoft.VisualBasic.Interaction.InputBox("Por favor\nEsribir telefono", "Datos de factura Nit");//NIT OTRA EMPRESA
-                            string nitStr = Microsoft.VisualBasic.Interaction.InputBox("Por favor\nEsribir NIT", "Datos de factura Nit");//NIT OTRA EMPRESA
-                            //
+                            con.Close();
+                            MessageBox.Show("No existe este cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                            nombreStr = Microsoft.VisualBasic.Interaction.InputBox("Por favor\nEsribir nombre", "Datos de factura Nit");//NIT OTRA EMPRESA
+                            direcStr = Microsoft.VisualBasic.Interaction.InputBox("Por favor\nEsribir dirección", "Datos de factura Nit");//NIT OTRA EMPRESA
+                            telStr = Microsoft.VisualBasic.Interaction.InputBox("Por favor\nEsribir telefono", "Datos de factura Nit");//NIT OTRA EMPRESA
+                            nitStr = Microsoft.VisualBasic.Interaction.InputBox("Por favor\nEsribir NIT", "Datos de factura Nit");//NIT OTRA EMPRESA
+                            
                             Ticket1.TextoIzquierda("Nombre: " + nombreStr);
                             Ticket1.TextoIzquierda("Dirc: " + direcStr);
                             Ticket1.TextoIzquierda("Tel: " + telStr);
                             Ticket1.TextoIzquierda("Nit: " + nitStr);
                         }
-                        //                       
-
+                        
                         Ticket1.TextoIzquierda("");
                         Ticket1.TextoIzquierda("");
                         Ticket1.TextoCentro("Factura de Venta"); //imprime una linea de descripcion
@@ -288,8 +299,8 @@ namespace DistribucionesArly_s
                         var n = dataGridView2.RowCount;
                         foreach (DataGridViewRow r in dataGridView2.Rows)
                         {
-                            // PROD                     //PrECIO                                    CANT                         TOTAL
-                            Ticket1.AgregaArticulo(r.Cells[2].Value.ToString(), double.Parse((double.Parse((r.Cells[3].Value.ToString()), NumberStyles.Currency)).ToString()), int.Parse(r.Cells[4].Value.ToString()), double.Parse((double.Parse((r.Cells[6].Value).ToString(), NumberStyles.Currency)).ToString())); //imprime una linea de descripcion
+                                                        // PROD                                                 //PrECIO                                                                    CANT                                                       TOTAL
+                            Ticket1.AgregaArticulo(r.Cells[3].Value.ToString(), double.Parse((double.Parse((r.Cells[4].Value.ToString()), NumberStyles.Currency)).ToString()), int.Parse(r.Cells[5].Value.ToString()), double.Parse((double.Parse((r.Cells[7].Value).ToString(), NumberStyles.Currency)).ToString())); //imprime una linea de descripcion
                         }
                         var totalComp = double.Parse(this.totalVenta.Text, NumberStyles.Currency);
                         var ivaComp = (totalComp / 1.19) * 0.19;
@@ -299,7 +310,7 @@ namespace DistribucionesArly_s
 
                         //
                         con.Open();
-                        string queryFacRem = "INSERT INTO CARTERA VALUES (1,'" + totalComp.ToString() + "','" + fecha + "','" + facturaN.ToString() + "', '" + facturaN.ToString() + "')";
+                        string queryFacRem = "INSERT INTO CARTERA VALUES (1,'" + totalComp.ToString() + "','" + fecha + "','" + facturaN.ToString() + "', '" + fecha + "', '0')";
                         SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
                         cmdFact.ExecuteReader();
                         con.Close();
@@ -360,6 +371,7 @@ namespace DistribucionesArly_s
         {
             try
             {
+                //dataGridView2.Visible = true;
                 var value1 = this.ventaBut1.Checked; var value2 = this.ventaBut2.Checked;
                 var value3 = this.ventaBut3.Checked; var value4 = this.ventaBut4.Checked;
                 //
@@ -593,7 +605,7 @@ namespace DistribucionesArly_s
 
                     //
                     con.Open();
-                    string queryFacRem = "INSERT INTO CARTERA VALUES (5,'" + totalVenta.ToString() + "','" + fecha + "','0','0')";
+                    string queryFacRem = "INSERT INTO CARTERA VALUES (5,'" + totalVenta.ToString() + "','" + fecha + "','0','0','0')";
                     SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
                     cmdFact.ExecuteReader();
                     con.Close();
@@ -724,8 +736,8 @@ namespace DistribucionesArly_s
                         var n = dataGridView2.RowCount;
                         foreach (DataGridViewRow r in dataGridView2.Rows)
                         {
-                            // PROD                     //PrECIO                                    CANT                         TOTAL
-                            Ticket1.AgregaArticulo(r.Cells[2].Value.ToString(), double.Parse((double.Parse((r.Cells[3].Value.ToString()), NumberStyles.Currency)).ToString()), int.Parse(r.Cells[4].Value.ToString()), double.Parse((double.Parse((r.Cells[6].Value).ToString(), NumberStyles.Currency)).ToString())); //imprime una linea de descripcion
+                                                         // PROD                                                 //PrECIO                                                                    CANT                                                       TOTAL
+                            Ticket1.AgregaArticulo(r.Cells[3].Value.ToString(), double.Parse((double.Parse((r.Cells[4].Value.ToString()), NumberStyles.Currency)).ToString()), int.Parse(r.Cells[5].Value.ToString()), double.Parse((double.Parse((r.Cells[7].Value).ToString(), NumberStyles.Currency)).ToString())); //imprime una linea de descripcion
                         }
                         var totalComp = double.Parse(this.totalVenta.Text, NumberStyles.Currency);
                         var ivaComp = (totalComp / 1.19) * 0.19;
@@ -733,7 +745,7 @@ namespace DistribucionesArly_s
                         string fecha = DateTime.Now.ToShortDateString().ToString();
                         //
                         con.Open();
-                        string queryFacRem = "INSERT INTO CARTERA VALUES (2,'" + totalComp.ToString() + "','" + fecha + "','" + facturaN.ToString() + "', '" + facturaN.ToString() + "')";
+                        string queryFacRem = "INSERT INTO CARTERA VALUES (2,'" + totalComp.ToString() + "','" + fecha + "','" + facturaN.ToString() + "', '" + fecha + "', '0')";
                         SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
                         cmdFact.ExecuteReader();
                         con.Close();
@@ -1145,5 +1157,23 @@ namespace DistribucionesArly_s
             }
         }
 
+        private void RegistroUsuarioCompras(string cc, string nombre, string telefono, string direccion, string nit, string correo)
+        {
+            try
+            {
+                string query = "INSERT INTO [dbo].[User] VALUES (" + cc + ",'" + nombre + "','" + telefono + "','" + direccion + "'," + nit + "," + 1 + "," + 1 + ",'','" + correo + "')";
+                SqlCommand cmd = new SqlCommand(query, con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Data has saved in database");
+
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("RegistoUsuarioCompras" + ex.Message);
+            }
+        }
     }
 }

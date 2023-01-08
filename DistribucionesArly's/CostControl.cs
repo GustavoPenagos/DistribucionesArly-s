@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -160,6 +161,35 @@ namespace DistribucionesArly_s
             }catch(Exception ex)
             {
                 MessageBox.Show("Select" + ex.Message);
+            }
+        }
+
+        private void impVentas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string queryImp = "";
+                var swt = this.selectCartera.Text;
+                switch (swt)
+                {
+                    case "Factura Nit":
+                        queryImp = "select * from cartera where Id_Cartera = 1";
+                        break;
+                    case "Remision":
+                        queryImp = "select * from cartera where Id_Cartera = 2";
+                        break;
+                    case "Venta sin factura":
+                        queryImp = "select * from cartera where Id_Cartera = 5";
+                        break;
+                }
+                SqlDataAdapter da = new SqlDataAdapter(queryImp, con);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

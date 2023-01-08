@@ -18,6 +18,7 @@ namespace DistribucionesArly_s
         public RegistroCompras()
         {
             InitializeComponent();
+            
         }
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-VNGF9BS;Initial Catalog=DistribucionesArlys;Integrated Security=True;");
         private void CargarImg_Click(object sender, EventArgs e)
@@ -31,8 +32,9 @@ namespace DistribucionesArly_s
                 {
                     ImgFact.ImageLocation = abrirImg.FileName;
                     ImgFact.SizeMode = PictureBoxSizeMode.StretchImage;
+                    this.GuardarFact.Visible = true;
                 }
-                this.GuardarFact.Visible = true;
+                
 
             }
             catch (Exception ex)
@@ -53,6 +55,7 @@ namespace DistribucionesArly_s
                 var img = this.ImgFact.Image;
                 var date = this.dateFact.Value.ToString("d/MM/yyyy");
                 var dateLimi = this.dateLimite.Value.ToString("d/MM/yyyy");
+                var empresa = this.cBoxEmp.SelectedValue.ToString();
 
                 if (nFactura.Equals("") || valorFac.Equals("") || img == null)
                 {
@@ -61,8 +64,8 @@ namespace DistribucionesArly_s
                 }
                 byte[] bytes = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
                 var base64Img = System.Convert.ToBase64String(bytes).ToString();
-                string queryImgCompra = "INSERT INTO Cartera VALUES(4,'" + valorFac + "','" + date + "','" + nFactura + "', '"+dateLimi+"')";
-                string queryInsertImg = "INSERT INTO FacturaCompras VALUES (" + Convert.ToInt64(nFactura) + ",'" + base64Img + "')";
+                string queryImgCompra = "INSERT INTO Cartera VALUES(4,'" + valorFac + "','" + date + "','" + nFactura + "', '"+dateLimi+"', '"+empresa+"')";
+                string queryInsertImg = "INSERT INTO FacturaCompras VALUES (" + Convert.ToInt64(nFactura) + ",'" + base64Img + "', '"+empresa+"')";
                 con.Open();
                 SqlCommand cmdImgCompra = new SqlCommand(queryImgCompra, con);
                 cmdImgCompra.ExecuteNonQuery();
@@ -129,6 +132,33 @@ namespace DistribucionesArly_s
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void ComboBox()
+        {
+            try
+            {
+                string query = "select * from Lista_Cartera";
+                con.Open();
+                SqlDataAdapter ad = new SqlDataAdapter(query, con);
+                DataTable dt = new DataTable();
+                ad.Fill(dt);
+                this.cBoxEmp.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void RegistroCompras_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'distribucionesArlysDataSet.Lista_Emp' table. You can move, or remove it, as needed.
+            this.lista_EmpTableAdapter.Fill(this.distribucionesArlysDataSet.Lista_Emp);
+            // TODO: This line of code loads data into the 'distribucionesArlysDataSet.Lista_Cartera' table. You can move, or remove it, as needed.
+            this.lista_CarteraTableAdapter.Fill(this.distribucionesArlysDataSet.Lista_Cartera);
+
         }
     }
 }

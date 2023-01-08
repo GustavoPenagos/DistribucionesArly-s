@@ -75,7 +75,7 @@ namespace DistribucionesArly_s
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            OpenFrom(new CarritoCompras());
+            OpenFrom(new Compras());
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)

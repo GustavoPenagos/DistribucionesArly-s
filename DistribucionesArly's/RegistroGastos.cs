@@ -39,7 +39,7 @@ namespace DistribucionesArly_s
                 //DateTimeNow.Short.ToString
                 string fecha = DateTime.Now.ToShortDateString().ToString();
                 //
-                string queryFacRem = "INSERT INTO CARTERA VALUES (3,'" + this.dineroGasto.Text + "','" + fecha + "','0','0')";
+                string queryFacRem = "INSERT INTO CARTERA VALUES (3,'" + this.dineroGasto.Text + "','" + fecha + "','0','0', '0')";
                 SqlCommand cmdFact = new SqlCommand(queryFacRem, con);
                 cmdFact.ExecuteReader();
                 MessageBox.Show("Registro de gastos exitoso");

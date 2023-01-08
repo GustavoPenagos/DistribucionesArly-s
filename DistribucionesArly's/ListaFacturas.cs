@@ -35,7 +35,7 @@ namespace DistribucionesArly_s
             try
             {
                 var select = this.boxSelect.Text;
-                var valor = this.boxBuscar.Text.Equals("") ? dateFact.Value.ToString("d/MM/yyy") : this.boxBuscar.Text;
+                var valor = this.boxBuscar.Visible == false ? dateFact.Value.ToString("d/MM/yyy") : this.boxBuscar.Text;
                 string complemento = "";
                 switch (select){
                     case "Numero factura":
@@ -48,6 +48,12 @@ namespace DistribucionesArly_s
                         complemento = "like";
                         ListarBuscar(select, valor, complemento);
                         break;
+                    case "Fecha vence":
+                        select = "[Fecha vence]";
+                        complemento = "like";
+                        ListarBuscar(select, valor, complemento);
+                        break;
+
                     default: break;
 
                 }
@@ -112,7 +118,7 @@ namespace DistribucionesArly_s
                 this.boxBuscar.Visible = true;
                 this.dateFact.Visible = false;
             }
-            else if (boxSelect.Text.Equals("Fecha recibido"))
+            else if (boxSelect.Text.Equals("Fecha recibido") || boxSelect.Text.Equals("Fecha vence"))
             {
                 this.boxBuscar.Visible = false;
                 this.dateFact.Visible = true;

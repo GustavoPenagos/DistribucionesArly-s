@@ -180,7 +180,7 @@ namespace DistribucionesArly_s
                         }
                     }
                     capital = capital.Equals("") ? "0" : capital;
-                    string queryCapital = "INSERT INTO Cartera values (6, '"+capital.Trim()+"', '"+date+"', '0', '"+date+"')";
+                    string queryCapital = "INSERT INTO Cartera values (6, '"+capital.Trim()+"', '"+date+"', '0', '0', '0')";
                     con.Open();
                     SqlCommand cmdCap = new SqlCommand(queryCapital, con);
                     cmdCap.ExecuteNonQuery();
